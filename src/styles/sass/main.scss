@@ -1,3 +1,7 @@
-@import "./variables";
-@import "./index";
-@import "./contact"
+body * {
+    box-sizing: border-box !important;
+}
+
+@import "./_variables";
+@import "./_landingPage";
+@import "./_contact";
