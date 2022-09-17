@@ -151,8 +151,8 @@ export default function LandingPage() {
               <Button
                 name="Request service"
                 btnClass="cta-btn services-request-cta"
-                isLink={false}
-                linkTo={undefined}
+                isLink={true}
+                linkTo={"/contact"}
               />
             </div>
           </div>
@@ -175,8 +175,8 @@ export default function LandingPage() {
               <Button
                 name="Request service"
                 btnClass="cta-btn services-request-cta"
-                isLink={false}
-                linkTo={undefined}
+                isLink={true}
+                linkTo={"/contact"}
               />
             </div>
           </div>
@@ -199,8 +199,8 @@ export default function LandingPage() {
               <Button
                 name="Request service"
                 btnClass="cta-btn services-request-cta"
-                isLink={false}
-                linkTo={undefined}
+                isLink={true}
+                linkTo={"/contact"}
               />
             </div>
           </div>
