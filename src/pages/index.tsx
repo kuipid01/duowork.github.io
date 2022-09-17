@@ -5,7 +5,6 @@ import Button from "../components/Button"
 import bgImage from "../assets/images/landingPageImage.jpeg"
 import projectionsSVG from "../assets/illustrations/projections.svg"
 
-
 export default function LandingPage() {
   const landingPageHomeStyle = {
     backgroundImage: `url(${bgImage})`,
@@ -64,7 +63,7 @@ export default function LandingPage() {
           >
             <h1
               id="duowork-title"
-              className="text-white text-7xl text-bold text-center font-bold"
+              className="text-white text-3xl md:text-5xl lg:text-7xl text-bold text-center font-bold"
             >
               DUOWORK
             </h1>
@@ -77,7 +76,7 @@ export default function LandingPage() {
             </p>
 
             <Button
-              name="Contact Us"
+              name="...have something in mind?"
               btnClass="text-white mt-20 self-center cta-btn intro-cta-btn"
               isLink={false}
               linkTo={undefined}
@@ -86,10 +85,20 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="what-we-do" className="flex flex-row pt-10 px-5 pb-5 h-screen">
-        <div id="what-we-do-intro" className="what-we-do-divide flex flex-col items-center !w-full md:w-50">
-          <h2 id="what-we-do-header" className="text-5xl font-medium mt-40 mb-5 text-gray-700">
-            You build your business. <br />We build the product.
+      <section
+        id="what-we-do"
+        className="flex flex-row pt-10 px-5 pb-5 h-screen"
+      >
+        <div
+          id="what-we-do-intro"
+          className="what-we-do-divide flex flex-col items-center !w-full md:w-50"
+        >
+          <h2
+            id="what-we-do-header"
+            className="text-5xl font-medium mt-40 mb-5 text-gray-700"
+          >
+            You build your business. <br />
+            We build the project.
           </h2>
           <p id="what-we-do-description" className="mb-10 text-gray-600">
             It’s one thing to have have a project, product or an idea but
@@ -99,7 +108,7 @@ export default function LandingPage() {
             managing your business. At Duowork, we work hand-in-hand with you.
           </p>
           <Button
-            name="Contact Us"
+            name="Let us help you"
             btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-20 text-white"
             isLink={false}
             linkTo={undefined}
@@ -111,6 +120,90 @@ export default function LandingPage() {
             alt="Duowork engineering team illustration"
             className="h-full max-w-full"
           />
+        </div>
+      </section>
+
+      <section id="our-services">
+        <h2 className="text-center my-5">
+          <span className="text-gray-700 text-3xl md:text-4xl font-bold">
+            Our services
+          </span>
+          <br />
+          <span id="underline-header"></span>
+        </h2>
+
+        <div id="services-container" className="flex flex-row px-10 py-5">
+          <div
+            id="web-development-service"
+            className="services basis-1/3 p-7 rounded-sm bg-red-200"
+          >
+            <h3 className="text-gray-700 text-2xl font-medium py-4">
+              Product Design
+            </h3>
+            <p className="text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+              facilis, dolores maiores vero ab eos placeat architecto iusto
+              quidem minima dolore error illo quaerat nulla provident corporis
+              asperiores. Obcaecati, quos.
+            </p>
+
+            <div className="request-service w-full mt-5 flex justify-center">
+              <Button
+                name="Request service"
+                btnClass="cta-btn services-request-cta"
+                isLink={false}
+                linkTo={undefined}
+              />
+            </div>
+          </div>
+
+          <div
+            id="product-design-service"
+            className="services basis-1/3 p-7 rounded-sm mx-10 bg-green-200"
+          >
+            <h3 className="text-gray-700 text-2xl font-medium py-4">
+              Full-stack Development
+            </h3>
+            <p className="text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+              facilis, dolores maiores vero ab eos placeat architecto iusto
+              quidem minima dolore error illo quaerat nulla provident corporis
+              asperiores. Obcaecati, quos.
+            </p>
+
+            <div className="request-service w-full mt-5 flex justify-center">
+              <Button
+                name="Request service"
+                btnClass="cta-btn services-request-cta"
+                isLink={false}
+                linkTo={undefined}
+              />
+            </div>
+          </div>
+
+          <div
+            id="Business-automation-service"
+            className="services basis-1/3 p-7 rounded-sm bg-blue-200"
+          >
+            <h3 className="text-gray-700 text-2xl font-medium py-4">
+              Business Automation
+            </h3>
+            <p className="text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+              facilis, dolores maiores vero ab eos placeat architecto iusto
+              quidem minima dolore error illo quaerat nulla provident corporis
+              asperiores. Obcaecati, quos.
+            </p>
+
+            <div className="request-service w-full mt-5 flex justify-center">
+              <Button
+                name="Request service"
+                btnClass="cta-btn services-request-cta"
+                isLink={false}
+                linkTo={undefined}
+              />
+            </div>
+          </div>
         </div>
       </section>
     </div>
