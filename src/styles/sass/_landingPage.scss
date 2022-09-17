@@ -1,4 +1,24 @@
 #duowork {
+  .cta-btn {
+    background-color: $green-light;
+    height: 50px;
+    border-radius: 5px;
+
+    &.nav-contact-cta {
+      width: 115px;
+    }
+
+    &.intro-cta-btn {
+      width: 215px;
+    }
+
+    &.services-request-cta {
+      width: 200px;
+      height: 40px !important;
+      border-radius: 2px !important;
+    }
+  }
+
   #landing-page-home {
     // Overlay background image with opaque black
     #overlay {
@@ -22,34 +42,43 @@
     }
   }
 
-  .cta-btn {
-    background-color: $green-light;
-    height: 50px;
-    border-radius: 5px;
-
-    &.nav-contact-cta {
-      width: 115px;
+  #what-we-do {
+    .what-we-do-divide {
+      width: 50%;
     }
 
-    &.intro-cta-btn {
-      width: 150px;
+    #what-we-do-intro {
+      #what-we-do-description {
+        max-width: 515px;
+      }
+
+      .what-we-do-cta-btn {
+        @include respond-above(lg) {
+          margin-left: 10rem;
+        }
+
+        width: 150px !important;
+      }
     }
   }
+  
+  #our-services {
+    #services-container {
+      .services {
+        background-color: $green-lighter;
+        height: 350px;
+        border: 2px solid transparent;
+        transition: all 300ms ease-in;
 
-  #what-we-do {
+        &:hover {
+          background-color: white;
+          border-color:$green-lighter !important;
+        }
 
-      .what-we-do-divide {
-          width: 50%;
+        h3 {
+          width: 160px;
+        }
       }
-
-      #what-we-do-intro {
-          #what-we-do-description {
-              max-width: 515px;
-          };
-
-          .what-we-do-cta-btn {
-              width: 150px !important;
-          }
-      }
+    }
   }
 }
