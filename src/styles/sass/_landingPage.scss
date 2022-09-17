@@ -15,7 +15,8 @@
     &.services-request-cta {
       width: 200px;
       height: 40px !important;
-      border-radius: 2px !important;
+      border-radius: 50px !important;
+      background-color: white !important;
     }
   }
 
@@ -73,6 +74,12 @@
         &:hover {
           background-color: white;
           border-color:$green-lighter !important;
+
+          button.services-request-cta {
+            background-color: $green-light !important;
+            color: white !important;
+            transition: all 300ms ease-in;
+          }
         }
 
         h3 {
