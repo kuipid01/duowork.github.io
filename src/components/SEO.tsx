@@ -42,6 +42,7 @@ export default function SEO({
       <meta name="og:description" content={seo.description} />
       <meta name="og:type" content="website" />
       {/* <meta name="og:image" content="" /> */}
+      <script src="https://kit.fontawesome.com/f65742b227.js" crossOrigin="anonymous"></script>
       {children}
     </>
   )
