@@ -5,9 +5,29 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [
-    `gatsby-plugin-sass`,
-    'gatsby-plugin-postcss',
-  ],
+  // Document head meta configuration
+  siteMetadata: {
+    title: `Duowork`,
+    description: `Crisp custom software solution for building your idead into reality.`,
+    siteUrl: `https://www.duowork.github.io`,
+    author: {
+      name: `Romeo Peter, Isaac Olugbenga`,
+      summary: `Founder and co-founder of Duowork.`,
+    },
+    socialMedia: {
+      twitter: `DuoworkHQ`,
+      instagram: `duoworkhq`,
+    },
+
+    // Not part of the meta data but I'd like to acess this data
+    webAppData: {
+      annoucment: {
+        ifAnnoucment: false,
+        annoucment: ``,
+      },
+    },
+  },
+
+  // Your site config here
+  plugins: [`gatsby-plugin-sass`, `gatsby-plugin-postcss`],
 }
