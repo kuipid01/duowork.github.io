@@ -14,15 +14,22 @@ export function useSiteMetaData(): MeteDataType {
   const data = useStaticQuery(graphql`
     query {
       site {
-        siteMetaData {
+        siteMetadata {
           title
           description
           siteUrl
-          author
+          author {
+            name
+            summary
+          }
+          socialMedia {
+            twitter
+            instagram
+          }
         }
       }
     }
   `)
 
-  return data.site.siteMetaData
+  return data.site.siteMetadata
 }
