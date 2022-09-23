@@ -1,0 +1,17 @@
+footer {
+    height: 25rem;
+    background-color: $green-darker;
+
+    h3,div#logo {
+        margin-bottom: 30px;
+    }
+
+    #services, #contact {
+        p {
+            font-weight: 300;
+        }
+    }
+    .items {
+        padding-bottom: 2rem;
+    }
+}
