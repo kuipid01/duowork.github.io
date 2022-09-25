@@ -8,7 +8,7 @@ module.exports = {
   // Document head meta configuration
   siteMetadata: {
     title: `Duowork`,
-    description: `Crisp custom software solution for building your idead into reality.`,
+    description: `Helping you build you next big idea through crisp custom software solutions.`,
     siteUrl: `https://www.duowork.github.io`,
     author: {
       name: `Romeo Peter, Isaac Olugbenga`,
