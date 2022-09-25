@@ -45,7 +45,7 @@ export default function LandingPage() {
               className="text-white text-center mt-10 self-center px-2"
               style={{ maxWidth: 500 }}
             >
-              Crisp customs software solutions for your existing projects,
+              Crisp custom software solutions for your existing projects,
               products, and your next big idea 🛠✨
             </p>
 
