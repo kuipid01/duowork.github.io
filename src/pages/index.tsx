@@ -1,26 +1,49 @@
-import React from "react"
+import React, { useRef, useEffect, useLayoutEffect } from "react"
 import { Link } from "gatsby"
 
+// Hooks
+import useIntersectionObserver from "../hooks/useIntersectionObserver"
+
+// Components
 import SEO from "../components/SEO"
 import Button from "../components/Button"
 
+// Images
 import bgImage from "../assets/images/landingPageImage.jpeg"
 import projectionsSVG from "../assets/illustrations/projections.svg"
+import productDesignImg from "../assets/images/product-design.jpeg"
+import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
+import businessAutomation from "../assets/images/business-automation.jpeg"
 
 export default function LandingPage() {
-  const landingPageHomeStyle = {
-    backgroundImage: `url(${bgImage})`,
-    backgroundRepat: "no-repeat",
-    backgroundPosition: `top`,
-    backgroundSize: `cover`,
+  let sectionRef = useRef<HTMLElement>(null)
+  const servicesRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => console.log(sectionRef), [])
+
+  const landingPageImageStyle = (image: string) => {
+    return {
+      backgroundImage: `url(${image})`,
+      backgroundRepat: "no-repeat",
+      backgroundPosition: `top`,
+      backgroundSize: `cover`,
+    }
+  }
+
+  const servicePageImageStyle = (image: string) => {
+    return {
+      backgroundImage: `url(${image})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: `cover`,
+    }
   }
 
   return (
-    <main id="duowork">
+    <main id="duowork" ref={sectionRef}>
       <section
         id="landing-page-home"
         className="h-screen"
-        style={landingPageHomeStyle}
+        style={landingPageImageStyle(bgImage)}
       >
         <div id="overlay">
           <nav
@@ -43,17 +66,17 @@ export default function LandingPage() {
               style={{ minWidth: 250 }}
             >
               <li className="nav-item-link">
-                <Link to="#">Home</Link>
+                <Link to="#landing-page-home">Home</Link>
               </li>
               <li className="nav-item-link">
-                <Link to="#">Service</Link>
+                <Link to="#our-services">Service</Link>
               </li>
               <li id="cta-nav-item-contact" className="nav-item-link">
                 <Button
                   name="Contact Us"
-                  btnClass="cta-btn nav-contact-cta text-black"
-                  isLink={false}
-                  linkTo={undefined}
+                  btnClass="cta-btn nav-contact-cta text-white"
+                  isLink={true}
+                  linkTo="#contact-duowork"
                 />
               </li>
             </ul>
@@ -73,15 +96,15 @@ export default function LandingPage() {
               className="text-white text-center mt-10 self-center"
               style={{ maxWidth: 500 }}
             >
-              Crisp customs software solutions for your existing projects,
-              products, and your next big idea ✨
+              We help you build projects, products, and your next big idea with
+              crisp custom software solutions ✨
             </p>
 
             <Button
-              name="...have an idea in mind?"
+              name="What do you want to build?"
               btnClass="text-white mt-20 self-center cta-btn intro-cta-btn"
-              isLink={false}
-              linkTo={undefined}
+              isLink={true}
+              linkTo={"contact"}
             />
           </div>
         </div>
@@ -90,6 +113,7 @@ export default function LandingPage() {
       <section
         id="what-we-do"
         className="flex flex-row pt-10 px-5 pb-5 h-screen"
+        // ref={sectionRef}
       >
         <div
           id="what-we-do-intro"
@@ -99,15 +123,15 @@ export default function LandingPage() {
             id="what-we-do-header"
             className="text-5xl font-medium mt-40 mb-5 text-gray-700"
           >
-            You build your business. <br />
-            We build the project.
+            You operate the business. <br /> We build the project.
           </h2>
           <p id="what-we-do-description" className="mb-10 text-gray-600">
             It’s one thing to have have a project, product or an idea but
-            another to think about building, shipping, scaling and maintainence.
-            That’s where we come in — to help you flesh out your digital vision
-            while you focus on doing what you do best — managing your business.
-            At Duowork, we work hand-in-hand with you.
+            another to think about building, shipping, scaling and maintaining
+            that digital vision. That’s where we come in — to help you flesh out
+            and maintain your digital vision while you focus on doing what you
+            do best — managing your business. At Duowork, we work hand-in-hand
+            with you.
           </p>
           <Button
             name="Let us help you"
@@ -134,85 +158,93 @@ export default function LandingPage() {
           <span id="underline-header"></span>
         </h2>
 
-        <div id="services-container" className="px-10 py-5 grid grid-cols-1 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8">
+        <div
+          id="services-container"
+          className="px-10 py-5 grid grid-cols-1 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8"
+          ref={servicesRef}
+        >
           <div
-            id="web-development-service"
-            className="services basis-1/3 p-7 rounded-sm bg-red-200"
+            id="product-design-service"
+            className="services basis-1/3 rounded-sm"
+            style={servicePageImageStyle(productDesignImg)}
           >
-            <h3 className="text-gray-700 text-2xl font-medium py-4">
-              Product Design
-            </h3>
-            <p className="text-gray-600">
-              Design and develop experience for user's of your product
-              consectetur adipisicing elit. Nisi, facilis, dolores maiores vero
-              ab eos placeat architecto iusto quidem minima dolore error illo
-              quaerat nulla provident corporis.
-            </p>
+            <div className="service-overlay p-7 rounded-sm">
+              <h3 className="text-white text-2xl font-medium py-4">
+                Product<br />Design
+              </h3>
+              <p className="text-white">
+                We develop designs that encapsulate business idea and
+                requirement through precedural designs for optimized interfacing
+                and overal user experience.
+              </p>
 
-            <div className="request-service w-full mt-5 flex justify-center">
-              <Button
-                name="Request service"
-                btnClass="cta-btn services-request-cta"
-                isLink={true}
-                linkTo={"/contact"}
-              />
+              <div className="request-service w-full mt-5 flex justify-center">
+                <Button
+                  name="Request service"
+                  btnClass="cta-btn services-request-cta"
+                  isLink={true}
+                  linkTo={"/contact?service=product-design"}
+                />
+              </div>
             </div>
           </div>
 
           <div
-            id="product-design-service"
-            className="services basis-1/3 p-7 rounded-sm bg-green-200"
+            id="web-development-service"
+            className="services basis-1/3 rounded-sm"
+            style={servicePageImageStyle(fullstackDevelopmentImg)}
           >
-            <h3 className="text-gray-700 text-2xl font-medium py-4">
-              Full-stack Development
-            </h3>
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-              facilis, dolores maiores vero ab eos placeat architecto iusto
-              quidem minima dolore error illo quaerat nulla provident corporis
-              asperiores. Obcaecati, quos.
-            </p>
+            <div className="service-overlay p-7 rounded-sm">
+              <h3 className="text-white text-2xl font-medium py-4">
+                Web<br />Development
+              </h3>
+              <p className="text-white">
+                Secure, scalable and visually compelling front-end, back-end and
+                full-stack development solutions expressive of business
+                requirement and operations.
+              </p>
 
-            <div className="request-service w-full mt-5 flex justify-center">
-              <Button
-                name="Request service"
-                btnClass="cta-btn services-request-cta"
-                isLink={true}
-                linkTo={"/contact"}
-              />
+              <div className="request-service w-full mt-5 flex justify-center">
+                <Button
+                  name="Request service"
+                  btnClass="cta-btn services-request-cta"
+                  isLink={true}
+                  linkTo={"/contact?service=Web-development"}
+                />
+              </div>
             </div>
           </div>
 
           <div
             id="Business-automation-service"
-            className="services basis-1/3 p-7 rounded-sm bg-blue-200"
+            className="services basis-1/3 rounded-sm"
+            style={servicePageImageStyle(businessAutomation)}
           >
-            <h3 className="text-gray-700 text-2xl font-medium py-4">
-              Business Automation
-            </h3>
+            <div className="service-overlay p-7 rounded-sm">
+              <h3 className="text-white text-2xl font-medium py-4">
+                Business<br />Automation
+              </h3>
 
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-              facilis, dolores maiores vero ab eos placeat architecto iusto
-              quidem minima dolore error illo quaerat nulla provident corporis
-              asperiores. Obcaecati, quos.
-            </p>
+              <p className="text-white">
+                Redundant business task automation for a smart workflow. Increase productivity and efficiecy in every business activties.
+              </p>
 
-            <div className="request-service w-full mt-5 flex justify-center">
-              <Button
-                name="Request service"
-                btnClass="cta-btn services-request-cta"
-                isLink={true}
-                linkTo={"/contact"}
-              />
+              <div className="request-service w-full mt-5 flex justify-center">
+                <Button
+                  name="Request service"
+                  btnClass="cta-btn services-request-cta"
+                  isLink={true}
+                  linkTo={"/contact?service=Business-automation"}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         <div id="our-process" className="px-10">
           <h2 id="process-header" className="my-10 ml-10 md:ml-20">
-            <span className="text-gray-500 text-3xl font-semibold">
-              Our process
+            <span className="text-gray-500 text-2xl font-medium text-left">
+              The process we follow
             </span>
             <br />
             <span id="underline-header"></span>
@@ -275,36 +307,126 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="contact-action flex justify-center items-center py-20">
-          <Button name="Reach us" btnClass="cta-btn service-contact-cta text-white" isLink={true} linkTo="contact" />
+      <section id="contact-duowork" className="h-screen">
+        <h1
+          id="header"
+          className="text-4xl sm:text-6xl font-semibold text-gray-700 text-center pb-5 pt-20"
+        >
+          Contact us
+        </h1>
+        <p id="description" className="my-5 text-center px-5">
+          We're available to attend to you. Reach out to us today:
+        </p>
+        <div
+          id="how-to-contact"
+          className="flex flex-col justify-evenly items-center h-80 px-5"
+        >
+          <p className="contact-us-ways text-gray-700">
+            Fill in the{" "}
+            <Link
+              to="/contact"
+              className="border-b-2 hover:border-b-4 border-solid border-green-700"
+            >
+              contact form and tell us about what you want to build.
+            </Link>
+          </p>
+
+          <div className="contact-us-ways h-auto">
+            <p className="text-gray-700 font-regular p-1 mb-2">
+              Reach us via our socials:
+            </p>
+
+            <div
+              id="contact-icons"
+              className="flex flex-row justify-around align-items flex-wrap"
+            >
+              <div className="icons items">
+                <a
+                  href="https://twitter.com/DuoworkHQ"
+                  target={"_blank"}
+                  className="text-green-700"
+                >
+                  <i className="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+              </div>
+
+              <div className="icons items">
+                <a
+                  href="https://instagram.com/duoworkhq"
+                  target={"_blank"}
+                  className="text-green-700"
+                >
+                  <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                </a>
+              </div>
+
+              <div className="icons items">
+                <a href="#" target={"_blank"} className="text-green-700">
+                  <i className="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+              </div>
+
+              {/* <div className="icons items">
+                <a href="#" target={"_blank"} className="text-green-700">
+                  <i className="fa fa-medium fa-2x" aria-hidden="true"></i>
+                </a>
+              </div> */}
+
+              {/* <div className="icons items">
+                <a href="#" target={"_blank"} className="text-green-700">
+                  <i className="fa fa-briefcase fa-2x" aria-hidden="true"></i>
+                </a>
+              </div> */}
+
+              {/* <div className="icons items">
+                <a href="#" target={"_blank"} className="text-green-700">
+                  <i className="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                </a>
+              </div> */}
+            </div>
+          </div>
+
+          <p className="text-gray-700 text-2xl sm:text-3xl font-regular leading-snug">
+            Want to send us an email instead? <br />
+            <a
+              href="mailto:reach.duowork@gmail.com"
+              className="border-b-2 hover:border-b-4 border-solid border-green-700"
+            >
+              reach.duoworkhq@gmail.com
+            </a>
+          </p>
         </div>
       </section>
 
-      <footer>
+      <footer className="h-auto">
         <div className="center p-14 grid grid-cols-1 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8">
           <div id="logo-container" className="text-white">
-            <div id="logo" className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center">
-              <span className="text-black font-semibold inline-block">
-                DW
-              </span>
+            <div
+              id="logo"
+              className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
+            >
+              <span className="text-black font-semibold inline-block">DW</span>
               {/* <img src="" alt="duowork logo" id="logo" /> */}
             </div>
             <p className="text-xl items">Duowork</p>
-            <p className="font-light items">© 2022 Duowork | All Right Reserved.</p>
+            <p className="font-light items hidden sm:block">
+              © 2022 Duowork | All Right Reserved.
+            </p>
           </div>
 
           <div id="service" className="text-white">
             <h3 className="text-2xl font-semibold">Services</h3>
             <div id="services">
               <p className="items">
-                <Link to="#">Product Design</Link>
+                <Link to="#our-services">Product Design</Link>
               </p>
               <p className="items">
-                <Link to="#">Full-stack development</Link>
+                <Link to="#our-services">Full-stack development</Link>
               </p>
               <p className="items">
-                <Link to="#">Business automation</Link>
+                <Link to="#our-services">Business automation</Link>
               </p>
             </div>
           </div>
@@ -312,11 +434,16 @@ export default function LandingPage() {
           <div id="contact" className="text-white">
             <h3 className="text-2xl font-semibold">Contact</h3>
             <p className="items">reach.duowork@gmail.com</p>
-            <p className="items">+234 801 234 5478</p>
+            {/* <p className="items">+234 801 234 5478</p> */}
             <div
               id="contact-icons"
               className="flex flex-row justify-between align-items flex-wrap"
             >
+              <div className="icons items">
+                <a href="mailto:reach.duoworkhq@gmail.com" target={"_blank"}>
+                  <i className="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+              </div>
               <div className="icons items">
                 <a href="https://twitter.com/DuoworkHQ" target={"_blank"}>
                   <i className="fa fa-twitter fa-2x" aria-hidden="true"></i>
@@ -330,21 +457,18 @@ export default function LandingPage() {
                   <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
                 </a>
               </div>
-              <div className="icons items">
+              {/* <div className="icons items">
                 <Link to="#" target={"_blank"}>
                   <i className="fa fa-linkedin fa-2x" aria-hidden="true"></i>
                 </Link>
-              </div>
-              <div className="icons items">
-                <Link to="#" target={"_blank"}>
-                  <i className="fa fa-briefcase fa-2x" aria-hidden="true"></i>
-                </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
         <div id="sm-copywrite" className="block md:hidden text-white pb-5">
-          <p className="font-light">© 2022 Duowork | All Right Reserved.</p>
+          <p className="font-light text-center sm:text-left p-2">
+            © 2022 Duowork | All Right Reserved.
+          </p>
         </div>
       </footer>
     </main>
