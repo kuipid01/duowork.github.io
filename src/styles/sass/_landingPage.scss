@@ -2,7 +2,7 @@
   .cta-btn {
     background-color: $green-light;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 2.5px;
 
     &.nav-contact-cta {
       width: 115px;
@@ -15,7 +15,7 @@
     &.services-request-cta {
       width: 200px;
       height: 40px !important;
-      border-radius: 5px !important;
+      border-radius: 2.5px !important;
       background-color: white !important;
     }
 
@@ -67,6 +67,14 @@
         width: 150px !important;
       }
     }
+
+    .showElementTransition {
+      @include showElementTransition;
+    }
+
+    .hideElementTransition {
+      @include hideElementTransition;
+    }
   }
 
   #our-services {
@@ -91,26 +99,39 @@
     #services-container {
       height: auto;
       .services {
-        background-color: $green-lighter;
         height: 415px;
-        border: 2px solid transparent;
         transition: all 300ms ease-in;
+        position: relative;
 
-        &:hover {
-          background-color: white;
-          border-color: $green-lighter !important;
+        .service-overlay {
+          background-color: rgba(0, 0, 0, 0.7);
+          width: 100%;
+          height: 100%;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+
+          p {height: 175px}
 
           button.services-request-cta {
-            background-color: $green-light !important;
-            color: white !important;
-            transition: all 300ms ease-in;
+            // border: 2px solid $green-light !important;
+            color: $green-light;
+            transition: all 150ms ease-in;
+
+            &:hover {
+              color: white !important;
+              background-color: $green-light !important;
+            }
           }
         }
 
-        h3 {
-          width: 160px;
+        &:hover {
+          background-position: bottom !important;
         }
       }
+
     }
 
     #our-process {
@@ -175,6 +196,13 @@
           }
          */
       }
+    }
+  }
+
+  #contact-duowork {
+    background-color: $green-lighter;
+
+    #how-to-contact {
     }
   }
 }
