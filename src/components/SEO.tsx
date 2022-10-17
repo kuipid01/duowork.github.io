@@ -1,6 +1,6 @@
-import { chdir } from "process"
 import React from "react"
 import { useSiteMetaData } from "../hooks/useSiteMetaData"
+import favicon from "../assets/duowork-logo/favicon.ico"
 
 type SEOType = {
   title?: string
@@ -41,8 +41,16 @@ export default function SEO({
       <meta name="og:title" content={seo.title} />
       <meta name="og:description" content={seo.description} />
       <meta name="og:type" content="website" />
+
+      {/* Favicon */}
+      <link rel="shortcut icon" href={favicon} type="image/x-icon"></link>
+
       {/* <meta name="og:image" content="" /> */}
-      <script src="https://kit.fontawesome.com/f65742b227.js" crossOrigin="anonymous"></script>
+      <script
+        src="https://kit.fontawesome.com/f65742b227.js"
+        crossOrigin="anonymous"
+      ></script>
+
       {children}
     </>
   )
