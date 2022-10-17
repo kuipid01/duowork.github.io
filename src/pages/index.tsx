@@ -97,7 +97,7 @@ export default function LandingPage() {
               style={{ maxWidth: 500 }}
             >
               We help you build projects, products, and your next big idea with
-              crisp custom software solutions ✨
+              crisp custom software solutions 🛠✨
             </p>
 
             <Button
