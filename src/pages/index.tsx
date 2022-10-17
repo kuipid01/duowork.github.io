@@ -125,13 +125,19 @@ export default function LandingPage() {
           >
             You operate the business. <br /> We build the project.
           </h2>
-          <p id="what-we-do-description" className="mb-10 text-gray-600">
+          <p
+            id="what-we-do-description"
+            className="mb-10 text-gray-600 sm:text-lg"
+          >
             It’s one thing to have have a project, product or an idea but
-            another to think about building, shipping, scaling and maintaining
-            that digital vision. That’s where we come in — to help you flesh out
-            and maintain your digital vision while you focus on doing what you
-            do best — managing your business. At Duowork, we work hand-in-hand
-            with you.
+            another to think about{" "}
+            <span className="border-b-2">
+              building, shipping, scaling and maintaining that digital vision.
+            </span>{" "}
+            That’s where we come in; to flesh out and maintain your digital
+            vision while you focus on doing what you do best — managing your
+            business. <br />
+            <span className="border-b-2">We work hand-in-hand with you.</span>
           </p>
           <Button
             name="Let us help you"
@@ -148,6 +154,8 @@ export default function LandingPage() {
           />
         </div>
       </section>
+
+      {/* Testimonials section */}
 
       <section id="our-services" className="mb-20">
         <h2 id="service-header" className="my-5 text-center">
@@ -170,7 +178,9 @@ export default function LandingPage() {
           >
             <div className="service-overlay p-7 rounded-sm">
               <h3 className="text-white text-2xl font-medium py-4">
-                Product<br />Design
+                Product
+                <br />
+                Design
               </h3>
               <p className="text-white">
                 We develop designs that encapsulate business idea and
@@ -196,7 +206,9 @@ export default function LandingPage() {
           >
             <div className="service-overlay p-7 rounded-sm">
               <h3 className="text-white text-2xl font-medium py-4">
-                Web<br />Development
+                Web
+                <br />
+                Development
               </h3>
               <p className="text-white">
                 Secure, scalable and visually compelling front-end, back-end and
@@ -222,11 +234,14 @@ export default function LandingPage() {
           >
             <div className="service-overlay p-7 rounded-sm">
               <h3 className="text-white text-2xl font-medium py-4">
-                Business<br />Automation
+                Business
+                <br />
+                Automation
               </h3>
 
               <p className="text-white">
-                Redundant business task automation for a smart workflow. Increase productivity and efficiecy in every business activties.
+                Redundant business task automation for a smart workflow.
+                Increase productivity and efficiecy in every business activties.
               </p>
 
               <div className="request-service w-full mt-5 flex justify-center">
@@ -260,23 +275,22 @@ export default function LandingPage() {
                 <span className="process-number">1</span>
               </div>
               <p className="process-description text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusantium blanditiis consequatur nulla maiores soluta
-                excepturi non earum ipsam quam fuga magnam officia repellendus
-                pariatur modi, libero dolores tempora, odio sequi.
+                We believe in near-perfection but only when we understand what
+                you the mission is. We get the features and requirements that
+                align with the vision. This allow us to build within the right
+                confinemnt.
               </p>
             </div>
 
             <div id="prototyping-design" className="process shadow-lg">
               <div className="process-title">
-                <h3 className="title">Prototype & Design</h3>
+                <h3 className="title">Design & Prototype</h3>
                 <span className="process-number">2</span>
               </div>
               <p className="process-description text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusantium blanditiis consequatur nulla maiores soluta
-                excepturi non earum ipsam quam fuga magnam officia repellendus
-                pariatur modi, libero dolores tempora, odio sequi.
+                We bring over the knowledge gained from the scope and discovery
+                phase and create early UI/UX designs and then the Minimum Viable
+                Product (MVP) to test the vision idea.
               </p>
             </div>
 
@@ -286,28 +300,28 @@ export default function LandingPage() {
                 <span className="process-number">3</span>
               </div>
               <p className="process-description text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusantium blanditiis consequatur nulla maiores soluta
-                excepturi non earum ipsam quam fuga magnam officia repellendus
-                pariatur modi, libero dolores tempora, odio sequi.
+                This is the product design and development phase. A full cycle
+                development intended to connect the features with the desing
+                interface. This is where we bring you vision to life.
               </p>
             </div>
 
             <div id="launch-maintenance-process" className="process shadow-lg">
               <div className="process-title">
-                <h3 className="title">Launch & maintenance</h3>
+                <h3 className="title">Launch, training & maintenance</h3>
                 <span className="process-number">4</span>
               </div>
               <p className="process-description text-gray-700">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusantium blanditiis consequatur nulla maiores soluta
-                excepturi non earum ipsam quam fuga magnam officia repellendus
-                pariatur modi, libero dolores tempora, odio sequi.
+                After completion of developement, we launch the project and
+                conduction onboarding training. We provide provide support and
+                are always availble for modifying and adding extra features.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* 'Technology we use' section*/}
 
       <section id="contact-duowork" className="h-screen">
         <h1
