@@ -1,6 +1,6 @@
 import React from "react"
 import { useSiteMetaData } from "../hooks/useSiteMetaData"
-import favicon from "../assets/duowork-logo/favicon.ico"
+import favicon from "../assets/icons/favicon.ico"
 
 type SEOType = {
   title?: string
