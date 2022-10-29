@@ -2,14 +2,14 @@
   .cta-btn {
     background-color: $green-light;
     height: 50px;
-    border-radius: 2.5px;
+    border-radius: 1.8rem;
 
     &.nav-contact-cta {
       width: 115px;
     }
 
     &.intro-cta-btn {
-      width: 215px;
+      width: 250px;
     }
 
     &.services-request-cta {
@@ -24,6 +24,14 @@
       height: 40px;
       border-radius: 5px !important;
     }
+  }
+
+  .hideTransition {
+    @include hideElementTransition;
+  }
+
+  .showTransition {
+    @include showElementTransition;
   }
 
   #landing-page-home {
@@ -41,6 +49,8 @@
 
       #landing-page-nav {
         #nav-items {
+          min-width: 350px;
+
           .nav-item-link {
             align-self: center;
           }
@@ -68,12 +78,12 @@
       }
     }
 
-    .showElementTransition {
-      @include showElementTransition;
-    }
+    #what-we-do-img {}
 
-    .hideElementTransition {
-      @include hideElementTransition;
+    @media(prefers-reduced-motion) {
+      .hideTransition {
+        transition: none;
+      }
     }
   }
 
@@ -127,9 +137,9 @@
           }
         }
 
-        &:hover {
-          background-position: bottom !important;
-        }
+        // &:hover {
+        //   background-position: bottom !important;
+        // }
       }
 
     }
