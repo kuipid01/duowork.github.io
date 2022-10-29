@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 // Hooks
 import useIntersectionObserver from "../hooks/useIntersectionObserver"
+import useInterObserverRefHook from "../hooks/useInterObserverRefHook"
 
 // Components
 import SEO from "../components/SEO"
@@ -15,11 +16,56 @@ import productDesignImg from "../assets/images/product-design.jpeg"
 import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
 import businessAutomation from "../assets/images/business-automation.jpeg"
 
-export default function LandingPage() {
-  let sectionRef = useRef<HTMLElement>(null)
-  const servicesRef = useRef<HTMLDivElement>(null)
+import logo from "../assets/logos/headNavLogo.png"
 
-  useEffect(() => console.log(sectionRef), [])
+export default function LandingPage() {
+  const intersectionCallback = (entries: any) => {
+    console.log(entries)
+
+    entries.forEach((entry: any) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("showTransition")
+      } else {
+        entry.target.classList.remove("showTransition")
+      }
+    })
+  }
+
+  /* Intersection observer starts */
+  const { observer } = useIntersectionObserver(intersectionCallback, undefined);
+
+  const observerFunc = (refElemObj: React.RefObject<any>) => {
+    if (refElemObj.current !== null) {
+      observer.observe(refElemObj.current);
+    }
+  }
+
+  let descriptionRef = useRef<HTMLDivElement>(null)
+  observerFunc(descriptionRef);
+
+  let serviceHeaderRef = useRef<HTMLHeadingElement>(null)
+
+  let servicesRef = useRef<HTMLDivElement>(null)
+  if (servicesRef.current !== null) {
+    observer.observe(servicesRef.current)
+  }
+
+  let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null)
+
+  let serviceProcessRef = useRef<HTMLDivElement>(null)
+  if (serviceProcessRef.current !== null) {
+    observer.observe(serviceProcessRef.current)
+  }
+
+  let contactSectionRef = useRef<HTMLDivElement>(null)
+  if (contactSectionRef.current !== null) {
+    observer.observe(contactSectionRef.current)
+  }
+
+  // const elemRefFunc = (elemType: any, observerObj = observer) => {
+  //   useInterObserverRefHook(elemType, observerObj);
+  // }
+  /* Intersection observer ends */
 
   const landingPageImageStyle = (image: string) => {
     return {
@@ -39,7 +85,7 @@ export default function LandingPage() {
   }
 
   return (
-    <main id="duowork" ref={sectionRef}>
+    <main id="duowork">
       <section
         id="landing-page-home"
         className="h-screen"
@@ -54,20 +100,16 @@ export default function LandingPage() {
               id="logo-container"
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
             >
-              {/* <img src="" alt="duowork logo" id="logo" /> */}
-              <span id="logo" className="text-black font-semibold">
-                DW
-              </span>
+              <img src={logo} alt="duowork logo" id="logo" />
             </div>
 
-            <ul
-              id="nav-items"
-              className="flex flex-row justify-between"
-              style={{ minWidth: 250 }}
-            >
+            <ul id="nav-items" className="flex flex-row justify-between">
               <li className="nav-item-link">
                 <Link to="#landing-page-home">Home</Link>
               </li>
+              {/* <li className="nav-item-link">
+                <Link to="#our-work">Our work</Link>
+              </li> */}
               <li className="nav-item-link">
                 <Link to="#our-services">Service</Link>
               </li>
@@ -102,7 +144,7 @@ export default function LandingPage() {
 
             <Button
               name="What do you want to build?"
-              btnClass="text-white mt-20 self-center cta-btn intro-cta-btn"
+              btnClass="text-white mt-20 font-semibold self-center cta-btn intro-cta-btn"
               isLink={true}
               linkTo={"contact"}
             />
@@ -110,52 +152,58 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section
-        id="what-we-do"
-        className="flex flex-row pt-10 px-5 pb-5 h-screen"
-        // ref={sectionRef}
-      >
-        <div
-          id="what-we-do-intro"
-          className="what-we-do-divide flex flex-col items-center !w-full md:w-50"
-        >
-          <h2
-            id="what-we-do-header"
-            className="text-5xl font-medium mt-40 mb-5 text-gray-700"
+      <section id="what-we-do" className="pt-10 px-5 pb-5 h-screen">
+        <div className="flex flex-row hideTransition" ref={descriptionRef}>
+          <div
+            id="what-we-do-intro"
+            className="what-we-do-divide flex flex-col items-center !w-full md:w-50"
           >
-            You operate the business. <br /> We build the project.
-          </h2>
-          <p
-            id="what-we-do-description"
-            className="mb-10 text-gray-600 sm:text-lg"
+            <h2
+              id="what-we-do-header"
+              className="text-5xl font-medium mt-40 mb-5 text-gray-700"
+            >
+              You operate the business. <br /> We build the project.
+            </h2>
+            <p
+              id="what-we-do-description"
+              className="mb-10 text-gray-600 sm:text-lg"
+            >
+              It’s one thing to have have a project, product or an idea but
+              another to think about{" "}
+              <span className="border-b-2">
+                building, shipping, scaling and maintaining that digital vision.
+              </span>{" "}
+              That’s where we come in; to flesh out and maintain your digital
+              vision while you focus on doing what you do best — managing your
+              business. <br />
+              <span className="border-b-2">We work hand-in-hand with you.</span>
+            </p>
+            <Button
+              name="Let us help you"
+              btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-20 text-white"
+              isLink={false}
+              linkTo={undefined}
+            />
+          </div>
+
+          <div
+            id="what-we-do-img"
+            className="what-we-do-divide hidden lg:block"
           >
-            It’s one thing to have have a project, product or an idea but
-            another to think about{" "}
-            <span className="border-b-2">
-              building, shipping, scaling and maintaining that digital vision.
-            </span>{" "}
-            That’s where we come in; to flesh out and maintain your digital
-            vision while you focus on doing what you do best — managing your
-            business. <br />
-            <span className="border-b-2">We work hand-in-hand with you.</span>
-          </p>
-          <Button
-            name="Let us help you"
-            btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-20 text-white"
-            isLink={false}
-            linkTo={undefined}
-          />
-        </div>
-        <div id="what-we-do-img" className="what-we-do-divide hidden lg:block">
-          <img
-            src={projectionsSVG}
-            alt="Duowork engineering team illustration"
-            className="h-full max-w-full"
-          />
+            <img
+              src={projectionsSVG}
+              alt="Duowork engineering team illustration"
+              className="h-full max-w-full"
+            />
+          </div>
         </div>
       </section>
 
-      {/* Testimonials section */}
+      {/* 'Our work' section*/}
+      {/* ----------It goes here------------ */}
+
+      {/* Testimonials section*/}
+      {/* ----------It goes here------------ */}
 
       <section id="our-services" className="mb-20">
         <h2 id="service-header" className="my-5 text-center">
@@ -168,7 +216,7 @@ export default function LandingPage() {
 
         <div
           id="services-container"
-          className="px-10 py-5 grid grid-cols-1 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8"
+          className="px-10 py-5 grid grid-cols-1 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8 hideTransition"
           ref={servicesRef}
         >
           <div
@@ -267,7 +315,8 @@ export default function LandingPage() {
 
           <div
             id="process-container"
-            className="grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center gap-8 hideTransition"
+            ref={serviceProcessRef}
           >
             <div id="discovery-scope-process" className="process shadow-lg">
               <div className="process-title">
@@ -301,8 +350,9 @@ export default function LandingPage() {
               </div>
               <p className="process-description text-gray-700">
                 This is the product design and development phase. A full cycle
-                development intended to connect the features with the desing
-                interface. This is where we bring you vision to life.
+                development intended to connect the features with the design
+                interface. We build test and test so that the product is solid
+                enogh to run in production.
               </p>
             </div>
 
@@ -312,9 +362,10 @@ export default function LandingPage() {
                 <span className="process-number">4</span>
               </div>
               <p className="process-description text-gray-700">
-                After completion of developement, we launch the project and
-                conduction onboarding training. We provide provide support and
-                are always availble for modifying and adding extra features.
+                This is where we bring your product to life after completion. We
+                launch the project and conduct an onboarding training for staff
+                and organization. We provide support and are always availble for
+                modifying and adding extra features.
               </p>
             </div>
           </div>
@@ -322,95 +373,98 @@ export default function LandingPage() {
       </section>
 
       {/* 'Technology we use' section*/}
+      {/* ----------It goes here------------ */}
 
       <section id="contact-duowork" className="h-screen">
-        <h1
-          id="header"
-          className="text-4xl sm:text-6xl font-semibold text-gray-700 text-center pb-5 pt-20"
-        >
-          Contact us
-        </h1>
-        <p id="description" className="my-5 text-center px-5">
-          We're available to attend to you. Reach out to us today:
-        </p>
-        <div
-          id="how-to-contact"
-          className="flex flex-col justify-evenly items-center h-80 px-5"
-        >
-          <p className="contact-us-ways text-gray-700">
-            Fill in the{" "}
-            <Link
-              to="/contact"
-              className="border-b-2 hover:border-b-4 border-solid border-green-700"
-            >
-              contact form and tell us about what you want to build.
-            </Link>
+        <div ref={contactSectionRef} className="hideTransition">
+          <h1
+            id="header"
+            className="text-4xl sm:text-6xl font-semibold text-gray-700 text-center pb-5 pt-20"
+          >
+            Contact us
+          </h1>
+          <p id="description" className="my-5 text-center px-5">
+            We're available to attend to you. Reach out to us today:
           </p>
-
-          <div className="contact-us-ways h-auto">
-            <p className="text-gray-700 font-regular p-1 mb-2">
-              Reach us via our socials:
+          <div
+            id="how-to-contact"
+            className="flex flex-col justify-evenly items-center h-80 px-5"
+          >
+            <p className="contact-us-ways text-gray-700">
+              Fill in the{" "}
+              <Link
+                to="/contact"
+                className="border-b-2 hover:border-b-4 border-solid border-green-700"
+              >
+                contact form and tell us about what you want to build.
+              </Link>
             </p>
 
-            <div
-              id="contact-icons"
-              className="flex flex-row justify-around align-items flex-wrap"
-            >
-              <div className="icons items">
-                <a
-                  href="https://twitter.com/DuoworkHQ"
-                  target={"_blank"}
-                  className="text-green-700"
-                >
-                  <i className="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                </a>
-              </div>
+            <div className="contact-us-ways h-auto">
+              <p className="text-gray-700 font-regular p-1 mb-2">
+                Reach us via our socials:
+              </p>
 
-              <div className="icons items">
-                <a
-                  href="https://instagram.com/duoworkhq"
-                  target={"_blank"}
-                  className="text-green-700"
-                >
-                  <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
-                </a>
-              </div>
+              <div
+                id="contact-icons"
+                className="flex flex-row justify-around align-items flex-wrap"
+              >
+                <div className="icons items">
+                  <a
+                    href="https://twitter.com/DuoworkHQ"
+                    target={"_blank"}
+                    className="text-green-700"
+                  >
+                    <i className="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                  </a>
+                </div>
 
-              <div className="icons items">
+                <div className="icons items">
+                  <a
+                    href="https://instagram.com/duoworkhq"
+                    target={"_blank"}
+                    className="text-green-700"
+                  >
+                    <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                  </a>
+                </div>
+
+                {/* <div className="icons items">
                 <a href="#" target={"_blank"} className="text-green-700">
                   <i className="fa fa-linkedin fa-2x" aria-hidden="true"></i>
                 </a>
-              </div>
+              </div> */}
 
-              {/* <div className="icons items">
+                {/* <div className="icons items">
                 <a href="#" target={"_blank"} className="text-green-700">
                   <i className="fa fa-medium fa-2x" aria-hidden="true"></i>
                 </a>
               </div> */}
 
-              {/* <div className="icons items">
+                {/* <div className="icons items">
                 <a href="#" target={"_blank"} className="text-green-700">
                   <i className="fa fa-briefcase fa-2x" aria-hidden="true"></i>
                 </a>
               </div> */}
 
-              {/* <div className="icons items">
+                {/* <div className="icons items">
                 <a href="#" target={"_blank"} className="text-green-700">
                   <i className="fa fa-facebook fa-2x" aria-hidden="true"></i>
                 </a>
               </div> */}
+              </div>
             </div>
-          </div>
 
-          <p className="text-gray-700 text-2xl sm:text-3xl font-regular leading-snug">
-            Want to send us an email instead? <br />
-            <a
-              href="mailto:reach.duowork@gmail.com"
-              className="border-b-2 hover:border-b-4 border-solid border-green-700"
-            >
-              reach.duoworkhq@gmail.com
-            </a>
-          </p>
+            <p className="text-gray-700 text-2xl sm:text-3xl font-regular leading-snug">
+              Want to send us an email instead? <br />
+              <a
+                href="mailto:reach.duowork@gmail.com"
+                className="border-b-2 hover:border-b-4 border-solid border-green-700"
+              >
+                reach.duoworkhq@gmail.com
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -421,8 +475,8 @@ export default function LandingPage() {
               id="logo"
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
             >
-              <span className="text-black font-semibold inline-block">DW</span>
-              {/* <img src="" alt="duowork logo" id="logo" /> */}
+              {/* <span className="text-black font-semibold inline-block">DW</span> */}
+              <img src={logo} alt="duowork logo" id="logo" />
             </div>
             <p className="text-xl items">Duowork</p>
             <p className="font-light items hidden sm:block">
@@ -475,7 +529,7 @@ export default function LandingPage() {
                 <Link to="#" target={"_blank"}>
                   <i className="fa fa-linkedin fa-2x" aria-hidden="true"></i>
                 </Link>
-              </div> */}
+              </div>    */}
             </div>
           </div>
         </div>
