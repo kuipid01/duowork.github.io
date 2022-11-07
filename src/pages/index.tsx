@@ -15,7 +15,7 @@ import productDesignImg from "../assets/images/product-design.jpeg"
 import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
 import businessAutomation from "../assets/images/business-automation.jpeg"
 
-import logo from "../assets/logos/headNavLogo.png"
+import logo from "../assets/logos/logo.png"
 
 export default function LandingPage() {
   const intersectionCallback = (entries: any) => {
