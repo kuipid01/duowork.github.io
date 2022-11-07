@@ -1,9 +1,8 @@
-import React, { useRef, useEffect, useLayoutEffect } from "react"
+import React, { useRef, useEffect } from "react"
 import { Link } from "gatsby"
 
 // Hooks
 import useIntersectionObserver from "../hooks/useIntersectionObserver"
-import useInterObserverRefHook from "../hooks/useInterObserverRefHook"
 
 // Components
 import SEO from "../components/SEO"
@@ -20,8 +19,6 @@ import logo from "../assets/logos/headNavLogo.png"
 
 export default function LandingPage() {
   const intersectionCallback = (entries: any) => {
-    console.log(entries)
-
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("showTransition")
@@ -31,41 +28,34 @@ export default function LandingPage() {
     })
   }
 
-  /* Intersection observer starts */
+  /* Intersection observer start */
   const { observer } = useIntersectionObserver(intersectionCallback, undefined);
 
-  const observerFunc = (refElemObj: React.RefObject<any>) => {
-    if (refElemObj.current !== null) {
-      observer.observe(refElemObj.current);
-    }
+  const observerFunc = (refElemArr: React.RefObject<any>[]) => {
+    refElemArr.forEach(elem => {
+      if (elem.current !== null) {
+        observer.observe(elem.current);
+      }
+    })
   }
 
-  let descriptionRef = useRef<HTMLDivElement>(null)
-  observerFunc(descriptionRef);
+  let descriptionRef = useRef<HTMLDivElement>(null);
+  let serviceHeaderRef = useRef<HTMLHeadingElement>(null);
+  let servicesRef = useRef<HTMLDivElement>(null);
+  let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null);
+  let serviceProcessRef = useRef<HTMLDivElement>(null);
+  let contactSectionRef = useRef<HTMLDivElement>(null);
 
-  let serviceHeaderRef = useRef<HTMLHeadingElement>(null)
+  useEffect((): any => {
+    let componentIsMounted = true;
 
-  let servicesRef = useRef<HTMLDivElement>(null)
-  if (servicesRef.current !== null) {
-    observer.observe(servicesRef.current)
-  }
+    const refElemArr = [descriptionRef, servicesRef, serviceProcessRef, contactSectionRef];
 
-  let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null)
-
-  let serviceProcessRef = useRef<HTMLDivElement>(null)
-  if (serviceProcessRef.current !== null) {
-    observer.observe(serviceProcessRef.current)
-  }
-
-  let contactSectionRef = useRef<HTMLDivElement>(null)
-  if (contactSectionRef.current !== null) {
-    observer.observe(contactSectionRef.current)
-  }
-
-  // const elemRefFunc = (elemType: any, observerObj = observer) => {
-  //   useInterObserverRefHook(elemType, observerObj);
-  // }
-  /* Intersection observer ends */
+    observerFunc(refElemArr);
+  
+    return () => componentIsMounted = false;
+  }, []);
+  /* Intersection observer End */
 
   const landingPageImageStyle = (image: string) => {
     return {
@@ -74,7 +64,7 @@ export default function LandingPage() {
       backgroundPosition: `top`,
       backgroundSize: `cover`,
     }
-  }
+  };
 
   const servicePageImageStyle = (image: string) => {
     return {
@@ -82,7 +72,7 @@ export default function LandingPage() {
       backgroundRepeat: "no-repeat",
       backgroundSize: `cover`,
     }
-  }
+  };
 
   return (
     <main id="duowork">
