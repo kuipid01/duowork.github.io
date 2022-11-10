@@ -1,21 +1,32 @@
-import { Link } from "gatsby";
-import React from "react";
+import { Link } from "gatsby"
+import React from "react"
 
 type ButtonProps = {
-  name: string,
-  btnClass: string,
-  isLink: boolean,
-  linkTo: any,
+  name: string
+  btnClass: string
+  isLink: boolean
+  linkTo: any
   btnType?: "button" | "submit" | "reset"
+  btnDisabled?: boolean
 }
 
-function Button({ name, btnClass, isLink, linkTo, btnType }: ButtonProps) {
-
+function Button({
+  name,
+  isLink,
+  btnClass,
+  linkTo,
+  btnType,
+  btnDisabled = false,
+}: ButtonProps) {
   if (!isLink) {
-    return (<button className={btnClass}>{name}</button>); 
+    return (
+      <button type={btnType} className={btnClass} disabled={btnDisabled}>
+        {name}
+      </button>
+    )
   } else {
     return (
-      <button className={btnClass} type={btnType}>
+      <button type={btnType} className={btnClass} disabled={btnDisabled}>
         <Link to={linkTo}>{name}</Link>
       </button>
     )
