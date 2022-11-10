@@ -1,0 +1,44 @@
+#duowork {
+  #duowork-contact-form {
+    background-color: $green-darker;
+
+    .contact-form {
+      &#contact-form-left {
+        #contact-us-ways {
+          p {
+            #or {
+              color: $green-lighter;
+            }
+          }
+
+          #contact-icons {
+            .icons {
+              a {
+                color: $green-lighter;
+              }
+            }
+          }
+        }
+      }
+
+      &#contact-form-right {
+        form {
+          input:focus,
+          textarea:focus,
+          select:focus {
+            border-color: $green-lighter;
+          }
+
+          select.select-label {
+            //  Set image
+          }
+        }
+      }
+
+      #contact-submission {
+        button {
+        }
+      }
+    }
+  }
+}
