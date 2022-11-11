@@ -1,14 +1,10 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` })
 
 module.exports = {
   // Document head meta configuration
   siteMetadata: {
     title: `Duowork`,
-    description: `Helping you build you next big idea through crisp custom software solutions.`,
+    description: `We build ideas into reality through custom software development 🛠✨`,
     siteUrl: `https://www.duowork.github.io`,
     author: {
       name: `Romeo Peter, Isaac Olugbenga`,
