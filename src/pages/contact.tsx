@@ -1,10 +1,17 @@
 import React, { useRef } from "react"
+import { Link } from "gatsby"
 import { Formik } from "formik"
+
+// API
+import insertInGoogleSheet from "../api/googleSheetService"
 
 // components
 import Layout from "../components/layout"
 import Button from "../components/Button"
 import SEO from "../components/SEO"
+
+// Assets
+import homeArrow from "../assets/icons/arrow-left-long-solid.svg"
 
 export default function Contact() {
 
@@ -52,9 +59,11 @@ export default function Contact() {
     return errors
   }
 
-  const submitContactForm = () => {}
+  const submitContactForm = (values: any) => {
+    // Insert contact data into google spreasheets
+  }
 
-
+console.log(process.env);
 
 
 
@@ -81,8 +90,14 @@ export default function Contact() {
 
       <section
         id="duowork-contact-form"
-        className="h-screen sm:h-auto py-20 px-10 md:px-14 flex flex-col justify-center sm:flex-row"
+        className="h-auto"
       >
+        <div className="home-arrow px-10 pt-5">
+          <Link to="/">
+            <img src={homeArrow} alt="Left arrow" />
+          </Link>
+        </div>
+        <div className="py-10 px-10 md:px-14 flex flex-col justify-center sm:flex-row">
         <div
           id="contact-form-left"
           className="contact-form hidden md:block sm:mr-5"
@@ -305,6 +320,7 @@ export default function Contact() {
               )}
             </Formik>
           </div>
+        </div>
         </div>
       </section>
     </Layout>
