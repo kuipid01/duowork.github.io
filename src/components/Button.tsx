@@ -8,6 +8,7 @@ type ButtonProps = {
   linkTo: any
   btnType?: "button" | "submit" | "reset"
   btnDisabled?: boolean
+  btnClicked?: () => {}
 }
 
 function Button({
@@ -17,6 +18,7 @@ function Button({
   linkTo,
   btnType,
   btnDisabled = false,
+  btnClicked
 }: ButtonProps) {
   if (!isLink) {
     return (
@@ -26,7 +28,7 @@ function Button({
     )
   } else {
     return (
-      <button type={btnType} className={btnClass} disabled={btnDisabled}>
+      <button type={btnType} className={btnClass} disabled={btnDisabled} onClick={btnClicked}>
         <Link to={linkTo}>{name}</Link>
       </button>
     )
