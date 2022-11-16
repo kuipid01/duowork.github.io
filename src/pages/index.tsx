@@ -151,7 +151,7 @@ export default function LandingPage() {
           >
             <h2
               id="what-we-do-header"
-              className="text-5xl font-medium mt-40 mb-5 text-gray-700"
+              className="text-3xl sm:text-5xl font-medium mt-40 mb-5 text-gray-700"
             >
               You operate the business. <br /> We build the project.
             </h2>
@@ -212,10 +212,10 @@ export default function LandingPage() {
         >
           <div
             id="product-design-service"
-            className="services basis-1/3 rounded-sm"
+            className="services basis-1/3 rounded-xl"
             style={servicePageImageStyle(productDesignImg)}
           >
-            <div className="service-overlay p-7 rounded-sm">
+            <div className="service-overlay p-7 rounded-xl">
               <h3 className="text-white text-2xl font-medium py-4">
                 Product
                 <br />
@@ -232,7 +232,7 @@ export default function LandingPage() {
                   name="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
-                  linkTo={"/contact?service=product-design"}
+                  linkTo={"/contact?service=Product-design"}
                 />
               </div>
             </div>
@@ -240,10 +240,10 @@ export default function LandingPage() {
 
           <div
             id="web-development-service"
-            className="services basis-1/3 rounded-sm"
+            className="services basis-1/3 rounded-xl"
             style={servicePageImageStyle(fullstackDevelopmentImg)}
           >
-            <div className="service-overlay p-7 rounded-sm">
+            <div className="service-overlay p-7 rounded-xl">
               <h3 className="text-white text-2xl font-medium py-4">
                 Web
                 <br />
@@ -268,10 +268,10 @@ export default function LandingPage() {
 
           <div
             id="Business-automation-service"
-            className="services basis-1/3 rounded-sm"
+            className="services basis-1/3 rounded-xl"
             style={servicePageImageStyle(businessAutomation)}
           >
-            <div className="service-overlay p-7 rounded-sm">
+            <div className="service-overlay p-7 rounded-xl">
               <h3 className="text-white text-2xl font-medium py-4">
                 Business
                 <br />
@@ -309,7 +309,7 @@ export default function LandingPage() {
             className="grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center gap-8 hideTransition"
             ref={serviceProcessRef}
           >
-            <div id="discovery-scope-process" className="process shadow-lg">
+            <div id="discovery-scope-process" className="process shadow-md">
               <div className="process-title">
                 <h3 className="title">Discovery & Scope</h3>
                 <span className="process-number">1</span>
@@ -322,7 +322,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div id="prototyping-design" className="process shadow-lg">
+            <div id="prototyping-design" className="process shadow-md">
               <div className="process-title">
                 <h3 className="title">Design & Prototype</h3>
                 <span className="process-number">2</span>
@@ -334,7 +334,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div id="project-development-process" className="process shadow-lg">
+            <div id="project-development-process" className="process shadow-md">
               <div className="process-title mb-10">
                 <h3 className="title">Project Development</h3>
                 <span className="process-number">3</span>
@@ -347,7 +347,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div id="launch-maintenance-process" className="process shadow-lg">
+            <div id="launch-maintenance-process" className="process shadow-md">
               <div className="process-title">
                 <h3 className="title">Launch, training & maintenance</h3>
                 <span className="process-number">4</span>
