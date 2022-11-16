@@ -1,9 +1,11 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import { Link } from "gatsby"
 import { Formik } from "formik"
+import { toast } from "react-toastify";
 
 // API
-import insertInGoogleSheet from "../api/googleSheetService"
+import insertInGoogleSheet from "../api/googleSheetService";
+import sendMail from "../api/sendMail";
 
 // components
 import Layout from "../components/layout"
@@ -15,12 +17,21 @@ import homeArrow from "../assets/icons/arrow-left-long-solid.svg"
 
 export default function Contact() {
 
+  const dateObj = new Date();
+  const date = `${dateObj.getDate()}/${dateObj.getMonth()}/${dateObj.getFullYear()}`
+
   const contactFormInitialValues = {
     fullName: "",
     clientEmail: "",
     duoworkSurvey: "",
     duoworkService: "",
     projectDescription: "",
+  } as {
+    fullName: string;
+    clientEmail: string;
+    duoworkSurvey: string;
+    duoworkService: string;
+    projectDescription: string;
   }
 
   const validateContactForm = (values: any) => {
@@ -59,11 +70,40 @@ export default function Contact() {
     return errors
   }
 
-  const submitContactForm = (values: any) => {
+  const notify = () => {
+    toast.success("Email sent 👍🏿", {
+      hideProgressBar: true,
+      theme: "light"
+    });
+  };
+
+  const submitContactForm = async (values: any, {resetForm}: any) => {
     // Insert contact data into google spreasheets
+    const requestBody = {
+      date: date,
+      fullName: values.fullName,
+      email: values.clientEmail,
+      contactSurvey: values.duoworkSurvey,
+      serviceType: values.duoworkService,
+      serviceDescription: values.projectDescription
+    };
+    
+    const mail = await sendMail(requestBody);
+
+    if (mail.pass.statusText === 'ok') {
+      // Notify user
+      notify();
+
+      // const sheet = await insertInGoogleSheet(undefined, requestBody); 
+    }
+
+    // Clear form field
+    resetForm();
   }
 
-console.log(process.env);
+  // useEffect(() => {
+  //   console.log(process.env.GATSBY_HEROTU_FORM_KEY);
+  // })
 
 
 
@@ -233,7 +273,7 @@ console.log(process.env);
                         onBlur={handleBlur}
                         ref={surveyElemRef}
                       >
-                        <option disabled selected>Please select</option>
+                        <option defaultValue="---">--</option>
                         <option value="Twitter">Twitter</option>
                         <option value="Linkedin">LinkedIn</option>
                         <option value="Instagram">Instagram</option>
@@ -260,7 +300,7 @@ console.log(process.env);
                         onBlur={handleBlur}
                         ref={serviceElemRef}
                       >
-                        <option disabled selected>Please select</option>
+                        <option defaultValue="---">--</option>
                         <option value="Product design">Product design</option>
                         <option value="Web app development">
                           Web app development
@@ -287,7 +327,7 @@ console.log(process.env);
                         rows={10}
                         value={values.projectDescription}
                         className="mt-1 block w-full border-b-2 focus:outline-none"
-                        placeholder="Service description"
+                        placeholder="Tell about your project..."
                         onChange={handleChange}
                         onBlur={handleBlur}
                       ></textarea>
