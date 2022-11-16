@@ -1,8 +1,10 @@
 import React from "react"
-
 import { Link } from "gatsby"
 
 import SEO from "./SEO"
+
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.min.css"
 
 import logo from "../assets/logos/logo.png"
 
@@ -18,9 +20,9 @@ export default function Layout({ children }: any) {
               id="logo"
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
             >
-             <a href="/">
-              <img src={logo} alt="duowork logo" id="logo" />
-             </a>
+              <a href="/">
+                <img src={logo} alt="duowork logo" id="logo" />
+              </a>
             </div>
             <p className="text-xl items">Duowork</p>
             <p className="font-light items hidden sm:block">
@@ -83,6 +85,20 @@ export default function Layout({ children }: any) {
           </p>
         </div>
       </footer>
+
+      {/* Toast notification container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </main>
   )
 }
