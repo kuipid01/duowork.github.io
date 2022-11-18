@@ -14,11 +14,15 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "dotenv": "^8.6.0",
+    "formik": "^2.2.9",
     "gatsby": "^4.22.0",
+    "googleapis": "^109.0.1",
+    "node-mailjet": "^5.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
-    "react-typing-effect": "^2.0.5"
+    "react-toastify": "^9.1.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.16",

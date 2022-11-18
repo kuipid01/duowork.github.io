@@ -1,7 +1,10 @@
-import { chdir } from "process"
 import React from "react"
 import { useSiteMetaData } from "../hooks/useSiteMetaData"
+<<<<<<< HEAD
 import favicon from "../assets/favicon/favicon.ico"
+=======
+import favicon from "../assets/icons/favicon.ico"
+>>>>>>> v0.1
 
 type SEOType = {
   title?: string

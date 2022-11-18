@@ -2,20 +2,20 @@
   .cta-btn {
     background-color: $green-light;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 1.8rem;
 
     &.nav-contact-cta {
       width: 115px;
     }
 
     &.intro-cta-btn {
-      width: 215px;
+      width: 250px;
     }
 
     &.services-request-cta {
       width: 200px;
       height: 40px !important;
-      border-radius: 5px !important;
+      // border-radius: 2.5px !important;
       background-color: white !important;
     }
 
@@ -24,6 +24,14 @@
       height: 40px;
       border-radius: 5px !important;
     }
+  }
+
+  .hideTransition {
+    @include hideElementTransition;
+  }
+
+  .showTransition {
+    @include showElementTransition;
   }
 
   #landing-page-home {
@@ -41,6 +49,8 @@
 
       #landing-page-nav {
         #nav-items {
+          min-width: 350px;
+
           .nav-item-link {
             align-self: center;
           }
@@ -67,6 +77,14 @@
         width: 150px !important;
       }
     }
+
+    #what-we-do-img {}
+
+    @media(prefers-reduced-motion) {
+      .hideTransition {
+        transition: none;
+      }
+    }
   }
 
   #our-services {
@@ -91,26 +109,39 @@
     #services-container {
       height: auto;
       .services {
-        background-color: $green-lighter;
         height: 415px;
-        border: 2px solid transparent;
         transition: all 300ms ease-in;
+        position: relative;
 
-        &:hover {
-          background-color: white;
-          border-color: $green-lighter !important;
+        .service-overlay {
+          background-color: rgba(0, 0, 0, 0.7);
+          width: 100%;
+          height: 100%;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 2;
+
+          p {height: 175px}
 
           button.services-request-cta {
-            background-color: $green-light !important;
-            color: white !important;
-            transition: all 300ms ease-in;
+            // border: 2px solid $green-light !important;
+            color: $green-light;
+            transition: all 150ms ease-in;
+
+            &:hover {
+              color: white !important;
+              background-color: $green-light !important;
+            }
           }
         }
 
-        h3 {
-          width: 160px;
-        }
+        // &:hover {
+        //   background-position: bottom !important;
+        // }
       }
+
     }
 
     #our-process {
@@ -175,6 +206,13 @@
           }
          */
       }
+    }
+  }
+
+  #contact-duowork {
+    background-color: $green-lighter;
+
+    #how-to-contact {
     }
   }
 }

@@ -51,3 +51,27 @@
     @warn 'Inavlid breakpoint: #{$breakpoint}.';
   }
 }
+
+/* Element animation and transition */
+@mixin hideElementTransition {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-50%);
+  transition: all 500ms;
+}
+
+@mixin showElementTransition {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+@mixin stackingTransition {
+  .services:nth-child(2) {
+    transition-delay:  200ms;
+  }
+
+  .services:nth-child(3) {
+    transition-delay:  400ms;
+  }
+}
