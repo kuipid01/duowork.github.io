@@ -1,6 +1,7 @@
 @import "./_variables";
 @import "./mixins";
 
+@import "./_layout";
 @import "./_landingPage";
 @import "./_contact";
 @import "./_footer";
@@ -20,3 +21,5 @@ body * {
       font-family: $font-family-body;
   }
 }
+
+// Last z-index: 3
