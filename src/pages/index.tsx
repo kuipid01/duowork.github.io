@@ -94,7 +94,7 @@ export default function LandingPage() {
               <img src={logo} alt="duowork logo" id="logo" />
             </div>
 
-            <ul id="nav-items" className="flex flex-row justify-between">
+            <ul id="nav-items" className="hidden md:flex flex-row justify-between">
               <li className="nav-item-link">
                 <Link to="#landing-page-home">Home</Link>
               </li>
@@ -126,7 +126,7 @@ export default function LandingPage() {
               DUOWORK
             </h1>
             <p
-              className="text-white text-center mt-10 self-center text-lg"
+              className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0"
               style={{ maxWidth: 500 }}
             >
               We help you build and manage your next big idea using
