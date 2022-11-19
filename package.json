@@ -18,6 +18,7 @@
     "formik": "^2.2.9",
     "gatsby": "^4.22.0",
     "googleapis": "^109.0.1",
+    "intersection-observer": "^0.12.2",
     "node-mailjet": "^5.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
