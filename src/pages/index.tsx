@@ -36,7 +36,7 @@ export default function LandingPage() {
 
   const observerFunc = (refElemArr: React.RefObject<any>[]) => {
     refElemArr.forEach(elem => {
-      if (elem.current !== null) {
+      if (elem.current !== null && observer !== null) {
         observer.observe(elem.current);
       }
     })
