@@ -1,9 +1,10 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import { Link } from "gatsby"
 
 import SEO from "./SEO"
 
 import { ToastContainer } from "react-toastify"
+import customCursor from "../../lib/customCursor"
 import "react-toastify/dist/ReactToastify.min.css"
 
 import logo from "../assets/logos/logo.png"
@@ -11,9 +12,27 @@ import navBurgerBar from "../assets/icons/navbar-burger-solid.svg"
 import navXmark from "../assets/icons/navbar-xmark-solid.svg"
 
 export default function Layout({ children }: any) {
+
+  // Navigation ref
   const navInitOpen = useRef<HTMLImageElement>(null)
   const navInitClose = useRef<HTMLImageElement>(null)
   const mobileNav = useRef<HTMLElement>(null)
+
+  // Custom cursor ref
+  const cursorDotRef = useRef<HTMLImageElement>(null);
+  const cursorDotOutlineRef = useRef<HTMLImageElement>(null);
+
+  useEffect((): any => {
+    let componentIsMounted = true;
+
+    if (componentIsMounted) {
+      // Call custom cursor func
+      customCursor(cursorDotRef, cursorDotOutlineRef);
+    }
+  
+    return () => componentIsMounted = false;
+  }, [])
+  
 
   const handleToggle = (e: any) => {
     e.preventDefault();
@@ -184,6 +203,10 @@ export default function Layout({ children }: any) {
         pauseOnHover
         theme="dark"
       />
+
+      {/* Custom cursor */}
+      <div className="cursor-dot text-white" ref={cursorDotRef}></div>
+      <div className="cursor-dot-outline text-white" ref={cursorDotOutlineRef}></div>
     </main>
   )
 }
