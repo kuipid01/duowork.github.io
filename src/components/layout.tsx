@@ -151,7 +151,7 @@ export default function Layout({ children }: any) {
 
           <div id="contact" className="text-white">
             <h3 className="text-2xl font-semibold">Contact</h3>
-            <p className="items">reach.duowork@gmail.com</p>
+            <p className="items"><a href="mailto:reach.duowork@gmail.com">reach.duowork@gmail.com</a></p>
             {/* <p className="items">+234 801 234 5478</p> */}
             <div
               id="contact-icons"
