@@ -307,6 +307,7 @@ export default function Contact() {
                       >
                         <option defaultValue="---">--</option>
                         <option value="Product design">Product design</option>
+                        <option value="Mobile development">Mobile development</option>
                         <option value="Web app development">
                           Web app development
                         </option>
