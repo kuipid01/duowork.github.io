@@ -4,7 +4,7 @@ module.exports = {
   // Document head meta configuration
   siteMetadata: {
     title: `Duowork`,
-    description: `We build ideas into reality through custom software development 🛠✨`,
+    description: `Transforming ideas into reality through custom software development 🛠✨`,
     siteUrl: `https://www.duowork.github.io`,
     author: {
       name: `Romeo Peter, Isaac Olugbenga`,
@@ -25,5 +25,10 @@ module.exports = {
   },
 
   // Your site config here
-  plugins: [`gatsby-plugin-sass`, `gatsby-plugin-postcss`],
+  plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+  ],
 }
