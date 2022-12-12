@@ -18,7 +18,7 @@ import productDesignImg from "../assets/images/product-design.jpeg"
 import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
 import mobileDevelopmentImg from "../assets/images/mobile-development.png"
 import businessAutomation from "../assets/images/business-automation.jpeg"
-import longDownArrow from "../assets/icons/long-down-arrow-96.png";
+import longDownArrow from "../assets/icons/long-down-arrow-96.png"
 import cloudPlay from "../assets/video/cloudplay.mp4"
 import logo from "../assets/logos/logo.png"
 
@@ -28,7 +28,7 @@ export const Head = () => (
 )
 
 export default function LandingPage() {
-   /* Intersection observer start */
+  /* Intersection observer start */
   const intersectionCallback = (entries: any) => {
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
@@ -96,10 +96,10 @@ export default function LandingPage() {
         style={landingPageBGImg}
       >
         {/* Auto play */}
-        {/* <video autoPlay muted loop playsInline>
+        <video autoPlay muted loop playsInline>
           <source src={cloudPlay} type="video/mp4" />
-        </video> */}
-        
+        </video>
+
         <div id="overlay">
           <nav
             id="landing-page-nav"
@@ -151,8 +151,9 @@ export default function LandingPage() {
               className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0"
               style={{ maxWidth: 500 }}
             >
-              We help you build and manage your next big idea using crisp custom
-              software solutions 🛠✨
+              Transforming digital ideas into reality. We can help build and
+              manage your next big idea using crisp custom software solutions 🛠✨
+              
             </p>
 
             {/* <Button
@@ -161,7 +162,12 @@ export default function LandingPage() {
               isLink={true}
               linkTo={"contact"}
             /> */}
-            <img src={longDownArrow} alt="Long down arrow icon" style={{width: 70}} className="self-center block mt-40" />
+            <img
+              src={longDownArrow}
+              alt="Long down arrow icon"
+              style={{ width: 70 }}
+              className="self-center block mt-40"
+            />
           </div>
         </div>
       </section>
@@ -182,10 +188,10 @@ export default function LandingPage() {
               id="what-we-do-description"
               className="mb-10 text-gray-600 sm:text-lg"
             >
-              It’s one thing to have have a project, product or an idea but
-              another to{" "}
+              It’s one thing to have a project, product or an idea but another
+              to{" "}
               <span className="bg-gray-600 text-white px-1">
-                build, ship, scale and maintaine your digital vision.
+                build, ship, scale and maintain your digital vision.
               </span>{" "}
               That’s where we come in; to flesh out and maintain your vision
               while you focus on doing what you do best — steering your idea.{" "}
@@ -194,13 +200,13 @@ export default function LandingPage() {
                 We work hand-in-hand with you.
               </span>
             </p>
-              <Button
-                btnType="button"
-                name="How can we help you?"
-                btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-40 text-1xl text-white !w-60"
-                isLink={true}
-                linkTo="/contact"
-              />
+            <Button
+              btnType="button"
+              name="How can we help you?"
+              btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-40 text-1xl text-white !w-60"
+              isLink={true}
+              linkTo="/contact"
+            />
           </div>
 
           <div
