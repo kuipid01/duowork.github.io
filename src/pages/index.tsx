@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react"
 
 import { Link } from "gatsby"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 
 // Hooks
 import useIntersectionObserver from "../hooks/useIntersectionObserver"
