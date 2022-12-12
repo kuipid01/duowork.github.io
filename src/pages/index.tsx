@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react"
+
 import { Link } from "gatsby"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 
 // Hooks
 import useIntersectionObserver from "../hooks/useIntersectionObserver"
@@ -10,17 +12,23 @@ import SEO from "../components/SEO"
 import Button from "../components/Button"
 
 // Images
-import bgImage from "../assets/images/landingPageImage.jpeg"
+import bgImage from "../assets/images/cloudPlayImg.png"
 import projectionsSVG from "../assets/illustrations/projections.svg"
 import productDesignImg from "../assets/images/product-design.jpeg"
 import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
+import mobileDevelopmentImg from "../assets/images/mobile-development.png"
 import businessAutomation from "../assets/images/business-automation.jpeg"
-
+import longDownArrow from "../assets/icons/long-down-arrow-96.png";
+import cloudPlay from "../assets/video/cloudplay.mp4"
 import logo from "../assets/logos/logo.png"
 
-import ReactTypingEffect from "react-typing-effect"
+export const Head = () => (
+  /* Valid properties: location.pathname,params, data, pageContext */
+  <SEO title="Home" />
+)
 
 export default function LandingPage() {
+   /* Intersection observer start */
   const intersectionCallback = (entries: any) => {
     entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
@@ -31,59 +39,67 @@ export default function LandingPage() {
     })
   }
 
-  /* Intersection observer start */
-  const { observer } = useIntersectionObserver(intersectionCallback, undefined);
+  const { observer } = useIntersectionObserver(intersectionCallback, undefined)
 
   const observerFunc = (refElemArr: React.RefObject<any>[]) => {
     refElemArr.forEach(elem => {
       if (elem.current !== null && observer !== null) {
-        observer.observe(elem.current);
+        observer.observe(elem.current)
       }
     })
   }
 
-  let descriptionRef = useRef<HTMLDivElement>(null);
-  let serviceHeaderRef = useRef<HTMLHeadingElement>(null);
-  let servicesRef = useRef<HTMLDivElement>(null);
-  let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null);
-  let serviceProcessRef = useRef<HTMLDivElement>(null);
-  let contactSectionRef = useRef<HTMLDivElement>(null);
+  let descriptionRef = useRef<HTMLDivElement>(null)
+  let serviceHeaderRef = useRef<HTMLHeadingElement>(null)
+  let servicesRef = useRef<HTMLDivElement>(null)
+  let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null)
+  let serviceProcessRef = useRef<HTMLDivElement>(null)
+  let contactSectionRef = useRef<HTMLDivElement>(null)
 
   useEffect((): any => {
-    let componentIsMounted = true;
+    let componentIsMounted = true
 
-    const refElemArr = [descriptionRef, servicesRef, serviceProcessRef, contactSectionRef];
+    const refElemArr = [
+      descriptionRef,
+      servicesRef,
+      serviceProcessRef,
+      contactSectionRef,
+    ]
 
-    observerFunc(refElemArr);
-  
-    return () => componentIsMounted = false;
-  }, []);
+    observerFunc(refElemArr)
+
+    return () => (componentIsMounted = false)
+  }, [])
   /* Intersection observer End */
 
-  const landingPageImageStyle = (image: string) => {
-    return {
-      backgroundImage: `url(${image})`,
-      backgroundRepat: "no-repeat",
-      backgroundPosition: `top`,
-      backgroundSize: `cover`,
-    }
-  };
+  const landingPageBGImg = {
+    backgroundImage: `url(${bgImage})`,
+    backgroundRepat: "no-repeat",
+    backgroundPosition: `top`,
+    backgroundSize: `cover`,
+  }
 
   const servicePageImageStyle = (image: string) => {
     return {
       backgroundImage: `url(${image})`,
       backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
       backgroundSize: `cover`,
     }
-  };
+  }
 
   return (
     <Layout>
       <section
         id="landing-page-home"
         className="h-screen"
-        style={landingPageImageStyle(bgImage)}
+        style={landingPageBGImg}
       >
+        {/* Auto play */}
+        {/* <video autoPlay muted loop playsInline>
+          <source src={cloudPlay} type="video/mp4" />
+        </video> */}
+        
         <div id="overlay">
           <nav
             id="landing-page-nav"
@@ -93,10 +109,14 @@ export default function LandingPage() {
               id="logo-container"
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
             >
-              <img src={logo} alt="duowork logo" id="logo" />
+              {/* <GatsbyImage alt="Website logo, duowork" image={logo} id="logo" /> */}
+              <img src={logo} alt="Website logo, duowork" id="logo" />
             </div>
 
-            <ul id="nav-items" className="hidden md:flex flex-row justify-between">
+            <ul
+              id="nav-items"
+              className="hidden md:flex flex-row justify-between"
+            >
               <li className="nav-item-link">
                 <Link to="#landing-page-home">Home</Link>
               </li>
@@ -123,7 +143,7 @@ export default function LandingPage() {
           >
             <h1
               id="duowork-title"
-              className="text-white text-4xl md:text-5xl lg:text-7xl text-bold text-center font-bold"
+              className="text-white text-5xl md:text-7xl lg:text-9xl text-bold text-center font-bold"
             >
               DUOWORK
             </h1>
@@ -131,16 +151,17 @@ export default function LandingPage() {
               className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0"
               style={{ maxWidth: 500 }}
             >
-              We help you build and manage your next big idea using
-              crisp custom software solutions 🛠✨
+              We help you build and manage your next big idea using crisp custom
+              software solutions 🛠✨
             </p>
 
-            <Button
+            {/* <Button
               name="What do you want to build?"
               btnClass="text-white mt-20 font-semibold self-center cta-btn intro-cta-btn"
               isLink={true}
               linkTo={"contact"}
-            />
+            /> */}
+            <img src={longDownArrow} alt="Long down arrow icon" style={{width: 70}} className="self-center block mt-40" />
           </div>
         </div>
       </section>
@@ -162,30 +183,38 @@ export default function LandingPage() {
               className="mb-10 text-gray-600 sm:text-lg"
             >
               It’s one thing to have have a project, product or an idea but
-              another to think about{" "}
-              <span className="border-b-2">
-                building, shipping, scaling and maintaining that digital vision.
+              another to{" "}
+              <span className="bg-gray-600 text-white px-1">
+                build, ship, scale and maintaine your digital vision.
               </span>{" "}
-              That’s where we come in; to flesh out and maintain your digital
-              vision while you focus on doing what you do best — managing your
-              business. <br />
-              <span className="border-b-2">We work hand-in-hand with you.</span>
+              That’s where we come in; to flesh out and maintain your vision
+              while you focus on doing what you do best — steering your idea.{" "}
+              <br />
+              <span className="bg-gray-600 text-white px-1">
+                We work hand-in-hand with you.
+              </span>
             </p>
-            <Button
-              name="Let us help you"
-              btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-20 text-white"
-              isLink={false}
-              linkTo={undefined}
-            />
+              <Button
+                btnType="button"
+                name="How can we help you?"
+                btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-40 text-1xl text-white !w-60"
+                isLink={true}
+                linkTo="/contact"
+              />
           </div>
 
           <div
             id="what-we-do-img"
             className="what-we-do-divide hidden lg:block"
           >
+            {/* <GatsbyImage
+              image={projectionsSVG}
+              alt="An illustration of a lady"
+              className="h-full max-w-full"
+            /> */}
             <img
               src={projectionsSVG}
-              alt="Duowork engineering team illustration"
+              alt="An illustration of a lady"
               className="h-full max-w-full"
             />
           </div>
@@ -241,20 +270,50 @@ export default function LandingPage() {
           </div>
 
           <div
+            id="mobile-development-service"
+            className="services basis-1/3 rounded-xl"
+            style={servicePageImageStyle(mobileDevelopmentImg)}
+          >
+            <div className="service-overlay p-7 rounded-xl">
+              <h3 className="text-white text-2xl font-medium py-4">
+                Mobile App
+                <br />
+                Development
+              </h3>
+              <p className="text-white">
+                We offer mobile app development solutions for business looking
+                to boost their operation and reach more customers. using top
+                tech solutions, we create tailored solutions that help you reach
+                you goals.
+              </p>
+
+              <div className="request-service w-full mt-5 flex justify-center">
+                <Button
+                  name="Request service"
+                  btnClass="cta-btn services-request-cta"
+                  isLink={true}
+                  linkTo={"/contact?service=Mobile-development"}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
             id="web-development-service"
             className="services basis-1/3 rounded-xl"
             style={servicePageImageStyle(fullstackDevelopmentImg)}
           >
             <div className="service-overlay p-7 rounded-xl">
               <h3 className="text-white text-2xl font-medium py-4">
-                Web
+                Web App
                 <br />
                 Development
               </h3>
               <p className="text-white">
                 Secure, scalable and visually compelling front-end, back-end and
-                full-stack development solutions expressive of business
-                requirement and operations.
+                full-stack development solution that is expressive of business
+                requirements and reaching possible results of business
+                operations.
               </p>
 
               <div className="request-service w-full mt-5 flex justify-center">
@@ -281,8 +340,8 @@ export default function LandingPage() {
               </h3>
 
               <p className="text-white">
-                Redundant business task automation for a smart workflow.
-                Increase productivity and efficiecy in every business activties.
+                We help business streamline their operations with task
+                automation for increased productivity and efficiecy.
               </p>
 
               <div className="request-service w-full mt-5 flex justify-center">
@@ -460,13 +519,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
     </Layout>
   )
 }
-
-export const Head = () => (
-  /* Valid properties: location.pathname,params, data, pageContext */
-
-  <SEO />
-)

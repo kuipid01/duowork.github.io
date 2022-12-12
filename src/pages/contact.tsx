@@ -15,6 +15,11 @@ import SEO from "../components/SEO"
 // Assets
 import homeArrow from "../assets/icons/arrow-left-long-solid.svg"
 
+export const Head = () => (
+  /* Valid properties: location.pathname,params, data, pageContext */
+  <SEO title="Contact" />
+)
+
 export default function Contact() {
 
   const dateObj = new Date();
@@ -366,9 +371,3 @@ export default function Contact() {
     </Layout>
   )
 }
-
-export const Head = () => (
-  /* Valid properties: location.pathname,params, data, pageContext */
-
-  <SEO />
-)
