@@ -97,8 +97,6 @@
       }
     }
 
-    #what-we-do-img {}
-
     @media(prefers-reduced-motion) {
       .hideTransition {
         transition: none;
@@ -230,8 +228,5 @@
 
   #contact-duowork {
     background-color: $green-lighter;
-
-    #how-to-contact {
-    }
   }
 }
