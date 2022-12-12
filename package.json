@@ -17,7 +17,6 @@
     "dotenv": "^8.6.0",
     "formik": "^2.2.9",
     "gatsby": "^4.22.0",
-    "gatsby-plugin-sharp": "^5.2.0",
     "googleapis": "^109.0.1",
     "intersection-observer": "^0.12.2",
     "node-mailjet": "^5.1.1",
