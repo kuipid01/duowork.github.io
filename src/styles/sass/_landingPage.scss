@@ -1,4 +1,6 @@
 #duowork {
+
+  /* CTA buttons starts */
   .cta-btn {
     background-color: $green-light;
     height: 50px;
@@ -25,6 +27,7 @@
       border-radius: 5px !important;
     }
   }
+  /* // CTA buttons ends */
 
   .hideTransition {
     @include hideElementTransition;
@@ -35,6 +38,15 @@
   }
 
   #landing-page-home {
+    video {
+      position: absolute !important;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
     // Overlay background image with opaque black
     #overlay {
       position: absolute;
@@ -67,6 +79,10 @@
     #what-we-do-intro {
       #what-we-do-description {
         max-width: 515px;
+
+        .description-highlight {
+          background: $green-light;
+        }
       }
 
       .what-we-do-cta-btn {
@@ -74,7 +90,10 @@
           margin-left: 10rem;
         }
 
-        width: 150px !important;
+        width: 150px;
+        // border: 2px solid $green-light;
+        // background: white !important;
+        // color: $green-light
       }
     }
 

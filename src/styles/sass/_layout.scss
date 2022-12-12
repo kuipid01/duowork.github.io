@@ -17,38 +17,66 @@
     }
 
     #mobile-nav-items {
-        display: none;
+      display: none;
     }
 
     &.mobile-nav-container {
       // When click add .mobile-nav-container
-        background-color: $green-dark;
-        width: 65%;
+      background-color: $green-dark;
+      width: 65%;
 
-        #mobile-nav-items {
-            display: block;
-            width: 100%;
-            height: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+      #mobile-nav-items {
+        display: block;
+        width: 100%;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-            .nav-item-link {
-            text-transform: uppercase;
-            font-size: larger;
-            margin-top: 4rem;
-            color: white;
+        .nav-item-link {
+          text-transform: uppercase;
+          font-size: larger;
+          margin-top: 4rem;
+          color: white;
 
-            &:last-child {
-                width: 90%;
-                height: 50px;
-                border-radius: 1.9rem;
-                text-align: center;
-                background-color: white;
-                color: $green-light !important;
-            }
-            }
+          &:last-child {
+            width: 90%;
+            height: 50px;
+            border-radius: 1.9rem;
+            text-align: center;
+            background-color: white;
+            color: $green-light !important;
+          }
         }
+      }
     }
+  }
+
+  // Custom cursor style
+  .cursor-dot,
+  .cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 4;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .cursor-dot {
+    $size: 8px;
+    width: $size;
+    height: $size;
+    background-color: $green-light;
+  }
+
+  .cursor-dot-outline {
+    $size: 40px;
+    width: $size;
+    height: $size;
+    background-color: rgba($green-light, 0.8);
   }
 }
