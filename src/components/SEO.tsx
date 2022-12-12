@@ -23,7 +23,7 @@ export default function SEO({
   } = useSiteMetaData()
 
   const seo = {
-    title: title || defaultTitle,
+    title: title ? `${defaultTitle} | ${title}` : defaultTitle,
     description: description || defaultDescription,
     url: `${siteUrl}${pathname}`,
   }
