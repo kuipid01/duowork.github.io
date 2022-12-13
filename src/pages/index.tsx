@@ -18,7 +18,9 @@ import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg
 import mobileDevelopmentImg from "../assets/images/mobile-development.png"
 import businessAutomation from "../assets/images/business-automation.jpeg"
 import longDownArrow from "../assets/icons/long-down-arrow-96.png"
-import cloudPlay from "../assets/video/cloudplay.mp4"
+import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
+import cloudPlaywebm from "../assets/video/cloudplay.webm"
+
 import logo from "../assets/logos/logo.png"
 
 export const Head = () => (
@@ -96,7 +98,9 @@ export default function LandingPage() {
       >
         {/* Auto play */}
         <video autoPlay muted loop playsInline poster={bgImage}>
-          <source src={cloudPlay} type="video/mp4" />
+          <source src={cloudPlaymp4} type="video/mp4" />
+          <source src={cloudPlaywebm} type="video/webm" />
+
         </video>
 
         <div id="overlay">
