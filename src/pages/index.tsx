@@ -95,7 +95,7 @@ export default function LandingPage() {
         style={landingPageBGImg}
       >
         {/* Auto play */}
-        <video autoPlay muted loop playsInline>
+        <video autoPlay muted loop playsInline poster={bgImage}>
           <source src={cloudPlay} type="video/mp4" />
         </video>
 
@@ -165,7 +165,7 @@ export default function LandingPage() {
               src={longDownArrow}
               alt="Long down arrow icon"
               style={{ width: 70 }}
-              className="self-center block mt-40"
+              className="self-center block mt-20"
             />
           </div>
         </div>
