@@ -100,7 +100,6 @@ export default function LandingPage() {
         <video autoPlay muted loop playsInline poster={bgImage}>
           <source src={cloudPlaymp4} type="video/mp4" />
           <source src={cloudPlaywebm} type="video/webm" />
-
         </video>
 
         <div id="overlay">
