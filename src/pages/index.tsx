@@ -89,6 +89,32 @@ export default function LandingPage() {
     }
   }
 
+  // Check connetion speedn to initiate video
+  const InternetSpeedForVideo = () => {
+    if (window.hasOwnProperty("navigator")) {
+      const networkSpeed = window.navigator.connection.downlink;
+
+      if (networkSpeed !== undefined && networkSpeed >= 2.0) {
+        return (
+          <>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={bgImage}
+              className="hidden sm:block"
+            >
+              <source src={cloudPlaymp4} type="video/mp4" />
+              <source src={cloudPlaywebm} type="video/webm" />
+            </video>
+          </>
+        )
+      }
+    }
+    return null
+  }
+
   return (
     <Layout>
       <section
@@ -97,10 +123,7 @@ export default function LandingPage() {
         style={landingPageBGImg}
       >
         {/* Auto play */}
-        <video autoPlay muted loop playsInline poster={bgImage}>
-          <source src={cloudPlaymp4} type="video/mp4" />
-          <source src={cloudPlaywebm} type="video/webm" />
-        </video>
+        <InternetSpeedForVideo />       
 
         <div id="overlay">
           <nav
@@ -154,8 +177,8 @@ export default function LandingPage() {
               style={{ maxWidth: 500 }}
             >
               Transforming digital ideas into reality. We can help build and
-              manage your next big idea using crisp custom software solutions 🛠✨
-              
+              manage your next big idea using crisp custom software solutions
+              🛠✨
             </p>
 
             {/* <Button
