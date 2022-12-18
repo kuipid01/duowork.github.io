@@ -91,7 +91,7 @@ export default function LandingPage() {
 
   // Check connetion speedn to initiate video
   const InternetSpeedForVideo = () => {
-    if (window.hasOwnProperty("navigator")) {
+    if (typeof window !== "undefined" && window.navigator) {
       const networkSpeed = window.navigator.connection.downlink;
 
       if (networkSpeed !== undefined && networkSpeed >= 2.0) {
