@@ -3,9 +3,8 @@ import { Link } from "gatsby"
 import { Formik } from "formik"
 import { toast } from "react-toastify";
 
-// API
-import insertInGoogleSheet from "../api/googleSheetService";
-import sendMail from "../api/sendMail";
+// Services
+import sendMail from "../services/sendMail";
 
 // components
 import Layout from "../components/layout"
