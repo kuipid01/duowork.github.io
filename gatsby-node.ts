@@ -1,4 +1,4 @@
-import {optimiseImages} from "./lib/optimiseImgs.js"
+import {optimiseImages} from "./lib/optimiseImgs"
 
 // Optimise images after Gatsby bootstrap process
 exports.onPostBootstrap = async () => {
