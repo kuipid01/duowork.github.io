@@ -141,7 +141,10 @@ export default function Layout({ children }: any) {
                 <Link to="#our-services">Product Design</Link>
               </p>
               <p className="items">
-                <Link to="#our-services">Full-stack development</Link>
+                <Link to="#our-services">Mobile development</Link>
+              </p>
+              <p className="items">
+                <Link to="#our-services">Web development</Link>
               </p>
               <p className="items">
                 <Link to="#our-services">Business automation</Link>
@@ -185,7 +188,7 @@ export default function Layout({ children }: any) {
         </div>
         <div id="sm-copywrite" className="block md:hidden text-white pb-5">
           <p className="font-light text-center sm:text-left p-2">
-            © 2022 Duowork | All Right Reserved.
+            © {new Date().getFullYear()} Duowork | All Rights Reserved.
           </p>
         </div>
       </footer>
