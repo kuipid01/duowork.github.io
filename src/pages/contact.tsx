@@ -311,10 +311,10 @@ export default function Contact() {
                           Web app development
                         </option>
                         <option value="Task automation">Task automation</option>
-                        <option value="Software code management">
+                        {/* <option value="Software code management">
                           Software code management
-                        </option>
-                        <option value="Consultation">Consultation</option>
+                        </option> */}
+                        <option value="Consultation">Software consultation</option>
                         <option value="Other">Other</option>
                       </select>
                       <small className="text-red-400">
@@ -352,7 +352,7 @@ export default function Contact() {
 
                     <div className="text-right">
                       <Button
-                        name="Send form"
+                        value="Send form"
                         btnType="submit"
                         btnClass="cta-btn send-contact-form text-white w-full"
                         isLink={false}
