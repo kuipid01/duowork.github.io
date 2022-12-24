@@ -104,9 +104,9 @@ export default function Layout({ children }: any) {
           <li className="nav-item-link">
             <Link to="#our-services">Service</Link>
           </li>
-          {/* <li className="nav-item-link">
+          <li className="nav-item-link">
             <Link to="#our-work">Our work</Link>
-          </li> */}
+          </li>
           <li className="nav-item-link">
             <Link to="#contact-duowork" className="h-full flex items-center justify-center">Contact</Link>
           </li>
@@ -148,6 +148,9 @@ export default function Layout({ children }: any) {
               </p>
               <p className="items">
                 <Link to="#our-services">Business automation</Link>
+              </p>
+              <p className="items">
+                <Link to="#our-services">Software consulting</Link>
               </p>
             </div>
           </div>
