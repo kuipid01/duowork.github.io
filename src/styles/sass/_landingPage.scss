@@ -106,6 +106,38 @@
     }
   }
 
+  // Portfolio
+  #our-work {
+    #heading {
+      .underline-color-green-light {
+        border-bottom: 3px solid $green-light;
+      }
+    }
+
+    #duowork-portfolio {
+      .work-item {
+        .work-item-image {
+          width: 400px;
+          height: 300px;
+        }
+        .work-other-container {
+          .work-tag {
+            display: block;
+            width: 15rem;
+          }
+
+          p#work-type{
+            background-color: $green-lighter;
+          }
+
+          button {
+            border: 2px solid $green-lighter;
+          }
+        }
+      }
+    }
+  }
+
   #our-services {
     #service-header {
       #underline-header {
