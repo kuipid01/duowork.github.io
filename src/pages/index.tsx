@@ -17,9 +17,15 @@ import productDesignImg from "../assets/images/product-design.jpeg"
 import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
 import mobileDevelopmentImg from "../assets/images/mobile-development.png"
 import businessAutomation from "../assets/images/business-automation.jpeg"
+import softwareConsulting from "../assets/images/consulting.jpeg"
 import longDownArrow from "../assets/icons/long-down-arrow-96.png"
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
 import cloudPlaywebm from "../assets/video/cloudplay.webm"
+
+// Test image
+import wasfa from "../assets/images/portfolio_test/Wasfa.webp"
+import bizaa from "../assets/images/portfolio_test/bizaa.webp"
+import bottled from "../assets/images/portfolio_test/glowbottle.webp"
 
 import logo from "../assets/logos/logo.png"
 
@@ -51,7 +57,7 @@ export default function LandingPage() {
   }
 
   let descriptionRef = useRef<HTMLDivElement>(null)
-  let serviceHeaderRef = useRef<HTMLHeadingElement>(null)
+  let workSectionRef = useRef<HTMLDivElement>(null)
   let servicesRef = useRef<HTMLDivElement>(null)
   let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null)
   let serviceProcessRef = useRef<HTMLDivElement>(null)
@@ -62,6 +68,7 @@ export default function LandingPage() {
 
     const refElemArr = [
       descriptionRef,
+      workSectionRef,
       servicesRef,
       serviceProcessRef,
       contactSectionRef,
@@ -92,7 +99,7 @@ export default function LandingPage() {
   // Check connetion speedn to initiate video
   const InternetSpeedForVideo = () => {
     if (typeof window !== "undefined" && window.navigator) {
-      const networkSpeed = window.navigator.connection.downlink;
+      const networkSpeed = window.navigator.connection.downlink
 
       if (networkSpeed !== undefined && networkSpeed >= 2.0) {
         return (
@@ -123,7 +130,7 @@ export default function LandingPage() {
         style={landingPageBGImg}
       >
         {/* Auto play */}
-        <InternetSpeedForVideo />       
+        <InternetSpeedForVideo />
 
         <div id="overlay">
           <nav
@@ -135,7 +142,9 @@ export default function LandingPage() {
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
             >
               {/* <GatsbyImage alt="Website logo, duowork" image={logo} id="logo" /> */}
-              <img src={logo} alt="Website logo, duowork" id="logo" />
+              <Link to="/">
+                <img src={logo} alt="Website logo, duowork" id="logo" />
+              </Link>
             </div>
 
             <ul
@@ -145,15 +154,15 @@ export default function LandingPage() {
               <li className="nav-item-link">
                 <Link to="#landing-page-home">Home</Link>
               </li>
-              {/* <li className="nav-item-link">
+              <li className="nav-item-link">
                 <Link to="#our-work">Our work</Link>
-              </li> */}
+              </li>
               <li className="nav-item-link">
                 <Link to="#our-services">Service</Link>
               </li>
               <li id="cta-nav-item-contact" className="nav-item-link">
                 <Button
-                  name="Contact Us"
+                  value="Contact Us"
                   btnClass="cta-btn nav-contact-cta text-white"
                   isLink={true}
                   linkTo="#contact-duowork"
@@ -177,7 +186,7 @@ export default function LandingPage() {
               style={{ maxWidth: 500 }}
             >
               Transforming digital ideas into reality. We can help build and
-              manage your next big idea using crisp custom software solutions
+              manage your next big idea through crisp custom software solutions
               🛠✨
             </p>
 
@@ -227,7 +236,7 @@ export default function LandingPage() {
             </p>
             <Button
               btnType="button"
-              name="How can we help you?"
+              value="How can we help you?"
               btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-40 text-1xl text-white !w-60"
               isLink={true}
               linkTo="/contact"
@@ -254,6 +263,75 @@ export default function LandingPage() {
 
       {/* 'Our work' section*/}
       {/* ----------It goes here------------ */}
+      <section id="our-work" className="h-auto px-10 mb-20">
+        <p
+          id="heading"
+          className="text-xl sm:text-2xl font-semibold text-gray-700 sm:ml-20"
+        >
+          Some of <span className="underline-color-green-light">the work</span>{" "}
+          we've done <br /> for{" "}
+          <span className="underline-color-green-light">our clients.</span>
+        </p>
+
+        <div id="duowork-portfolio" className="hideTransition" ref={workSectionRef}>
+          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+            <img src={bottled} alt="" className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md" />
+            <div className="work-other-container">
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">Bottled</h3>
+              <p className="work-description w-80 py-5 text-xl">
+                Bottled is creating simple, effective solutions that help its
+                customers strike the perfect balance between sit mor ipsum
+              </p>
+              <p id="work-type" className="work-tag mb-10 p-2 text-center rounded-full text-xl">#Website</p>
+              <Button
+                btnType="button"
+                value="View work"
+                isLink={true}
+                linkTo="#"
+                btnClass="work-tag text-center text-xl p-2 rounded-full"
+              />
+            </div>
+          </div>
+
+          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+            <img src={wasfa} alt="" className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md" />
+            <div className="work-other-container">
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">Wasfa</h3>
+              <p className="work-description w-80 py-5 text-xl">
+                Wasfa is a digital platform that captures all kind of recipes in
+                its purest form.
+              </p>
+             <p id="work-type" className="work-tag mb-10 p-2 text-center rounded-full text-xl">#Mobile app</p>
+              <Button
+                btnType="button"
+                value="View work"
+                isLink={true}
+                linkTo="#"
+                btnClass="work-tag text-center text-xl p-2 rounded-full"
+              />
+            </div>
+          </div>
+
+          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+            <img src={bizaa} alt="" className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md" />
+            <div className="work-other-container">
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">Bizaa</h3>
+              <p className="work-description w-80 py-5 text-xl">
+                A company changing lorem ipisum sit lume ack jordi fir neur
+                platform of all kind of B2B tools.
+              </p>
+              <p id="work-type" className="work-tag mb-10 p-2 text-center rounded-full text-xl">#UI/UX & SaaS</p>
+              <Button
+                btnType="button"
+                value="View work"
+                isLink={true}
+                linkTo="#"
+                btnClass="work-tag text-center text-xl p-2 rounded-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials section*/}
       {/* ----------It goes here------------ */}
@@ -291,7 +369,7 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Product-design"}
@@ -320,7 +398,7 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Mobile-development"}
@@ -349,7 +427,7 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Web-development"}
@@ -377,10 +455,37 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Business-automation"}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="Business-automation-service"
+            className="services basis-1/3 rounded-xl"
+            style={servicePageImageStyle(softwareConsulting)}
+          >
+            <div className="service-overlay p-7 rounded-xl">
+              <h3 className="text-white text-2xl font-medium py-4">
+                Software
+                <br />
+                Consultation
+              </h3>
+
+              <p className="text-white">
+                Expert consulting services to help businesses achieve their goals and optimize operations through expert guidiance and customize solution.
+              </p>
+
+              <div className="request-service w-full mt-5 flex justify-center">
+                <Button
+                  value="Request service"
+                  btnClass="cta-btn services-request-cta"
+                  isLink={true}
+                  linkTo={"/contact?service=Software-consulting"}
                 />
               </div>
             </div>
