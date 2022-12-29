@@ -28,5 +28,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/src/blogPosts`
+      }
+    },
+    `gatsby-plugin-mdx`
   ],
 }

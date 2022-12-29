@@ -14,10 +14,12 @@
         "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
     },
     "dependencies": {
+        "@mdx-js/react": "^2.2.1",
         "deepmerge": "^4.2.2",
         "dotenv": "^8.6.0",
         "formik": "^2.2.9",
         "gatsby": "^4.22.0",
+        "gatsby-plugin-mdx": "^4.4.0",
         "intersection-observer": "^0.12.2",
         "network-information-types": "^0.1.1",
         "node-mailjet": "^5.1.1",
