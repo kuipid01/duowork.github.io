@@ -13,7 +13,7 @@ export default function Blog({ data }: any) {
         className="px-10 sm:h-screen blog-container post-container"
       >
         <div className="sm:h-20 mb-0 mt-5 sm:my-10 blog-header">
-          <h1 className="text-2xl sm:text-4xl font-semibold"><span className="underline-color-green-light">Duowork Articles</span></h1>
+          <h1 className="text-2xl sm:text-4xl font-semibold"><span className="underline-color-green-light">Duowork articles</span></h1>
         </div>
 
         <div id="blog-items-container" className="flex items-center justify-start flex-wrap my-5">

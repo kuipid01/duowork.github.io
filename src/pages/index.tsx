@@ -134,8 +134,7 @@ export default function LandingPage() {
 
         <div id="overlay">
           <nav
-            id="landing-page-nav"
-            className="text-white flex flex-row justify-between ml-10 mr-10 mt-5"
+            className="landing-page-nav text-white flex flex-row justify-between ml-10 mr-10 mt-5"
           >
             <div
               id="logo-container"
@@ -152,20 +151,23 @@ export default function LandingPage() {
               className="hidden md:flex flex-row justify-between"
             >
               <li className="nav-item-link">
-                <Link to="#landing-page-home">Home</Link>
+                <Link to="/#landing-page-home">Home</Link>
               </li>
               <li className="nav-item-link">
-                <Link to="#our-work">Our work</Link>
+                <Link to="/#our-work">Our work</Link>
               </li>
               <li className="nav-item-link">
-                <Link to="#our-services">Service</Link>
+                <Link to="/#our-services">Service</Link>
               </li>
+              {/* <li className="nav-item-link">
+                <Link to="/blog">Blog</Link>
+              </li> */}
               <li id="cta-nav-item-contact" className="nav-item-link">
                 <Button
                   value="Contact Us"
                   btnClass="cta-btn nav-contact-cta text-white"
                   isLink={true}
-                  linkTo="#contact-duowork"
+                  linkTo="/#contact-duowork"
                 />
               </li>
             </ul>
