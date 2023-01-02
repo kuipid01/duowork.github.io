@@ -35,6 +35,17 @@ module.exports = {
         path: `${__dirname}/src/blogPosts`
       }
     },
-    `gatsby-plugin-mdx`
+    `gatsby-plugin-mdx`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Defaults used for gatsbyImageData and StaticImage
+        defaults: {},
+        // Relates to "options.failOn" in https://sharp.pixelplumbing.com/api-constructor#parameters
+        failOn: `warning`,
+      },
+    },
+    `gatsby-plugin-image`
   ],
 }
