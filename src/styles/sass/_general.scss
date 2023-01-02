@@ -1,0 +1,23 @@
+body {
+  // cursor: none;
+  box-sizing: border-box !important;
+  transition: all 200ms ease;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-family-title  !important;
+  }
+
+  * {
+    font-family: $font-family-body;
+  }
+
+  // Add underline with light green
+  .underline-color-green-light {
+    border-bottom: 3px solid $green-light;
+  }
+}
