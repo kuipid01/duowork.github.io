@@ -23,15 +23,25 @@ export const Head = ({ data }: any) => (
 
 export const query = graphql`
   query blogPosts($id: String) {
-    allMdx(filter: { id: { eq: $id } }) {
+    allMdx(
+      filter: { id: { eq: $id } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       nodes {
         frontmatter {
-          date(formatString: "MMMM D, YYYY")
           title
+          date(formatString: "MMMM DD, Y")
           slug
+          hero_image_alt
+          hero_image_credit_link
+          hero_image_credit_text
+          hero_image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         id
-        excerpt(pruneLength: 50)
       }
     }
   }
