@@ -106,7 +106,8 @@
       .work-item {
         .work-item-image {
           width: 400px;
-          height: 300px;
+          height: 250px;
+          object-fit: cover;
         }
         .work-other-container {
           .work-tag {
@@ -118,7 +119,7 @@
             background-color: $green-lighter;
           }
 
-          button {
+          .project-link {
             border: 2px solid $green-lighter;
           }
         }
