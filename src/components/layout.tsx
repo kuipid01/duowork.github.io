@@ -12,50 +12,53 @@ import navBurgerBar from "../assets/icons/navbar-burger-solid.svg"
 import navXmark from "../assets/icons/navbar-xmark-solid.svg"
 
 const DesktopNavigation = (): React.ReactElement | null => {
-  // Check page location and appy right styling
-  const location = typeof window === "object" ? window.location : undefined
-  const homepage = location?.pathname === "/";
 
-  return (
-    <>
-      <nav
-        className={`landing-page-nav text-white ml-10 mr-10 mt-5 ${homepage? 'hidden':'flex flex-row justify-between'}`}
-      >
-        <div
-          id="logo-container"
-          className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
+  if (typeof window !== "undefined") {
+    const homepage = window.location.pathname === "/";
+
+    return (
+      <>
+        <nav
+          className={`landing-page-nav text-white ml-10 mr-10 mt-5 ${homepage? 'hidden':'flex flex-row justify-between'}`}
         >
-          {/* <GatsbyImage alt="Website logo, duowork" image={logo} id="logo" /> */}
-          <Link to="/">
-            <img src={logo} alt="Website logo, duowork" id="logo" />
-          </Link>
-        </div>
+          <div
+            id="logo-container"
+            className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
+          >
+            {/* <GatsbyImage alt="Website logo, duowork" image={logo} id="logo" /> */}
+            <Link to="/">
+              <img src={logo} alt="Website logo, duowork" id="logo" />
+            </Link>
+          </div>
+  
+          <ul id="nav-items" className={`hidden md:flex flex-row justify-between ${homepage? 'text-white':'text-black'}`}>
+            <li className="nav-item-link">
+              <Link to="/#landing-page-home">Home</Link>
+            </li>
+            <li className="nav-item-link">
+              <Link to="/#our-work">Our work</Link>
+            </li>
+            <li className="nav-item-link">
+              <Link to="/#our-services">Service</Link>
+            </li>
+            {/* <li className="nav-item-link">
+              <Link to="/blog">Blog</Link>
+            </li> */}
+            <li id="cta-nav-item-contact" className="nav-item-link">
+              <Button
+                value="Contact Us"
+                btnClass="cta-btn nav-contact-cta text-white"
+                isLink={true}
+                linkTo="/#contact-duowork"
+              />
+            </li>
+          </ul>
+        </nav>
+      </>
+    )
+  }
 
-        <ul id="nav-items" className={`hidden md:flex flex-row justify-between ${homepage? 'text-white':'text-black'}`}>
-          <li className="nav-item-link">
-            <Link to="/#landing-page-home">Home</Link>
-          </li>
-          <li className="nav-item-link">
-            <Link to="/#our-work">Our work</Link>
-          </li>
-          <li className="nav-item-link">
-            <Link to="/#our-services">Service</Link>
-          </li>
-          {/* <li className="nav-item-link">
-            <Link to="/blog">Blog</Link>
-          </li> */}
-          <li id="cta-nav-item-contact" className="nav-item-link">
-            <Button
-              value="Contact Us"
-              btnClass="cta-btn nav-contact-cta text-white"
-              isLink={true}
-              linkTo="/#contact-duowork"
-            />
-          </li>
-        </ul>
-      </nav>
-    </>
-  )
+  return null
 }
 
 export default function Layout({ children }: any) {
