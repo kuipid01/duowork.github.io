@@ -1,33 +1,35 @@
-import React, { useRef, useEffect } from "react"
-
 import { Link } from "gatsby"
+import React, { useEffect, useRef } from "react"
+import longDownArrow from "../assets/icons/long-down-arrow-96.png"
+import projectionsSVG from "../assets/illustrations/projections.svg"
+import businessAutomation from "../assets/images/business-automation.jpeg"
 
-// Hooks
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
+// Images
+import bgImage from "../assets/images/cloudPlayImg.png"
+import softwareConsulting from "../assets/images/consulting.jpeg"
+import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
+import mobileDevelopmentImg from "../assets/images/mobile-development.png"
+import AdeolaAzeez from "../assets/images/portfolio/AdeolaAzeez2.jpeg"
+import Collab from "../assets/images/portfolio/Collab.jpeg"
+import EbonyBeauty from "../assets/images/portfolio/Ebonybeauty2.jpeg"
+import productDesignImg from "../assets/images/product-design.jpeg"
+import logo from "../assets/logos/logo.png"
+import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
+import cloudPlaywebm from "../assets/video/cloudplay.webm"
+import Button from "../components/Button"
 
 // Components
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
-import Button from "../components/Button"
 
-// Images
-import bgImage from "../assets/images/cloudPlayImg.png"
-import projectionsSVG from "../assets/illustrations/projections.svg"
-import productDesignImg from "../assets/images/product-design.jpeg"
-import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
-import mobileDevelopmentImg from "../assets/images/mobile-development.png"
-import businessAutomation from "../assets/images/business-automation.jpeg"
-import softwareConsulting from "../assets/images/consulting.jpeg"
-import longDownArrow from "../assets/icons/long-down-arrow-96.png"
-import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
-import cloudPlaywebm from "../assets/video/cloudplay.webm"
+// Hooks
+import useIntersectionObserver from "../hooks/useIntersectionObserver"
 
-// Test image
-import wasfa from "../assets/images/portfolio_test/Wasfa.webp"
-import bizaa from "../assets/images/portfolio_test/bizaa.webp"
-import bottled from "../assets/images/portfolio_test/glowbottle.webp"
 
-import logo from "../assets/logos/logo.png"
+
+
+
+
 
 export const Head = () => (
   /* Valid properties: location.pathname,params, data, pageContext */
@@ -133,9 +135,7 @@ export default function LandingPage() {
         <InternetSpeedForVideo />
 
         <div id="overlay">
-          <nav
-            className="landing-page-nav text-white flex flex-row justify-between ml-10 mr-10 mt-5"
-          >
+          <nav className="landing-page-nav text-white flex flex-row justify-between ml-10 mr-10 mt-5">
             <div
               id="logo-container"
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
@@ -275,61 +275,97 @@ export default function LandingPage() {
           <span className="underline-color-green-light">our clients.</span>
         </p>
 
-        <div id="duowork-portfolio" className="hideTransition" ref={workSectionRef}>
+        <div
+          id="duowork-portfolio"
+          className="hideTransition"
+          ref={workSectionRef}
+        >
           <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
-            <img src={bottled} alt="" className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md" />
+            <img
+              src={EbonyBeauty}
+              alt="A screenshort of a website landing page"
+              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+            />
             <div className="work-other-container">
-              <h3 className="work-name font-semibold text-2xl sm:text-3xl">Bottled</h3>
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+                Ebony Beauty
+              </h3>
               <p className="work-description w-80 py-5 text-xl">
-                Bottled is creating simple, effective solutions that help its
-                customers strike the perfect balance between sit mor ipsum
+                Ebony beauty is a lagos-based retail store with aim to be
+                the ultimate destination for beauty products.
               </p>
-              <p id="work-type" className="work-tag mb-10 p-2 text-center rounded-full text-xl">#Website</p>
-              <Button
-                btnType="button"
-                value="View work"
-                isLink={true}
-                linkTo="#"
-                btnClass="work-tag text-center text-xl p-2 rounded-full"
-              />
+              <p
+                id="work-type"
+                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+              >
+                #UI/UX & #website
+              </p>
+              <a
+                href="https://ebonybeautyhaven.com/"
+                target="_blank"
+                className="work-tag text-center text-xl p-2 rounded-full project-link"
+              >
+                View work
+              </a>
             </div>
           </div>
 
           <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
-            <img src={wasfa} alt="" className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md" />
+            <img
+              src={AdeolaAzeez}
+              alt="A screenshort of a website landing page"
+              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+            />
             <div className="work-other-container">
-              <h3 className="work-name font-semibold text-2xl sm:text-3xl">Wasfa</h3>
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+                Adeola Azeez
+              </h3>
               <p className="work-description w-80 py-5 text-xl">
-                Wasfa is a digital platform that captures all kind of recipes in
-                its purest form.
+                A political campaign web presence for Adeola Azeez.
               </p>
-             <p id="work-type" className="work-tag mb-10 p-2 text-center rounded-full text-xl">#Mobile app</p>
-              <Button
-                btnType="button"
-                value="View work"
-                isLink={true}
-                linkTo="#"
-                btnClass="work-tag text-center text-xl p-2 rounded-full"
-              />
+              <p
+                id="work-type"
+                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+              >
+                #website
+              </p>
+              <a
+                href="https://adeolaazeez.com/"
+                target="_blank"
+                className="work-tag text-center text-xl p-2 rounded-full project-link"
+              >
+                View work
+              </a>
             </div>
           </div>
 
           <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
-            <img src={bizaa} alt="" className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md" />
+            <img
+              src={Collab}
+              alt="A screenshort of a website landing page"
+              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+            />
             <div className="work-other-container">
-              <h3 className="work-name font-semibold text-2xl sm:text-3xl">Bizaa</h3>
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+                Collab
+              </h3>
               <p className="work-description w-80 py-5 text-xl">
-                A company changing lorem ipisum sit lume ack jordi fir neur
-                platform of all kind of B2B tools.
+                Collab is a case study of an envisioned productivity SaaS
+                application.
               </p>
-              <p id="work-type" className="work-tag mb-10 p-2 text-center rounded-full text-xl">#UI/UX & SaaS</p>
-              <Button
-                btnType="button"
-                value="View work"
-                isLink={true}
-                linkTo="#"
-                btnClass="work-tag text-center text-xl p-2 rounded-full"
-              />
+              <p
+                id="work-type"
+                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+              >
+                #UI/UX & SaaS
+              </p>
+              <a
+                href="https://www.behance.net/gallery/159380125/Saas-Landing-Page"
+                target="_blank"
+                className="work-tag text-center text-xl p-2 rounded-full project-link"
+              >
+                View work
+              </a>
             </div>
           </div>
         </div>
@@ -479,7 +515,9 @@ export default function LandingPage() {
               </h3>
 
               <p className="text-white">
-                Expert consulting services to help businesses achieve their goals and optimize operations through expert guidiance and customize solution.
+                Expert consulting services to help businesses achieve their
+                goals and optimize operations through expert guidiance and
+                customize solution.
               </p>
 
               <div className="request-service w-full mt-5 flex justify-center">
