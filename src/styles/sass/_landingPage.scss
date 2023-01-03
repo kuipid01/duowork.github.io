@@ -61,14 +61,8 @@
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 2;
 
-      #landing-page-nav {
-        #nav-items {
-          min-width: 350px;
-
-          .nav-item-link {
-            align-self: center;
-          }
-        }
+      .landing-page.nav {
+        // Desktop nav style is in _general.scss partial
       }
     }
   }
@@ -102,6 +96,33 @@
     @media(prefers-reduced-motion) {
       .hideTransition {
         transition: none;
+      }
+    }
+  }
+
+  // Portfolio
+  #our-work {
+    #duowork-portfolio {
+      .work-item {
+        .work-item-image {
+          width: 400px;
+          height: 250px;
+          object-fit: cover;
+        }
+        .work-other-container {
+          .work-tag {
+            display: block;
+            width: 15rem;
+          }
+
+          p#work-type{
+            background-color: $green-lighter;
+          }
+
+          .project-link {
+            border: 2px solid $green-lighter;
+          }
+        }
       }
     }
   }

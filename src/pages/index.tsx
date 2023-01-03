@@ -1,27 +1,35 @@
-import React, { useRef, useEffect } from "react"
-
 import { Link } from "gatsby"
+import React, { useEffect, useRef } from "react"
+import longDownArrow from "../assets/icons/long-down-arrow-96.png"
+import projectionsSVG from "../assets/illustrations/projections.svg"
+import businessAutomation from "../assets/images/business-automation.jpeg"
 
-// Hooks
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
+// Images
+import bgImage from "../assets/images/cloudPlayImg.png"
+import softwareConsulting from "../assets/images/consulting.jpeg"
+import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
+import mobileDevelopmentImg from "../assets/images/mobile-development.png"
+import AdeolaAzeez from "../assets/images/portfolio/AdeolaAzeez2.jpeg"
+import Collab from "../assets/images/portfolio/Collab.jpeg"
+import EbonyBeauty from "../assets/images/portfolio/Ebonybeauty2.jpeg"
+import productDesignImg from "../assets/images/product-design.jpeg"
+import logo from "../assets/logos/logo.png"
+import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
+import cloudPlaywebm from "../assets/video/cloudplay.webm"
+import Button from "../components/Button"
 
 // Components
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
-import Button from "../components/Button"
 
-// Images
-import bgImage from "../assets/images/cloudPlayImg.png"
-import projectionsSVG from "../assets/illustrations/projections.svg"
-import productDesignImg from "../assets/images/product-design.jpeg"
-import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
-import mobileDevelopmentImg from "../assets/images/mobile-development.png"
-import businessAutomation from "../assets/images/business-automation.jpeg"
-import longDownArrow from "../assets/icons/long-down-arrow-96.png"
-import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
-import cloudPlaywebm from "../assets/video/cloudplay.webm"
+// Hooks
+import useIntersectionObserver from "../hooks/useIntersectionObserver"
 
-import logo from "../assets/logos/logo.png"
+
+
+
+
+
 
 export const Head = () => (
   /* Valid properties: location.pathname,params, data, pageContext */
@@ -51,7 +59,7 @@ export default function LandingPage() {
   }
 
   let descriptionRef = useRef<HTMLDivElement>(null)
-  let serviceHeaderRef = useRef<HTMLHeadingElement>(null)
+  let workSectionRef = useRef<HTMLDivElement>(null)
   let servicesRef = useRef<HTMLDivElement>(null)
   let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null)
   let serviceProcessRef = useRef<HTMLDivElement>(null)
@@ -62,6 +70,7 @@ export default function LandingPage() {
 
     const refElemArr = [
       descriptionRef,
+      workSectionRef,
       servicesRef,
       serviceProcessRef,
       contactSectionRef,
@@ -92,7 +101,7 @@ export default function LandingPage() {
   // Check connetion speedn to initiate video
   const InternetSpeedForVideo = () => {
     if (typeof window !== "undefined" && window.navigator) {
-      const networkSpeed = window.navigator.connection.downlink;
+      const networkSpeed = window.navigator.connection.downlink
 
       if (networkSpeed !== undefined && networkSpeed >= 2.0) {
         return (
@@ -123,19 +132,18 @@ export default function LandingPage() {
         style={landingPageBGImg}
       >
         {/* Auto play */}
-        <InternetSpeedForVideo />       
+        <InternetSpeedForVideo />
 
         <div id="overlay">
-          <nav
-            id="landing-page-nav"
-            className="text-white flex flex-row justify-between ml-10 mr-10 mt-5"
-          >
+          <nav className="landing-page-nav text-white flex flex-row justify-between ml-10 mr-10 mt-5">
             <div
               id="logo-container"
               className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
             >
               {/* <GatsbyImage alt="Website logo, duowork" image={logo} id="logo" /> */}
-              <img src={logo} alt="Website logo, duowork" id="logo" />
+              <Link to="/">
+                <img src={logo} alt="Website logo, duowork" id="logo" />
+              </Link>
             </div>
 
             <ul
@@ -143,20 +151,23 @@ export default function LandingPage() {
               className="hidden md:flex flex-row justify-between"
             >
               <li className="nav-item-link">
-                <Link to="#landing-page-home">Home</Link>
+                <Link to="/#landing-page-home">Home</Link>
+              </li>
+              <li className="nav-item-link">
+                <Link to="/#our-work">Our work</Link>
+              </li>
+              <li className="nav-item-link">
+                <Link to="/#our-services">Service</Link>
               </li>
               {/* <li className="nav-item-link">
-                <Link to="#our-work">Our work</Link>
+                <Link to="/blog">Blog</Link>
               </li> */}
-              <li className="nav-item-link">
-                <Link to="#our-services">Service</Link>
-              </li>
               <li id="cta-nav-item-contact" className="nav-item-link">
                 <Button
-                  name="Contact Us"
+                  value="Contact Us"
                   btnClass="cta-btn nav-contact-cta text-white"
                   isLink={true}
-                  linkTo="#contact-duowork"
+                  linkTo="/#contact-duowork"
                 />
               </li>
             </ul>
@@ -177,7 +188,7 @@ export default function LandingPage() {
               style={{ maxWidth: 500 }}
             >
               Transforming digital ideas into reality. We can help build and
-              manage your next big idea using crisp custom software solutions
+              manage your next big idea through crisp custom software solutions
               🛠✨
             </p>
 
@@ -227,7 +238,7 @@ export default function LandingPage() {
             </p>
             <Button
               btnType="button"
-              name="How can we help you?"
+              value="How can we help you?"
               btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-40 text-1xl text-white !w-60"
               isLink={true}
               linkTo="/contact"
@@ -254,6 +265,111 @@ export default function LandingPage() {
 
       {/* 'Our work' section*/}
       {/* ----------It goes here------------ */}
+      <section id="our-work" className="h-auto px-10 mb-20">
+        <p
+          id="heading"
+          className="text-xl sm:text-2xl font-semibold text-gray-700 sm:ml-20"
+        >
+          Some of <span className="underline-color-green-light">the work</span>{" "}
+          we've done <br /> for{" "}
+          <span className="underline-color-green-light">our clients.</span>
+        </p>
+
+        <div
+          id="duowork-portfolio"
+          className="hideTransition"
+          ref={workSectionRef}
+        >
+          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+            <img
+              src={EbonyBeauty}
+              alt="A screenshort of a website landing page"
+              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+            />
+            <div className="work-other-container">
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+                Ebony Beauty
+              </h3>
+              <p className="work-description w-80 py-5 text-xl">
+                Ebony beauty is a lagos-based retail store with aim to be
+                the ultimate destination for beauty products.
+              </p>
+              <p
+                id="work-type"
+                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+              >
+                #UI/UX & #website
+              </p>
+              <a
+                href="https://ebonybeautyhaven.com/"
+                target="_blank"
+                className="work-tag text-center text-xl p-2 rounded-full project-link"
+              >
+                View work
+              </a>
+            </div>
+          </div>
+
+          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+            <img
+              src={AdeolaAzeez}
+              alt="A screenshort of a website landing page"
+              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+            />
+            <div className="work-other-container">
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+                Adeola Azeez
+              </h3>
+              <p className="work-description w-80 py-5 text-xl">
+                A political campaign web presence for Adeola Azeez.
+              </p>
+              <p
+                id="work-type"
+                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+              >
+                #website
+              </p>
+              <a
+                href="https://adeolaazeez.com/"
+                target="_blank"
+                className="work-tag text-center text-xl p-2 rounded-full project-link"
+              >
+                View work
+              </a>
+            </div>
+          </div>
+
+          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+            <img
+              src={Collab}
+              alt="A screenshort of a website landing page"
+              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+            />
+            <div className="work-other-container">
+              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+                Collab
+              </h3>
+              <p className="work-description w-80 py-5 text-xl">
+                Collab is a case study of an envisioned productivity SaaS
+                application.
+              </p>
+              <p
+                id="work-type"
+                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+              >
+                #UI/UX & SaaS
+              </p>
+              <a
+                href="https://www.behance.net/gallery/159380125/Saas-Landing-Page"
+                target="_blank"
+                className="work-tag text-center text-xl p-2 rounded-full project-link"
+              >
+                View work
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials section*/}
       {/* ----------It goes here------------ */}
@@ -291,7 +407,7 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Product-design"}
@@ -320,7 +436,7 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Mobile-development"}
@@ -349,7 +465,7 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Web-development"}
@@ -377,10 +493,39 @@ export default function LandingPage() {
 
               <div className="request-service w-full mt-5 flex justify-center">
                 <Button
-                  name="Request service"
+                  value="Request service"
                   btnClass="cta-btn services-request-cta"
                   isLink={true}
                   linkTo={"/contact?service=Business-automation"}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="Business-automation-service"
+            className="services basis-1/3 rounded-xl"
+            style={servicePageImageStyle(softwareConsulting)}
+          >
+            <div className="service-overlay p-7 rounded-xl">
+              <h3 className="text-white text-2xl font-medium py-4">
+                Software
+                <br />
+                Consultation
+              </h3>
+
+              <p className="text-white">
+                Expert consulting services to help businesses achieve their
+                goals and optimize operations through expert guidiance and
+                customize solution.
+              </p>
+
+              <div className="request-service w-full mt-5 flex justify-center">
+                <Button
+                  value="Request service"
+                  btnClass="cta-btn services-request-cta"
+                  isLink={true}
+                  linkTo={"/contact?service=Software-consulting"}
                 />
               </div>
             </div>

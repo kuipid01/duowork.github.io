@@ -28,5 +28,24 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/src/blogPosts`
+      }
+    },
+    `gatsby-plugin-mdx`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Defaults used for gatsbyImageData and StaticImage
+        defaults: {},
+        // Relates to "options.failOn" in https://sharp.pixelplumbing.com/api-constructor#parameters
+        failOn: `warning`,
+      },
+    },
+    `gatsby-plugin-image`
   ],
 }

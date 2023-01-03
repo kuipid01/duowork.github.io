@@ -2,17 +2,17 @@ import { Link } from "gatsby"
 import React from "react"
 
 type ButtonProps = {
-  name: string
+  value: string
   btnClass: string
-  isLink: boolean
-  linkTo: any
+  isLink?: boolean
+  linkTo?: any
   btnType?: "button" | "submit" | "reset"
   btnDisabled?: boolean
   btnClicked?: () => {}
 }
 
 function Button({
-  name,
+  value,
   isLink,
   btnClass,
   linkTo,
@@ -23,13 +23,13 @@ function Button({
   if (!isLink) {
     return (
       <button type={btnType} className={btnClass} disabled={btnDisabled}>
-        {name}
+        {value}
       </button>
     )
   } else {
     return (
       <button type={btnType} className={btnClass} disabled={btnDisabled} onClick={btnClicked}>
-        <Link to={linkTo}>{name}</Link>
+        <Link to={linkTo}>{value}</Link>
       </button>
     )
   }
