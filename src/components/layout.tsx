@@ -13,7 +13,7 @@ import navXmark from "../assets/icons/navbar-xmark-solid.svg"
 
 const DesktopNavigation = (): React.ReactElement | null => {
   // Check page location and appy right styling
-  const location = typeof window !== "undefined" ? window.location : undefined
+  const location = typeof window === "object" ? window.location : undefined
   const homepage = location?.pathname === "/";
 
   return (
@@ -194,7 +194,7 @@ export default function Layout({ children }: any) {
             </div>
             <p className="text-xl items">Duowork</p>
             <p className="font-light items hidden sm:block">
-              © 2022 Duowork | All Right Reserved.
+            © {new Date().getFullYear()} Duowork | All Rights Reserved.
             </p>
           </div>
 

@@ -134,7 +134,7 @@ export default function Contact() {
 
       <section
         id="duowork-contact-form"
-        className="h-auto"
+        className="h-auto mt-5"
       >
         <div className="home-arrow px-10 pt-5">
           <Link to="/">
