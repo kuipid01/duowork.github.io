@@ -46,6 +46,7 @@ module.exports = {
         failOn: `warning`,
       },
     },
-    `gatsby-plugin-image`
+    `gatsby-plugin-image`,
+    'gatsby-plugin-remove-serviceworker'
   ],
 }

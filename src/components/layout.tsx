@@ -11,6 +11,8 @@ import logo from "../assets/logos/logo.png"
 import navBurgerBar from "../assets/icons/navbar-burger-solid.svg"
 import navXmark from "../assets/icons/navbar-xmark-solid.svg"
 
+const date = new Date();
+
 const DesktopNavigation = (): React.ReactElement | null => {
 
   if (typeof window !== "undefined") {
@@ -197,7 +199,7 @@ export default function Layout({ children }: any) {
             </div>
             <p className="text-xl items">Duowork</p>
             <p className="font-light items hidden sm:block">
-            © {new Date().getFullYear()} Duowork | All Rights Reserved.
+            © {date.getFullYear()} Duowork | All Rights Reserved.
             </p>
           </div>
 
@@ -229,7 +231,7 @@ export default function Layout({ children }: any) {
                 reach.duowork@gmail.com
               </a>
             </p>
-            {/* <p className="items">+234 801 234 5478</p> */}
+            <p className="items">+234 801 234 5478</p>
             <div
               id="contact-icons"
               className="flex flex-row justify-between align-items flex-wrap"
@@ -262,7 +264,7 @@ export default function Layout({ children }: any) {
         </div>
         <div id="sm-copywrite" className="block md:hidden text-white pb-5">
           <p className="font-light text-center sm:text-left p-2">
-            © {new Date().getFullYear()} Duowork | All Rights Reserved.
+            {/* © {date.getFullYear()} Duowork | All Rights Reserved. */}
           </p>
         </div>
       </footer>
