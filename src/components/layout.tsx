@@ -11,17 +11,17 @@ import logo from "../assets/logos/logo.png"
 import navBurgerBar from "../assets/icons/navbar-burger-solid.svg"
 import navXmark from "../assets/icons/navbar-xmark-solid.svg"
 
-const date = new Date();
+// const date = new Date();
 
 const DesktopNavigation = (): React.ReactElement | null => {
 
   if (typeof window !== "undefined") {
-    const homepage = window.location.pathname === "/";
+    const isHomePage = window.location.pathname === "/";
 
     return (
       <>
         <nav
-          className={`landing-page-nav text-white ml-10 mr-10 mt-5 ${homepage? 'hidden':'flex flex-row justify-between'}`}
+          className={`landing-page-nav text-white ml-10 mr-10 mt-5 ${isHomePage? 'hidden':'flex flex-row justify-between'}`}
         >
           <div
             id="logo-container"
@@ -33,7 +33,7 @@ const DesktopNavigation = (): React.ReactElement | null => {
             </Link>
           </div>
   
-          <ul id="nav-items" className={`hidden md:flex flex-row justify-between ${homepage? 'text-white':'text-black'}`}>
+          <ul id="nav-items" className={`hidden md:flex flex-row justify-between ${isHomePage? 'text-white':'text-black'}`}>
             <li className="nav-item-link">
               <Link to="/#landing-page-home">Home</Link>
             </li>
@@ -199,7 +199,7 @@ export default function Layout({ children }: any) {
             </div>
             <p className="text-xl items">Duowork</p>
             <p className="font-light items hidden sm:block">
-            © {date.getFullYear()} Duowork | All Rights Reserved.
+            © 2023 Duowork | All Rights Reserved.
             </p>
           </div>
 
@@ -264,7 +264,7 @@ export default function Layout({ children }: any) {
         </div>
         <div id="sm-copywrite" className="block md:hidden text-white pb-5">
           <p className="font-light text-center sm:text-left p-2">
-            {/* © {date.getFullYear()} Duowork | All Rights Reserved. */}
+            © 2023 Duowork | All Rights Reserved.
           </p>
         </div>
       </footer>
