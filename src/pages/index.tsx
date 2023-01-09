@@ -98,12 +98,13 @@ export default function LandingPage() {
     }
   }
 
-  // Check connetion speedn to initiate video
+  /*Background video should only play on stable network strength.
+  Connection object is available to Safari browser.*/
   const InternetSpeedForVideo = () => {
-    if (typeof window !== "undefined" && window.navigator) {
+    if (typeof window !== "undefined" && window.navigator.connection !== undefined) {
       const networkSpeed = window.navigator.connection.downlink
 
-      if (networkSpeed !== undefined && networkSpeed >= 2.0) {
+      if (networkSpeed !== undefined && networkSpeed >= 1.5) {
         return (
           <>
             <video
