@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../components/layout"
 import SEO from "../../components/SEO"
 
@@ -12,8 +12,14 @@ export default function Blog({ data }: any) {
       <section
         className="px-10 sm:h-screen blog-container post-container"
       >
-        <div className="sm:h-20 mb-0 mt-5 sm:my-10 blog-header">
+        <div className="sm:h-20 mb-0 mt-5 sm:mt-10 blog-header">
           <h1 className="text-2xl sm:text-4xl font-semibold"><span className="underline-color-green-light">Duowork articles</span></h1>
+        </div>
+
+        <div className="breadcrumb-nav text-md">
+          <Link to="/"><small className="text-gray-800">Home</small></Link>
+          <small className="breadcrumb-divide mx-1">/</small>
+          <small className="text-gray-400">blog</small>
         </div>
 
         <div id="blog-items-container" className="flex items-center justify-start flex-wrap my-5">
