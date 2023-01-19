@@ -1,4 +1,15 @@
 body {
+  /*Backgound and text colors*/
+  .custom-text-green-light {color: $green-light}
+  .custom-bg-green-light {background-color: $green-light}
+  .custom-text-green-lighter {color: $green-lighter}
+  .custom-bg-green-lighter {background-color: $green-lighter}
+
+  .custom-text-green-dark {color: $green-dark}
+  .custom-bg-green-dark {background-color: $green-dark}
+  .custom-text-green-darker {color: $green-darker}
+  .custom-bg-green-darker {background-color: $green-darker}
+
   // cursor: none;
   box-sizing: border-box !important;
   transition: all 200ms ease;
