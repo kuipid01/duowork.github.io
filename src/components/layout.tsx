@@ -11,8 +11,6 @@ import logo from "../assets/logos/logo.png"
 import navBurgerBar from "../assets/icons/navbar-burger-solid.svg"
 import navXmark from "../assets/icons/navbar-xmark-solid.svg"
 
-// const date = new Date();
-
 const DesktopNavigation = (): React.ReactElement | null => {
 
   if (typeof window !== "undefined") {

@@ -305,6 +305,7 @@ export default function LandingPage() {
                 href="https://ebonybeautyhaven.com/"
                 target="_blank"
                 className="work-tag text-center text-xl p-2 rounded-full project-link"
+                rel="noopener"
               >
                 View work
               </a>
@@ -334,6 +335,7 @@ export default function LandingPage() {
                 href="https://adeolaazeez.com/"
                 target="_blank"
                 className="work-tag text-center text-xl p-2 rounded-full project-link"
+                rel="noopener"
               >
                 View work
               </a>
@@ -364,6 +366,7 @@ export default function LandingPage() {
                 href="https://www.behance.net/gallery/159380125/Saas-Landing-Page"
                 target="_blank"
                 className="work-tag text-center text-xl p-2 rounded-full project-link"
+                rel="noopener"
               >
                 View work
               </a>
