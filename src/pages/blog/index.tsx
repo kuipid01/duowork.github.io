@@ -10,7 +10,7 @@ export default function Blog({ data }: any) {
   return (
     <Layout>
       <section
-        className="px-10 sm:h-screen blog-container post-container"
+        className="px-10 blog-container h-auto lg:h-screen post-container"
       >
         <div className="sm:h-20 mb-0 mt-5 sm:mt-10 blog-header">
           <h1 className="text-2xl sm:text-4xl font-semibold"><span className="underline-color-green-light">Duowork articles</span></h1>
@@ -41,7 +41,7 @@ export default function Blog({ data }: any) {
                   className="w-full rounded-t-md blog-item-image"
                 />
                 <div className="mx-2 blog-item-text-container">
-                  <div className="w-full my-5 blog-item-tag-container">
+                  <div className="w-full my-5 blog-item-tag-container overflow-x-scroll">
                     {post.frontmatter.tags.map((tag: string, i: number) => (
                       <small
                         key={i}

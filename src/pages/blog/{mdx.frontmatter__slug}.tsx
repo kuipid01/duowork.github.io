@@ -99,7 +99,7 @@ export default function Blog({ location, data, children }: any) {
                 </a>
               </div>
             </div>
-            <div className="w-full my-5 blog-item-tag-container pl-5">
+            <div className="w-full my-5 blog-item-tag-container pl-5 overflow-x-scroll">
               {post.frontmatter.tags.map((tag: string, i: number) => (
                 <small
                   key={i}
@@ -116,7 +116,7 @@ export default function Blog({ location, data, children }: any) {
                 {post.frontmatter.date}
               </span>{" "}
               <hr className="text-gray-400 bg-gray-400 w-10 my-2 sm:mx-5" />{" "}
-              <span className="custom-text-green-dark">8 min</span>
+              <span className="custom-text-green-dark">{post.frontmatter.read_time}</span>
             </div>
           </div>
 
