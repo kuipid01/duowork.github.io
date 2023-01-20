@@ -5,6 +5,14 @@
     color: $green-dark;
   }
 
+  .blog-items {
+    a {
+      .blog-item-text-container {
+        h2 {line-height: 1.8rem !important;}
+      }
+    }
+  }
+
   // Blog content styling.
   .blog-item {
 
