@@ -19,6 +19,10 @@
     .blog-item-body {
       margin: 0 auto;
 
+      .blog-highlighted-text {
+        background: $green-lighter;
+      }
+
       h1,
       h2,
       h3,
@@ -92,9 +96,8 @@
       }
 
       a {
-        background: $green-lighter;
-        text-decoration-style: double !important;
-        text-decoration-color: $green-lighter !important;
+        color: $green-light !important;
+        border-bottom: 1px solid $green-light;
       }
     }
   }
