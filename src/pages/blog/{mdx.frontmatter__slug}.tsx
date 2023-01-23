@@ -133,7 +133,7 @@ export const Head = ({ data }: any) => {
   const post = data.allMdx.nodes[0]
   const image: any = getImage(post.frontmatter.hero_image)
 
-  return <SEO title={post.frontmatter.title} />
+  return <SEO title={post.frontmatter.title} image={image} />
 }
 
 export const query = graphql`
