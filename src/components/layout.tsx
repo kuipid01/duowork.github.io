@@ -238,12 +238,12 @@ export default function Layout({ children }: any) {
               className="flex flex-row justify-between align-items flex-wrap"
             >
               <div className="icons items">
-                <a href="mailto:reach.duoworkhq@gmail.com" target={"_blank"}>
+                <a href="mailto:reach.duoworkhq@gmail.com" target={"_blank"} title="Email">
                   <i className="fa fa-envelope fa-2x" aria-hidden="true"></i>
                 </a>
               </div>
               <div className="icons items">
-                <a href="https://twitter.com/DuoworkHQ" target={"_blank"}>
+                <a href="https://twitter.com/DuoworkHQ" target={"_blank"} title="Twitter">
                   <i className="fa fa-twitter fa-2x" aria-hidden="true"></i>
                 </a>
               </div>
@@ -251,6 +251,7 @@ export default function Layout({ children }: any) {
                 <a
                   href="https://www.instagram.com/duoworkhq/"
                   target={"_blank"}
+                  title="Instagram"
                 >
                   <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
                 </a>
