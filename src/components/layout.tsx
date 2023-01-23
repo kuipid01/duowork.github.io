@@ -41,9 +41,9 @@ const DesktopNavigation = (): React.ReactElement | null => {
             <li className="nav-item-link">
               <Link to="/#our-services">Service</Link>
             </li>
-            {/* <li className="nav-item-link">
+            <li className="nav-item-link">
               <Link to="/blog">Blog</Link>
-            </li> */}
+            </li>
             <li id="cta-nav-item-contact" className="nav-item-link">
               <Button
                 value="Contact Us"
@@ -164,10 +164,13 @@ export default function Layout({ children }: any) {
             <Link to="/">Home</Link>
           </li>
           <li className="nav-item-link">
+            <Link to="#our-work">Our work</Link>
+          </li>
+          <li className="nav-item-link">
             <Link to="#our-services">Service</Link>
           </li>
           <li className="nav-item-link">
-            <Link to="#our-work">Our work</Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <li className="nav-item-link">
             <Link
@@ -257,6 +260,15 @@ export default function Layout({ children }: any) {
                   <i className="fa fa-linkedin fa-2x" aria-hidden="true"></i>
                 </Link>
               </div>    */}
+            </div>
+          </div>
+
+          <div id="more" className="text-white w-full">
+            <h3 className="text-2xl font-semibold">More</h3>
+            <div id="services" className="text-left w-full">
+              <p className="items">
+                <Link to="/blog">Blog</Link>
+              </p>
             </div>
           </div>
         </div>

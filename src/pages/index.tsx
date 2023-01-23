@@ -160,9 +160,9 @@ export default function LandingPage() {
               <li className="nav-item-link">
                 <Link to="/#our-services">Service</Link>
               </li>
-              {/* <li className="nav-item-link">
+              <li className="nav-item-link">
                 <Link to="/blog">Blog</Link>
-              </li> */}
+              </li>
               <li id="cta-nav-item-contact" className="nav-item-link">
                 <Button
                   value="Contact Us"
