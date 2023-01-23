@@ -8,6 +8,10 @@ type MeteDataType = {
     name: string
     summary: string
   }
+  socialMedia: {
+    twitter: string
+    instagram: string
+  }
 }
 
 export function useSiteMetaData(): MeteDataType {
