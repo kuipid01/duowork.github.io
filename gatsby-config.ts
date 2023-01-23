@@ -7,7 +7,7 @@ module.exports = {
     description: `Transforming ideas into reality through custom software development 🛠✨`,
     siteUrl: `https://www.duowork.github.io`,
     author: {
-      name: `Romeo Peter, Isaac Olugbenga`,
+      name: `Romeo Peter, Isaac Olugbenga: Founder and co-founder of Duowork.`,
       summary: `Founder and co-founder of Duowork.`,
     },
     socialMedia: {
