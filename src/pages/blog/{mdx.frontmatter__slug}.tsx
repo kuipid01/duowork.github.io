@@ -4,57 +4,58 @@ import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import Layout from "../../components/layout"
 import SEO from "../../components/SEO"
 
-export default function Blog({ location, data, children }: any) {
-  const post = data.allMdx.nodes[0]
-  const image: any = getImage(post.frontmatter.hero_image)
 
-  const getCreatorImgPlatform = (urlParam: string) => {
-    const testParams = ["pexels", "unsplash"]
+const getCreatorImgPlatform = (urlParam: string) => {
+  const testParams = ["pexels", "unsplash"]
 
-    for (let i = 0; i < testParams.length; i++) {
-      const regex = new RegExp(`${testParams[i]}.com`)
+  for (let i = 0; i < testParams.length; i++) {
+    const regex = new RegExp(`${testParams[i]}.com`)
 
-      if (regex.test(urlParam)) {
-        const t = testParams[i].toString()
-        return t.replace(t[0], t[0].toUpperCase())
-      }
+    if (regex.test(urlParam)) {
+      const t = testParams[i].toString()
+      return t.replace(t[0], t[0].toUpperCase())
     }
   }
+}
 
-  const Authors = ({ className }: any) => {
-    if (post.frontmatter.author.length === 2) {
-      const authors = post.frontmatter.author
-
-      return (
-        <div className={"blog-item-intro-footer " + className}>
-          By{" "}
-          {authors.map((author: string, idx: number) => {
-            return (
-              <>
-                <span className="blog-item-author custom-text-green-dark">
-                  {author}
-                </span>
-                {idx === 0 && " & "}
-              </>
-            )
-          })}
-        </div>
-      )
-    }
+const Authors = ({ className, post }: any) => {
+  if (post.frontmatter.author.length === 2) {
+    const authors = post.frontmatter.author
 
     return (
       <div className={"blog-item-intro-footer " + className}>
         By{" "}
-        <span className="blog-item-author custom-text-green-dark">
-          {post.frontmatter.author}
-        </span>
+        {authors.map((author: string, idx: number) => {
+          return (
+            <React.Fragment key={idx}>
+              <span className="blog-item-author custom-text-green-dark">
+                {author}
+              </span>
+              {idx === 0 && " & "}
+            </React.Fragment>
+          )
+        })}
       </div>
     )
   }
 
   return (
+    <div className={"blog-item-intro-footer " + className}>
+      By{" "}
+      <span className="blog-item-author custom-text-green-dark">
+        {post.frontmatter.author}
+      </span>
+    </div>
+  )
+}
+
+export default function Blog({ location, data, children }: any) {
+  const post = data.allMdx.nodes[0]
+  const image: any = getImage(post.frontmatter.hero_image)
+
+  return (
     <Layout>
-      <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-container">
+      <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-content-container">
         <div className="blog-item w-3/4">
           <div className="blog-item-intro">
             <h1 className="text-1xl sm:text-3xl font-bold text-center blog-item-intro-title pb-5 pt-5">
@@ -81,7 +82,7 @@ export default function Blog({ location, data, children }: any) {
                 alt={post.frontmatter.hero_image_alt}
                 className="w-full rounded-t-xl blog-item-image"
               />
-              <div className="blog-item-intro-image-creator text-center py-2 text-gray-400 text-sm">
+              <div className="blog-item-intro-image-creator text-center py-2 text-gray-400 text-xs">
                 Image by{" "}
                 <span className="text-gray-500">
                   {post.frontmatter.hero_image_credit_text}
@@ -110,7 +111,7 @@ export default function Blog({ location, data, children }: any) {
               ))}
             </div>
             <div className="blog-item-intro-footer text-sm flex flex-col md:flex-row items-start md:items-center w-full w-full-max pl-5 my-10">
-              <Authors className="text-gray-500" />{" "}
+              <Authors className="text-gray-500" post={post} />{" "}
               <hr className="text-gray-400 bg-gray-400 w-10 my-2 sm:mx-5" />{" "}
               <span className="custom-text-green-dark">
                 {post.frontmatter.date}
