@@ -1,21 +1,32 @@
-.blog-container {
-  // Blog index
-  .blog-item-tag {
-    background-color: $green-lighter;
-    color: $green-dark;
-  }
+// General style for both the blog index and individual blog content
+.blog-item-tag {
+  background-color: $green-lighter;
+  color: $green-dark;
+}
 
-  .blog-items {
-    a {
-      .blog-item-text-container {
-        h2 {line-height: 1.8rem !important;}
+// Blog index styling
+.blog-container {
+  
+  #blog-items-container {
+
+    .blog-items {
+      height: 27rem !important;
+
+      .blog-item-link {
+        .blog-item-text-container {
+          h2 {
+            line-height: 1.8rem !important;
+          }
+        }
       }
     }
   }
+}
 
+// Blog content styling
+.blog-content-container {
   // Blog content styling.
   .blog-item {
-
     .blog-item-body {
       margin: 0 auto;
 
@@ -65,11 +76,16 @@
       }
 
       ul {
-        list-style-type: disc !important;
+        list-style-type: decimal !important;
         margin: 1.5rem 0;
 
         li {
           margin-bottom: 0.5rem;
+
+          ul {
+            list-style-type: disc !important;
+            margin-left: 1rem;
+          }
         }
       }
 
