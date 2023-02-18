@@ -189,8 +189,7 @@ export default function LandingPage() {
               style={{ maxWidth: 500 }}
             >
               Transforming digital ideas into reality. We can help build and
-              manage your next big idea through crisp custom software solutions
-              🛠✨
+              manage your next big idea through crisp custom software solutions.
             </p>
 
             {/* <Button

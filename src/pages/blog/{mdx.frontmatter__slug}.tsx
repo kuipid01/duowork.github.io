@@ -4,7 +4,6 @@ import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import Layout from "../../components/layout"
 import SEO from "../../components/SEO"
 
-
 const getCreatorImgPlatform = (urlParam: string) => {
   const testParams = ["pexels", "unsplash"]
 
@@ -51,7 +50,10 @@ const Authors = ({ className, post }: any) => {
 
 export default function Blog({ location, data, children }: any) {
   const post = data.allMdx.nodes[0]
+  const date_updated = post.frontmatter.date_updated
   const image: any = getImage(post.frontmatter.hero_image)
+
+  console.log(post)
 
   return (
     <Layout>
@@ -73,7 +75,9 @@ export default function Blog({ location, data, children }: any) {
                 <small>Blog</small>
               </Link>
               <small className="breadcrumb-divide mx-1">/</small>
-              <small className="text-gray-400">{location.pathname.split("/")[2]}</small>
+              <small className="text-gray-400">
+                {location.pathname.split("/")[2]}
+              </small>
             </div>
 
             <div className="blog-item-intro-image">
@@ -110,15 +114,26 @@ export default function Blog({ location, data, children }: any) {
                 </small>
               ))}
             </div>
-            <div className="blog-item-intro-footer text-sm flex flex-col md:flex-row items-start md:items-center w-full w-full-max pl-5 my-10">
+            <div className="blog-item-intro-footer text-sm flex flex-col md:flex-row items-start md:items-center w-full w-full-max pl-5 mt-10 mb-5">
               <Authors className="text-gray-500" post={post} />{" "}
               <hr className="text-gray-400 bg-gray-400 w-10 my-2 sm:mx-5" />{" "}
               <span className="custom-text-green-dark">
                 {post.frontmatter.date}
               </span>{" "}
               <hr className="text-gray-400 bg-gray-400 w-10 my-2 sm:mx-5" />{" "}
-              <span className="custom-text-green-dark">{post.frontmatter.read_time}</span>
+              <span className="custom-text-green-dark">
+                {post.frontmatter.time}
+              </span>
             </div>
+            {date_updated ? (
+              <div className="pl-5 mt-2 mb-10 text-sm flex items-between text-gray-500">
+                Updated{" "}
+                <hr className="text-gray-400 bg-gray-400 w-5 my-2 sm:w-10 mx-2 sm:mx-5" />
+                <span className="custom-text-green-dark">{date_updated}</span>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className="blog-item-body mt-10 min-min w-11/12 md:w-10/12">
@@ -132,7 +147,7 @@ export default function Blog({ location, data, children }: any) {
 
 export const Head = ({ data }: any) => {
   const post = data.allMdx.nodes[0]
-  const image: any = getSrc(post.frontmatter.hero_image);
+  const image: any = getSrc(post.frontmatter.hero_image)
 
   return <SEO title={post.frontmatter.title} image={image} />
 }
@@ -147,6 +162,8 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "MMMM DD, Y")
+          date_updated(formatString: "MMMM DD, Y")
+          time
           author
           tags
           slug
