@@ -22,61 +22,14 @@ import Button from "../components/Button"
 import Layout from "../components/layout"
 import SEO from "../components/SEO"
 
-// Hooks
-import useIntersectionObserver from "../hooks/useIntersectionObserver"
-
-
-
-
-
-
-
 export const Head = () => (
   /* Valid properties: location.pathname,params, data, pageContext */
   <SEO title="Home" />
 )
 
 export default function LandingPage() {
-  /* Intersection observer start */
-  const intersectionCallback = (entries: any) => {
-    entries.forEach((entry: any) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("showTransition")
-      } else {
-        entry.target.classList.remove("showTransition")
-      }
-    })
-  }
-
-  const { observer } = useIntersectionObserver(intersectionCallback, undefined)
-
-  const observerFunc = (refElemArr: React.RefObject<any>[]) => {
-    refElemArr.forEach(elem => {
-      if (elem.current !== null && observer !== null) {
-        observer.observe(elem.current)
-      }
-    })
-  }
-
-  let descriptionRef = useRef<HTMLDivElement>(null)
-  let workSectionRef = useRef<HTMLDivElement>(null)
-  let servicesRef = useRef<HTMLDivElement>(null)
-  let serviceProcessHeaderRef = useRef<HTMLHeadingElement>(null)
-  let serviceProcessRef = useRef<HTMLDivElement>(null)
-  let contactSectionRef = useRef<HTMLDivElement>(null)
-
   useEffect((): any => {
     let componentIsMounted = true
-
-    const refElemArr = [
-      descriptionRef,
-      workSectionRef,
-      servicesRef,
-      serviceProcessRef,
-      contactSectionRef,
-    ]
-
-    observerFunc(refElemArr)
 
     return () => (componentIsMounted = false)
   }, [])
@@ -100,10 +53,14 @@ export default function LandingPage() {
 
   /*Background video should only play on stable network strength.
   Connection object is available to Safari browser.*/
-  const InternetSpeedForVideo = () => {
-    if (typeof window !== "undefined" && window.navigator.connection !== undefined) {
+  const BackgroundVideoPlayback = () => {
+    if (
+      typeof window !== "undefined" &&
+      window.navigator.connection !== undefined
+    ) {
       const networkSpeed = window.navigator.connection.downlink
 
+      // Check internet download speed
       if (networkSpeed !== undefined && networkSpeed >= 1.5) {
         return (
           <>
@@ -129,13 +86,13 @@ export default function LandingPage() {
     <Layout>
       <section
         id="landing-page-home"
-        className="h-screen"
+        className="h-[45rem] h-full"
         style={landingPageBGImg}
       >
         {/* Auto play */}
-        <InternetSpeedForVideo />
+        <BackgroundVideoPlayback />
 
-        <div id="overlay">
+        <div id="overlay" className="!h-full">
           <nav className="landing-page-nav text-white flex flex-row justify-between ml-10 mr-10 mt-5">
             <div
               id="logo-container"
@@ -208,18 +165,20 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="what-we-do" className="pt-10 px-5 pb-5 h-screen">
-        <div className="flex flex-row hideTransition" ref={descriptionRef}>
+      <section id="what-we-do" className="pt-10 px-5 pb-5 h-[45rem]">
+        <div className="flex flex-row h-full">
           <div
             id="what-we-do-intro"
-            className="what-we-do-divide flex flex-col items-center !w-full md:w-50"
+            className="what-we-do-divide flex flex-col items-center !w-full md:w-50 h-full"
           >
             <h2
               id="what-we-do-header"
-              className="text-3xl sm:text-5xl font-medium mt-40 mb-5 text-gray-700"
+              className="text-3xl sm:text-5xl font-medium mt-10 sm:mt-40 mb-5 text-gray-700"
             >
-              You operate the business. <br /> We build the project.
+              You operate the business. <br className="hidden sm:block" /> We
+              build the project.
             </h2>
+
             <p
               id="what-we-do-description"
               className="mb-10 text-gray-600 sm:text-lg"
@@ -236,10 +195,11 @@ export default function LandingPage() {
                 We work hand-in-hand with you.
               </span>
             </p>
+
             <Button
               btnType="button"
               value="How can we help you?"
-              btnClass="cta-btn what-we-do-cta-btn !self-center lg:!self-start lg:ml-40 text-1xl text-white !w-60"
+              btnClass="cta-btn what-we-do-cta-btn self-start md:ml-40 lg:ml-40 text-1xl text-white !w-60"
               isLink={true}
               linkTo="/contact"
             />
@@ -249,11 +209,6 @@ export default function LandingPage() {
             id="what-we-do-img"
             className="what-we-do-divide hidden lg:block"
           >
-            {/* <GatsbyImage
-              image={projectionsSVG}
-              alt="An illustration of a lady"
-              className="h-full max-w-full"
-            /> */}
             <img
               src={projectionsSVG}
               alt="An illustration of a lady"
@@ -275,11 +230,7 @@ export default function LandingPage() {
           <span className="underline-color-green-light">our clients.</span>
         </p>
 
-        <div
-          id="duowork-portfolio"
-          className="hideTransition"
-          ref={workSectionRef}
-        >
+        <div id="duowork-portfolio">
           <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
             <img
               src={EbonyBeauty}
@@ -291,8 +242,8 @@ export default function LandingPage() {
                 Ebony Beauty
               </h3>
               <p className="work-description w-80 py-5 text-xl">
-                Ebony beauty is a lagos-based retail store with aim to be
-                the ultimate destination for beauty products.
+                Ebony beauty is a lagos-based retail store with aim to be the
+                ultimate destination for beauty products.
               </p>
               <p
                 id="work-type"
@@ -388,8 +339,7 @@ export default function LandingPage() {
 
         <div
           id="services-container"
-          className="px-10 py-5 grid grid-cols-1 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8 hideTransition"
-          ref={servicesRef}
+          className="px-10 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8"
         >
           <div
             id="product-design-service"
@@ -546,8 +496,7 @@ export default function LandingPage() {
 
           <div
             id="process-container"
-            className="grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center gap-8 hideTransition"
-            ref={serviceProcessRef}
+            className="grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center gap-8"
           >
             <div id="discovery-scope-process" className="process shadow-md">
               <div className="process-title">
@@ -606,8 +555,8 @@ export default function LandingPage() {
       {/* 'Technology we use' section*/}
       {/* ----------It goes here------------ */}
 
-      <section id="contact-duowork" className="h-screen">
-        <div ref={contactSectionRef} className="hideTransition">
+      <section id="contact-duowork" className="h-[45rem]">
+        <div className="">
           <h1
             id="header"
             className="text-4xl sm:text-6xl font-semibold text-gray-700 text-center pb-5 pt-20"
