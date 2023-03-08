@@ -28,13 +28,6 @@ export const Head = () => (
 )
 
 export default function LandingPage() {
-  useEffect((): any => {
-    let componentIsMounted = true
-
-    return () => (componentIsMounted = false)
-  }, [])
-  /* Intersection observer End */
-
   const landingPageBGImg = {
     backgroundImage: `url(${bgImage})`,
     backgroundRepat: "no-repeat",
@@ -86,7 +79,7 @@ export default function LandingPage() {
     <Layout>
       <section
         id="landing-page-home"
-        className="h-[45rem] h-full"
+        className="h-[45rem]"
         style={landingPageBGImg}
       >
         {/* Auto play */}
