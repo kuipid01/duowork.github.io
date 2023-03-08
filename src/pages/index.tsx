@@ -223,8 +223,8 @@ export default function LandingPage() {
           <span className="underline-color-green-light">our clients.</span>
         </p>
 
-        <div id="duowork-portfolio">
-          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+        <div id="duowork-portfolio" className="w-full">
+          <div className="work-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
             <img
               src={EbonyBeauty}
               alt="A screenshort of a website landing page"
@@ -255,7 +255,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+          <div className="work-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
             <img
               src={AdeolaAzeez}
               alt="A screenshort of a website landing page"
@@ -285,7 +285,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="work-item flex flex-col sm:flex-row item-center sm:ml-20 pt-10">
+          <div className="work-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
             <img
               src={Collab}
               alt="A screenshort of a website landing page"
