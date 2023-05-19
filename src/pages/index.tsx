@@ -448,7 +448,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div
+          {/* <div
             id="Business-automation-service"
             className="services basis-1/3 rounded-xl"
             style={servicePageImageStyle(softwareConsulting)}
@@ -475,7 +475,7 @@ export default function LandingPage() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div id="our-process" className="px-10">

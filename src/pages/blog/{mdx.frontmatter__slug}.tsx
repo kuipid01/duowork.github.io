@@ -53,8 +53,6 @@ export default function Blog({ location, data, children }: any) {
   const date_updated = post.frontmatter.date_updated
   const image: any = getImage(post.frontmatter.hero_image)
 
-  console.log(post)
-
   return (
     <Layout>
       <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-content-container">
