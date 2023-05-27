@@ -46,6 +46,7 @@ export default function Blog({ data }: any) {
                     image={image}
                     alt={post.frontmatter.hero_image_alt}
                     className="w-full rounded-t-md blog-item-image"
+                    style={{width: 300, height: 200}}
                   />
                   <div className="mx-2 blog-item-text-container">
                     <div className="w-full my-5 blog-item-tag-container overflow-x-scroll">

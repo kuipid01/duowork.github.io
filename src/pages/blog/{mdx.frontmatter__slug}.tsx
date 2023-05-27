@@ -5,16 +5,9 @@ import Layout from "../../components/layout"
 import SEO from "../../components/SEO"
 
 const getCreatorImgPlatform = (urlParam: string) => {
-  const testParams = ["pexels", "unsplash"]
+  const url = new URL(urlParam);
 
-  for (let i = 0; i < testParams.length; i++) {
-    const regex = new RegExp(`${testParams[i]}.com`)
-
-    if (regex.test(urlParam)) {
-      const t = testParams[i].toString()
-      return t.replace(t[0], t[0].toUpperCase())
-    }
-  }
+  return url.hostname
 }
 
 const Authors = ({ className, post }: any) => {
