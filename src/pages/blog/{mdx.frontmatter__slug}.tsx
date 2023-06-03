@@ -1,45 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
-import Layout from "../../components/layout"
-import SEO from "../../components/SEO"
-
-const getCreatorImgPlatform = (urlParam: string) => {
-  const url = new URL(urlParam);
-
-  return url.hostname
-}
-
-const Authors = ({ className, post }: any) => {
-  if (post.frontmatter.author.length === 2) {
-    const authors = post.frontmatter.author
-
-    return (
-      <div className={"blog-item-intro-footer " + className}>
-        By{" "}
-        {authors.map((author: string, idx: number) => {
-          return (
-            <React.Fragment key={idx}>
-              <span className="blog-item-author custom-text-green-dark">
-                {author}
-              </span>
-              {idx === 0 && " & "}
-            </React.Fragment>
-          )
-        })}
-      </div>
-    )
-  }
-
-  return (
-    <div className={"blog-item-intro-footer " + className}>
-      By{" "}
-      <span className="blog-item-author custom-text-green-dark">
-        {post.frontmatter.author}
-      </span>
-    </div>
-  )
-}
+import Layout from "../../layouts/layout"
+import Authors from "./getBlogAuthor"
+import { getImgPlatform } from "./getImgPlatform"
+import Head  from "./Head"
 
 export default function Blog({ location, data, children }: any) {
   const post = data.allMdx.nodes[0]
@@ -48,6 +13,7 @@ export default function Blog({ location, data, children }: any) {
 
   return (
     <Layout>
+      <Head data={data} />
       <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-content-container">
         <div className="blog-item w-3/4">
           <div className="blog-item-intro">
@@ -89,7 +55,7 @@ export default function Blog({ location, data, children }: any) {
                   target="_blank"
                   className="text-gray-500"
                 >
-                  {getCreatorImgPlatform(
+                  {getImgPlatform(
                     post.frontmatter.hero_image_credit_link
                   )}
                 </a>
@@ -136,15 +102,8 @@ export default function Blog({ location, data, children }: any) {
   )
 }
 
-export const Head = ({ data }: any) => {
-  const post = data.allMdx.nodes[0]
-  const image: any = getSrc(post.frontmatter.hero_image)
-
-  return <SEO title={post.frontmatter.title} image={image} />
-}
-
 export const query = graphql`
-  query blogPosts($id: String) {
+  query blog($id: String) {
     allMdx(
       filter: { id: { eq: $id } }
       sort: { fields: frontmatter___date, order: DESC }

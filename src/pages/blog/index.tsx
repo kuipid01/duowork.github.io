@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Layout from "../../components/layout"
+import Layout from "../../layouts/layout"
 import SEO from "../../components/SEO"
 
 export default function Blog({ data }: any) {
