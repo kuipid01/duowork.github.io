@@ -7,7 +7,7 @@ import { toast } from "react-toastify"
 import sendMail from "../services/sendMail"
 
 // components
-import Layout from "../components/layout"
+import Layout from "../layouts/layout"
 import SEO from "../components/SEO"
 
 // Assets

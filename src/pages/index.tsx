@@ -18,7 +18,7 @@ import Button from "../components/Button"
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
 import cloudPlaywebm from "../assets/video/cloudplay.webm"
 // Components
-import Layout from "../components/layout"
+import Layout from "../layouts/layout"
 import SEO from "../components/SEO"
 
 
