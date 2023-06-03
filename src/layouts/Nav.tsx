@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby';
 
-import Button from './Button';
+import Button from '../components/Button';
 import logo from "../assets/logos/logo.png"
 
 export default function Nav(): React.ReactElement | null {

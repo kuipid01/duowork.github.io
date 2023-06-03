@@ -42,10 +42,12 @@ export default function SEO({
     <>
       {/* General meta tags */}
       <title>{seo.title}</title>
-      <meta name="og:image" content={seo.image} />
       <meta charSet="utf-8" />
       <meta name="description" content={seo.description} />
       <meta name="author" content={seo.author.name} />
+
+       {/* Facebook meta tags */}
+      <meta property="og:image" content={seo.image} />
 
       {/* Twitter meta tags */}
       <meta name="twitter:card" content="summary_large_image" />
