@@ -1,27 +1,24 @@
 import { Link } from "gatsby"
 import React from "react"
-import longDownArrow from "../assets/icons/long-down-arrow-96.png"
-import projectionsSVG from "../assets/illustrations/projections.svg"
-import businessAutomation from "../assets/images/business-automation.jpeg"
-// Images
+
+// Media assets
 import bgImage from "../assets/images/cloudPlayImg.png"
 import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
 import mobileDevelopmentImg from "../assets/images/mobile-development.png"
 import AdeolaAzeez from "../assets/images/portfolio/AdeolaAzeez2.jpeg"
-import Collab from "../assets/images/portfolio/Collab.jpeg"
 import EbonyBeauty from "../assets/images/portfolio/Ebonybeauty2.jpeg"
 import LarksBanner from "../assets/images/portfolio/larks-banner.png"
 import productDesignImg from "../assets/images/product-design.jpeg"
 import logo from "../assets/logos/logo.png"
+import businessAutomation from "../assets/images/business-automation.jpeg"
+import longDownArrow from "../assets/icons/long-down-arrow-96.png"
 import Button from "../components/Button"
-// Videos
+import projectionsSVG from "../assets/illustrations/projections.svg"
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
 import cloudPlaywebm from "../assets/video/cloudplay.webm"
 // Components
 import Layout from "../layouts/layout"
 import SEO from "../components/SEO"
-
-
 
 export const Head = () => (
   /* Valid properties: location.pathname,params, data, pageContext */
@@ -142,13 +139,6 @@ export default function LandingPage() {
               Transforming digital ideas into reality. We can help build and
               manage your next big idea through crisp custom software solutions.
             </p>
-
-            {/* <Button
-              name="What do you want to build?"
-              btnClass="text-white mt-20 font-semibold self-center cta-btn intro-cta-btn"
-              isLink={true}
-              linkTo={"contact"}
-            /> */}
             <img
               src={longDownArrow}
               alt="Long down arrow icon"
@@ -448,35 +438,6 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-
-          {/* <div
-            id="Business-automation-service"
-            className="services basis-1/3 rounded-xl"
-            style={servicePageImageStyle(softwareConsulting)}
-          >
-            <div className="service-overlay p-7 rounded-xl">
-              <h3 className="text-white text-2xl font-medium py-4">
-                Software
-                <br />
-                Consultation
-              </h3>
-
-              <p className="text-white">
-                Expert consulting services to help businesses achieve their
-                goals and optimize operations through expert guidiance and
-                customize solution.
-              </p>
-
-              <div className="request-service w-full mt-5 flex justify-center">
-                <Button
-                  value="Request service"
-                  btnClass="cta-btn services-request-cta"
-                  isLink={true}
-                  linkTo={"/contact?service=Software-consulting"}
-                />
-              </div>
-            </div>
-          </div> */}
         </div>
 
         <div id="our-process" className="px-10">
@@ -602,30 +563,6 @@ export default function LandingPage() {
                     <i className="fa fa-instagram fa-2x" aria-hidden="true"></i>
                   </a>
                 </div>
-
-                {/* <div className="icons items">
-                <a href="#" target={"_blank"} className="text-green-700">
-                  <i className="fa fa-linkedin fa-2x" aria-hidden="true"></i>
-                </a>
-              </div> */}
-
-                {/* <div className="icons items">
-                <a href="#" target={"_blank"} className="text-green-700">
-                  <i className="fa fa-medium fa-2x" aria-hidden="true"></i>
-                </a>
-              </div> */}
-
-                {/* <div className="icons items">
-                <a href="#" target={"_blank"} className="text-green-700">
-                  <i className="fa fa-briefcase fa-2x" aria-hidden="true"></i>
-                </a>
-              </div> */}
-
-                {/* <div className="icons items">
-                <a href="#" target={"_blank"} className="text-green-700">
-                  <i className="fa fa-facebook fa-2x" aria-hidden="true"></i>
-                </a>
-              </div> */}
               </div>
             </div>
 
