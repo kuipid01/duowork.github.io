@@ -1,6 +1,5 @@
 import React from "react";
 import { useSiteMetaData } from "../hooks/useSiteMetaData";
-import logo from "../assets/logos/logo.png"
 import favicon from "../assets/icons/favicon.ico";
 
 type SEOType = {
@@ -26,6 +25,9 @@ export default function SEO({
     socialMedia,
   } = useSiteMetaData();
 
+  // Image is stored on Cloudinary media service.
+  const logoImage = `https://res.cloudinary.com/dzgbcvjw5/image/upload/v1686752685/duowork/logo/Duowork_logo_jpeg_Watermark_fz2qkk.jpg`
+
   const seo = {
     title: title ? `${defaultTitle} | ${title}` : defaultTitle,
     description: description || defaultDescription,
@@ -35,7 +37,7 @@ export default function SEO({
       twitter: socialMedia.twitter,
       instagram: socialMedia.instagram,
     },
-    image: image ? image: logo
+    image: image ? image: logoImage
   };
 
   return (
