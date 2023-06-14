@@ -25,7 +25,7 @@ import SEO from "../components/SEO"
   the <head> elmenent of the HMTL document.
 */
 export const Head = () => (
-  <SEO title="Home" image={logo} />
+  <SEO title="Home" />
 )
 
 export default function LandingPage() {
