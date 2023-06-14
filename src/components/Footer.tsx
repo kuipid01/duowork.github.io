@@ -6,13 +6,14 @@ export default function Footer() {
   return (
     <footer className="h-full">
       <div className="center p-14 grid grid-cols-1 md:grid-cols-4 justify-center md:justify-items-center gap-8">
+
         <div id="logo-container" className="text-white">
           <div
             id="logo"
             className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
           >
             <a href="/">
-              <img src={logo} alt="duowork logo" id="logo" />
+              <img src={logo} alt="duowork logo" />
             </a>
           </div>
           <p className="text-xl items">Duowork</p>
@@ -90,6 +91,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
       <hr className="mx-5 border-1 border-green-100" />
       <div id="sm-copywrite" className="text-white pb-5">
         <p className="font-light text-center text-green-200 p-2">

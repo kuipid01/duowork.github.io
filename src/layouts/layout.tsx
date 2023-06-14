@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react"
 
-import Nav from "./Nav"
-import NavMobile from "./NavMobile"
-import Footer from "./Footer"
+import Nav from "../components/Nav"
+import NavMobile from "../components/NavMobile"
+import Footer from "../components/Footer"
 
 import { ToastContainer } from "react-toastify"
 import customCursor from "../utils/customCursor"
@@ -17,7 +17,7 @@ export default function Layout({ children }: any) {
     let componentIsMounted = true
 
     if (componentIsMounted) {
-      // Call custom cursor function
+      // Invoke custom cursor function
       customCursor(cursorDotRef, cursorDotOutlineRef)
     }
 
@@ -37,7 +37,7 @@ export default function Layout({ children }: any) {
 
       <Footer />
 
-      {/* Toast notification container */}
+      {/* Toast notification container for when form is submitted */}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -51,7 +51,7 @@ export default function Layout({ children }: any) {
         theme="dark"
       />
 
-      {/* Custom cursor */}
+      {/* Custom cursor elements */}
       <div className="cursor-dot text-white" ref={cursorDotRef}></div>
       <div
         className="cursor-dot-outline text-white"
