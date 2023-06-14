@@ -57,7 +57,7 @@ This is the official [Duowork](https://www.duowork.github.io) website repository
 
 ## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at the top-level files and directories you'll in the codebase.
 
     .
     ├── node_modules
