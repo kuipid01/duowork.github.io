@@ -20,9 +20,12 @@ import cloudPlaywebm from "../assets/video/cloudplay.webm"
 import Layout from "../layouts/layout"
 import SEO from "../components/SEO"
 
+/*
+  Gatsby uses this component to insert data in  
+  the <head> elmenent of the HMTL document.
+*/
 export const Head = () => (
-  /* Valid properties: location.pathname,params, data, pageContext */
-  <SEO title="Home" />
+  <SEO title="Home" image={logo} />
 )
 
 export default function LandingPage() {
