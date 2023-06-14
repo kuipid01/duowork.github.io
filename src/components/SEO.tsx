@@ -1,14 +1,15 @@
-import React from "react"
-import { useSiteMetaData } from "../hooks/useSiteMetaData"
-import favicon from "../assets/icons/favicon.ico"
+import React from "react";
+import { useSiteMetaData } from "../hooks/useSiteMetaData";
+import logo from "../assets/logos/logo.png"
+import favicon from "../assets/icons/favicon.ico";
 
 type SEOType = {
-  title?: string
-  description?: string
-  image?: string
-  pathname?: string
-  children?: JSX.Element
-}
+  title?: string;
+  description?: string;
+  image?: string;
+  pathname?: string;
+  children?: JSX.Element;
+};
 
 export default function SEO({
   title,
@@ -17,26 +18,25 @@ export default function SEO({
   pathname,
   children,
 }: SEOType) {
-
   const {
     title: defaultTitle,
     description: defaultDescription,
     siteUrl,
     author,
     socialMedia,
-  } = useSiteMetaData()
+  } = useSiteMetaData();
 
   const seo = {
     title: title ? `${defaultTitle} | ${title}` : defaultTitle,
     description: description || defaultDescription,
-    url: `${siteUrl}${pathname}`,
+    url: `${siteUrl}`,
     author,
     socialMedia: {
       twitter: socialMedia.twitter,
-      instagram: socialMedia.instagram
+      instagram: socialMedia.instagram,
     },
-    image
-  }
+    image: image ? image: logo
+  };
 
   return (
     <>
@@ -46,13 +46,19 @@ export default function SEO({
       <meta name="description" content={seo.description} />
       <meta name="author" content={seo.author.name} />
 
-       {/* Facebook meta tags */}
+      {/* Facebook meta tags */}
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
+      <meta property="og:url" content={seo.url} />
 
       {/* Twitter meta tags */}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={seo.title} />
-      <meta name="twitter:url" content={`https://twitter.com/${seo.socialMedia.twitter}`} />
+      <meta
+        name="twitter:url"
+        content={`https://twitter.com/${seo.socialMedia.twitter}`}
+      />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
       <meta name="twitter:creator" content={seo.socialMedia.twitter} />
@@ -74,5 +80,5 @@ export default function SEO({
 
       {children}
     </>
-  )
+  );
 }
