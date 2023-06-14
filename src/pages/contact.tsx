@@ -15,7 +15,7 @@ import homeArrow from "../assets/icons/arrow-left-long-solid.svg"
 
 export const Head = () => (
   /* Valid properties: location.pathname,params, data, pageContext */
-  <SEO title="Contact" />
+  <SEO title="Contact us" />
 )
 
 export default function Contact() {
