@@ -4,23 +4,15 @@ module.exports = {
   // Document head meta configuration
   siteMetadata: {
     title: `Duowork`,
-    description: `Transforming ideas into reality through custom software development 🛠✨`,
+    description: `Building ideas into reality through custom software development.`,
     siteUrl: `https://www.duowork.github.io`,
     author: {
-      name: `Romeo Peter, Isaac Olugbenga: Founder and co-founder of Duowork.`,
+      name: `Romeo Peter | Isaac Olugbenga`,
       summary: `Founder and co-founder of Duowork.`,
     },
     socialMedia: {
       twitter: `duoworkhq`,
       instagram: `duoworkhq`,
-    },
-
-    // Not part of the meta data but I'd like to acess this data
-    webAppData: {
-      annoucment: {
-        ifAnnoucment: false,
-        annoucment: ``,
-      },
     },
   },
 
