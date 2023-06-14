@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.duowork.github.io">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+    <img alt="Gatsby" src="https://res.cloudinary.com/dzgbcvjw5/image/upload/v1686752664/duowork/logo/Duowork_logo_Vertical_Logo_Full_Color_exedrf.png" width="100" />
   </a>
 </p>
 <h1 align="center">
