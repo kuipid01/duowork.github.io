@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Authors({ className, post }: any) {
-  if (post.frontmatter.author.length === 2) {
-    const authors = post.frontmatter.author;
+export default function Authors({ className, author }: any) {
+  if (author !== undefined && author.length > 0) {
+    const authors = author;
 
     return (
       <div className={"blog-item-intro-footer " + className}>
@@ -13,19 +13,19 @@ export default function Authors({ className, post }: any) {
               <span className="blog-item-author custom-text-green-dark">
                 {author}
               </span>
-              {idx === 0 && " & "}
+              {idx < (authors.length - 1) && " & "}
             </React.Fragment>
           )
         })}
       </div>
-    )
+    ) 
   }
 
   return (
     <div className={"blog-item-intro-footer " + className}>
       By{" "}
       <span className="blog-item-author custom-text-green-dark">
-        {post.frontmatter.author}
+        {author}
       </span>
     </div>
   )

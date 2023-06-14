@@ -3,17 +3,20 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import Layout from "../../layouts/layout"
 import Authors from "./getBlogAuthor"
-import { getImgPlatform } from "./getImgPlatform"
+import { getImgPlatform } from "../../utils/getImgPlatform"
 import Head  from "./Head"
 
 export default function Blog({ location, data, children }: any) {
   const post = data.allMdx.nodes[0]
+  const title = post.frontmatter.title
+  const description = post.frontmatter.description
   const date_updated = post.frontmatter.date_updated
   const image: any = getImage(post.frontmatter.hero_image)
+  const author = post.frontmatter.author
 
   return (
     <Layout>
-      <Head data={data} />
+      <Head title={title} description={description} image={image} />
       <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-content-container">
         <div className="blog-item w-3/4">
           <div className="blog-item-intro">
@@ -72,7 +75,7 @@ export default function Blog({ location, data, children }: any) {
               ))}
             </div>
             <div className="blog-item-intro-footer text-sm flex flex-col md:flex-row items-start md:items-center w-full w-full-max pl-5 mt-10 mb-5">
-              <Authors className="text-gray-500" post={post} />{" "}
+              <Authors className="text-gray-500" author={author} />{" "}
               <hr className="text-gray-400 bg-gray-400 w-10 my-2 sm:mx-5" />{" "}
               <span className="custom-text-green-dark">
                 {post.frontmatter.date}
