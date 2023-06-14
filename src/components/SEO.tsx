@@ -1,6 +1,6 @@
 import React from "react";
 import { useSiteMetaData } from "../hooks/useSiteMetaData";
-import favicon from "../assets/icons/favicon.ico";
+import favicon from "../assets/icons/favicon-96x96.png";
 
 type SEOType = {
   title?: string;
