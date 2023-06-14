@@ -61,14 +61,19 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
     .
     ├── node_modules
-    ├── src
+    ├── .github
     ├── .gitignore
+    ├── .hintrc
     ├── .prettierrc
+    ├── public
+    ├── src
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
     ├── gatsby-ssr.js
-    ├── LICENSE
+    ├── postcss.config
+    ├── tailwind-config.js
+    ├── tsconfig.json
     ├── package-lock.json
     ├── package.json
     └── README.md
