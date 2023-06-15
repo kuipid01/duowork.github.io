@@ -26,7 +26,7 @@ export default function SEO({
   } = useSiteMetaData();
 
   // Image is stored on Cloudinary media service.
-  const logoImage = `https://res.cloudinary.com/dzgbcvjw5/image/upload/v1686752685/duowork/logo/Duowork_logo_jpeg_Watermark_fz2qkk.jpg`
+  const logoImage = `https://res.cloudinary.com/dzgbcvjw5/image/upload/c_scale,h_2439,w_3693/v1686797033/duowork/Duwork-banner_spckm4.jpg`
 
   const seo = {
     title: title ? `${defaultTitle} | ${title}` : defaultTitle,
@@ -53,9 +53,11 @@ export default function SEO({
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta property="og:url" content={seo.url} />
+      <meta name="og:type" content="website" />
 
       {/* Twitter meta tags */}
       <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content={`@${seo.socialMedia.twitter}`} />
       <meta name="twitter:title" content={seo.title} />
       <meta
         name="twitter:url"
@@ -63,10 +65,7 @@ export default function SEO({
       />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
-      <meta name="twitter:creator" content={seo.socialMedia.twitter} />
-      <meta name="og:title" content={seo.title} />
-      <meta name="og:description" content={seo.description} />
-      <meta name="og:type" content="website" />
+      <meta name="twitter:creator" content={`@${seo.socialMedia.twitter}`} />
 
       {/* Google meta tags */}
       <meta name="robots" content="max-snippet:-1" />
