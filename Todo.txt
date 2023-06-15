@@ -10,7 +10,7 @@ WEBSITE FUNCTIONALITIES
     except for the unique 'Contact us' link
 
 - Users should be able to switch to different language and have the whole text on 
-    the page changed the languate. from English (en) to French (fr).
+    the page changed the languate. from English (en) to French (fr). 
 
 - The testimonial section should (with transition effect) slide to next or previous testimonial when a user click
     on either side of the button.
