@@ -1,32 +1,30 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from "gatsby";
+import React from "react";
 
 // Media assets
-import bgImage from "../assets/images/cloudPlayImg.png"
-import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg"
-import mobileDevelopmentImg from "../assets/images/mobile-development.png"
-import AdeolaAzeez from "../assets/images/portfolio/AdeolaAzeez2.jpeg"
-import EbonyBeauty from "../assets/images/portfolio/Ebonybeauty2.jpeg"
-import LarksBanner from "../assets/images/portfolio/larks-banner.png"
-import productDesignImg from "../assets/images/product-design.jpeg"
-import logo from "../assets/logos/logo.png"
-import businessAutomation from "../assets/images/business-automation.jpeg"
-import longDownArrow from "../assets/icons/long-down-arrow-96.png"
-import Button from "../components/Button"
-import projectionsSVG from "../assets/illustrations/projections.svg"
-import cloudPlaymp4 from "../assets/video/cloudplay.mp4"
-import cloudPlaywebm from "../assets/video/cloudplay.webm"
+import bgImage from "../assets/images/cloudPlayImg.png";
+import fullstackDevelopmentImg from "../assets/images/fullstack-development.jpeg";
+import mobileDevelopmentImg from "../assets/images/mobile-development.png";
+import AdeolaAzeez from "../assets/images/portfolio/AdeolaAzeez2.jpeg";
+import EbonyBeauty from "../assets/images/portfolio/Ebonybeauty2.jpeg";
+import LarksBanner from "../assets/images/portfolio/larks-banner.png";
+import productDesignImg from "../assets/images/product-design.jpeg";
+import logo from "../assets/logos/logo.png";
+import businessAutomation from "../assets/images/business-automation.jpeg";
+import longDownArrow from "../assets/icons/long-down-arrow-96.png";
+import Button from "../components/Button";
+import projectionsSVG from "../assets/illustrations/projections.svg";
+import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
+import cloudPlaywebm from "../assets/video/cloudplay.webm";
 // Components
-import Layout from "../layouts/layout"
-import SEO from "../components/SEO"
+import Layout from "../layouts/layout";
+import SEO from "../components/SEO";
 
 /*
   Gatsby uses this component to insert data in  
   the <head> elmenent of the HMTL document.
 */
-export const Head = () => (
-  <SEO title="Home" />
-)
+export const Head = () => <SEO title="Home" />;
 
 export default function LandingPage() {
   const landingPageBGImg = {
@@ -34,7 +32,7 @@ export default function LandingPage() {
     backgroundRepat: "no-repeat",
     backgroundPosition: `top`,
     backgroundSize: `cover`,
-  }
+  };
 
   const servicePageImageStyle = (image: string) => {
     return {
@@ -42,8 +40,8 @@ export default function LandingPage() {
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       backgroundSize: `cover`,
-    }
-  }
+    };
+  };
 
   /*Background video should only play on stable network strength.
   Connection object is available to Safari browser.*/
@@ -52,7 +50,7 @@ export default function LandingPage() {
       typeof window !== "undefined" &&
       window.navigator.connection !== undefined
     ) {
-      const networkSpeed = window.navigator.connection.downlink
+      const networkSpeed = window.navigator.connection.downlink;
 
       // Check internet download speed
       if (networkSpeed !== undefined && networkSpeed >= 1.5) {
@@ -70,11 +68,11 @@ export default function LandingPage() {
               <source src={cloudPlaywebm} type="video/webm" />
             </video>
           </>
-        )
+        );
       }
     }
-    return null
-  }
+    return null;
+  };
 
   return (
     <Layout>
@@ -139,8 +137,8 @@ export default function LandingPage() {
               className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0"
               style={{ maxWidth: 500 }}
             >
-              Transforming digital ideas into reality. We can help build and
-              manage your next big idea through crisp custom software solutions.
+              Helping businesses and startups build and maintain their digital
+              ideas through tailor-made software solutions.
             </p>
             <img
               src={longDownArrow}
@@ -260,7 +258,8 @@ export default function LandingPage() {
                 Larks podcast
               </h3>
               <p className="work-description w-80 py-5 text-xl">
-              Larks Podcast is a contemporary podcast that's more about the "laffs" than the "feels." 
+                Larks Podcast is a contemporary podcast that's more about the
+                "laffs" than the "feels."
               </p>
               <p
                 id="work-type"
@@ -308,7 +307,6 @@ export default function LandingPage() {
               </a>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -582,5 +580,5 @@ export default function LandingPage() {
         </div>
       </section>
     </Layout>
-  )
+  );
 }
