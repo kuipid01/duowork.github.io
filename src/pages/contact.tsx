@@ -1,22 +1,21 @@
 import React, { useRef, useEffect } from "react"
 import { Link } from "gatsby"
+
+/* Components */
+import Layout from "../layouts/layout"
+import Head from "../components/Head"
+
+// Formik library for form validation
 import { Formik } from "formik"
+
+// Toast library form notification alert
 import { toast } from "react-toastify"
 
-// Services
+// Email service by Herotu
 import sendMail from "../services/sendMail"
-
-// components
-import Layout from "../layouts/layout"
-import SEO from "../components/SEO"
 
 // Assets
 import homeArrow from "../assets/icons/arrow-left-long-solid.svg"
-
-export const Head = () => (
-  /* Valid properties: location.pathname,params, data, pageContext */
-  <SEO title="Contact us" />
-)
 
 export default function Contact() {
   const dateObj = new Date()
@@ -115,6 +114,7 @@ export default function Contact() {
 
   return (
     <Layout>
+      <Head title="Contact us"/>
       {/*
         Form fileds
         ..........
@@ -125,8 +125,8 @@ export default function Contact() {
          - Product design
          - Build a product
          - Automate task
-        Text-area -- Project description
         Budget -- 
+        Text-area -- Project description
        */}
 
       <section id="duowork-contact-form" className="h-auto mt-5">
