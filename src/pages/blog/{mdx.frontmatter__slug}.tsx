@@ -1,18 +1,21 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
-import Layout from "../../layouts/layout"
-import Authors from "./getBlogAuthor"
-import { getImgPlatform } from "../../utils/getImgPlatform"
-import Head  from "../../components/Head"
+/* This component renders blog post using using slug identifier. The file name follows
+  a format for capturing slug identifier from the URL. */
+
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../../layouts/layout";
+import Authors from "../../components/getBlogAuthor";
+import { getImgPlatform } from "../../utils/getImgPlatform";
+import Head from "../../components/Head";
 
 export default function Blog({ location, data, children }: any) {
-  const post = data.allMdx.nodes[0]
-  const title = post.frontmatter.title
-  const description = post.frontmatter.description
-  const date_updated = post.frontmatter.date_updated
-  const image: any = getImage(post.frontmatter.hero_image)
-  const author = post.frontmatter.author
+  const post = data.allMdx.nodes[0];
+  const title = post.frontmatter.title;
+  const description = post.frontmatter.description;
+  const date_updated = post.frontmatter.date_updated;
+  const image: any = getImage(post.frontmatter.hero_image);
+  const author = post.frontmatter.author;
 
   return (
     <Layout>
@@ -58,9 +61,7 @@ export default function Blog({ location, data, children }: any) {
                   target="_blank"
                   className="text-gray-500"
                 >
-                  {getImgPlatform(
-                    post.frontmatter.hero_image_credit_link
-                  )}
+                  {getImgPlatform(post.frontmatter.hero_image_credit_link)}
                 </a>
               </div>
             </div>
@@ -102,7 +103,7 @@ export default function Blog({ location, data, children }: any) {
         </div>
       </article>
     </Layout>
-  )
+  );
 }
 
 export const query = graphql`
@@ -135,4 +136,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
