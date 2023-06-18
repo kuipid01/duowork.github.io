@@ -4,7 +4,7 @@ import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import Layout from "../../layouts/layout"
 import Authors from "./getBlogAuthor"
 import { getImgPlatform } from "../../utils/getImgPlatform"
-import Head  from "./Head"
+import Head  from "../../components/Head"
 
 export default function Blog({ location, data, children }: any) {
   const post = data.allMdx.nodes[0]
