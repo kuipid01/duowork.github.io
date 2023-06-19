@@ -21,9 +21,9 @@ To ensure a smooth and efficient collaboration process, please follow these guid
 
 - Create a new branch for your contribution. Use a descriptive name that reflects the purpose of your changes.
 - Make sure your branch is based on the latest version of the development branch (`v2` which stands for version of two the app).
-- Make sure to test code is working as it should the `staging` branch. If the code fails, refer back to the branch witht the failing code and create a fix for it then merge again witht the staging branch. If everything works fine then merge code with the `main` branch else repeat process.
+- Make sure to test that the code is working as it should in the `staging` branch. If the code fails, refer back to the branch with the failing code and create a fix for it then merge again witht the `staging` branch. If everything works fine then push to the repo and create a PR.
 
-    `NOTE:` Create PR only from the `main` branch.
+    `NOTE:` Create PR only from the `staging` branch. The `main` remains untouched until the app is ready for production unpon which the original repo will merge all the changes to the branch.
 
 ## 4. Code Changes
 
