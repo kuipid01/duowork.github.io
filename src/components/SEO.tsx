@@ -35,7 +35,7 @@ export default function SEO({
 
   const seo = {
     title: title ? `${defaultTitle} | ${title}` : defaultTitle,
-    description: description || defaultDescription,
+    description: description || "Tailor-made software solutions for business success.",
     url: `${siteUrl}`,
     author,
     socialMedia: {
@@ -50,7 +50,7 @@ export default function SEO({
       {/* General meta tags */}
       <title>{seo.title}</title>
       <meta charSet="utf-8" />
-      <meta name="description" content={seo.description} />
+      <meta name="description" content={defaultDescription} />
       <meta name="author" content={seo.author.name} />
 
       {/* Facebook meta tags */}
