@@ -7,7 +7,7 @@ name: Duowork
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    # branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check repository"
+        # Don't trigger from a forked repo
         run: | 
           if [[ ${{github.repository}} != "Duowork/duowork.github.io" ]]; then
             echo "Skipping workflow execution. Event is from a forked repo."
