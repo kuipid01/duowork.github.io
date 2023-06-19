@@ -76,7 +76,10 @@ A quick look at the top-level files and directories you'll in the codebase.
     ├── tsconfig.json
     ├── package-lock.json
     ├── package.json
-    ├── Todo.txt
+    ├── CODE_CONVENTION.md
+    ├── CONTRIBUTION.md
+    ├── PR_TEMPLATE.md
+    ├── TODO.md
     └── README.md
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
@@ -105,11 +108,21 @@ A quick look at the top-level files and directories you'll in the codebase.
 
 13. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-14. **`README.md`**: A text file containing useful reference information about your project.
+14. **`CONTRIBUTION.md`**: This file contains the necessary guideline for code contribution.
 
-This is app is powered by [Gatsby v4](https://v4.gatsbyjs.com/docs/):
+15. **`CODE_CONVENTION.md`**: This file contains the code covention and practices for contributing.
 
-[<img src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" alt="Deploy to Gatsby Cloud" width="60">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-hello-world)
+16. **`PR_TEMPLATE.md`**: This file is template for creating PR Request changes.
+
+17. **`TODO.md`**: This file contains the instruction for building UI and interactivity.
+
+18. **`README.md`**: A text file containing useful reference information about your project.
+
+<br />
+
+[<img src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" alt="Deploy to Gatsby Cloud" width="30" height="30">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-hello-world)
+
+This is app is powered by [Gatsby v4](https://v4.gatsbyjs.com/docs/)
 
 ## 🎓 Learning Gatsby
 
