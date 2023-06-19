@@ -1,5 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
+import Layout from "../layouts/layout";
+import Head from "../components/Head";
 
 // Media assets
 import bgImage from "../assets/images/cloudPlayImg.png";
@@ -16,15 +18,7 @@ import Button from "../components/Button";
 import projectionsSVG from "../assets/illustrations/projections.svg";
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
 import cloudPlaywebm from "../assets/video/cloudplay.webm";
-// Components
-import Layout from "../layouts/layout";
-import SEO from "../components/SEO";
 
-/*
-  Gatsby uses this component to insert data in  
-  the <head> elmenent of the HMTL document.
-*/
-export const Head = () => <SEO title="Home" />;
 
 export default function LandingPage() {
   const landingPageBGImg = {
@@ -76,6 +70,7 @@ export default function LandingPage() {
 
   return (
     <Layout>
+      <Head title="Home"/>
       <section
         id="landing-page-home"
         className="h-[45rem]"
