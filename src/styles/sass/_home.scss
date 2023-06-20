@@ -1,34 +1,5 @@
 #duowork {
 
-  /* CTA buttons starts */
-  .cta-btn {
-    background-color: $green-light;
-    height: 50px;
-    border-radius: 1.8rem;
-
-    &.nav-contact-cta {
-      width: 115px;
-    }
-
-    &.intro-cta-btn {
-      width: 250px;
-    }
-
-    &.services-request-cta {
-      width: 200px;
-      height: 40px !important;
-      // border-radius: 2.5px !important;
-      background-color: white !important;
-    }
-
-    &.service-contact-cta {
-      width: 200px;
-      height: 40px;
-      border-radius: 5px !important;
-    }
-  }
-  /* // CTA buttons ends */
-
   .hideTransition {
     @include hideElementTransition;
   }
@@ -51,6 +22,28 @@
       left: 0;
     }
 
+    .landing-page-nav__home {
+      #nav-items {
+        min-width: 400px;
+  
+        .nav-item-link {
+          align-self: center;
+        }
+      }
+
+      .landing-page-nav__item-right {
+        .cta-nav-item-contact {}
+
+        #language-selector {
+          .language-selector__button {
+            span {
+              font-variant: all-petite-caps;
+            }
+          }
+        }
+      }
+    }
+
     // Overlay background image with opaque black
     #overlay {
       position: absolute;
@@ -60,8 +53,42 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  #hero-container {
+    #hero-title {
+      line-height: 1.5;
+    }
+
+    #hero-description {}
+
+    #hero-button {
+      width: 200px;
+      max-width: 200px;
+      border: 1px solid $accent-color;
+      background-color: transparent !important;
+
+      #button-text {
+        display: inline-block;
+        width: 70%;
+        font-weight: 300;
+        font-size: medium;
+      }
+
+      #right-arrow {
+        height: 100%;
+        width: 30%;
+        color: $secondary-color;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        line-height: 1;
+        background-color: $accent-color;
+        border-top-right-radius: 1.8rem;
+        border-bottom-right-radius: 1.8rem;
+      }
     }
   }
 
