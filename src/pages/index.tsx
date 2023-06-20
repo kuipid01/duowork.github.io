@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import Layout from "../layouts/layout";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import Head from "../components/Head";
 
 // Media assets
@@ -18,7 +19,7 @@ import Button from "../components/Button";
 import projectionsSVG from "../assets/illustrations/projections.svg";
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
 import cloudPlaywebm from "../assets/video/cloudplay.webm";
-
+// import englishFlag from "../assets/english.svg"
 
 export default function LandingPage() {
   const landingPageBGImg = {
@@ -70,7 +71,7 @@ export default function LandingPage() {
 
   return (
     <Layout>
-      <Head title="Home"/>
+      <Head title="Home" />
       <section
         id="landing-page-home"
         className="h-[45rem]"
@@ -80,10 +81,10 @@ export default function LandingPage() {
         <BackgroundVideoPlayback />
 
         <div id="overlay" className="!h-full">
-          <nav className="landing-page-nav text-white flex flex-row justify-between ml-10 mr-10 mt-5">
+          <nav className="landing-page-nav__home text-white flex flex-row justify-between ml-10 mr-10 mt-5">
             <div
               id="logo-container"
-              className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center"
+              className="w-11 h-11 bg-white rounded-full flex flex-row justify-center items-center landing-page-nav__item-left"
             >
               {/* <GatsbyImage alt="Website logo, duowork" image={logo} id="logo" /> */}
               <Link to="/">
@@ -93,54 +94,84 @@ export default function LandingPage() {
 
             <ul
               id="nav-items"
-              className="hidden md:flex flex-row justify-between"
+              className="hidden md:flex flex-row justify-between landing-page-nav__item-center"
             >
               <li className="nav-item-link">
                 <Link to="/#landing-page-home">Home</Link>
               </li>
               <li className="nav-item-link">
-                <Link to="/#our-work">Our work</Link>
+                <Link to="/#our-work">Portfolio</Link>
               </li>
               <li className="nav-item-link">
-                <Link to="/#our-services">Service</Link>
+                <Link to="/#our-services">Services</Link>
               </li>
               <li className="nav-item-link">
                 <Link to="/blog">Blog</Link>
               </li>
-              <li id="cta-nav-item-contact" className="nav-item-link">
+            </ul>
+
+            <div className="flex items-center justify-evenly w-[20%] landing-page-nav__item-right">
+              <div id="cta-nav-item-contact" className="nav-item-link">
                 <Button
-                  value="Contact Us"
-                  btnClass="cta-btn nav-contact-cta text-white"
+                  value="Contact us"
+                  btnClass="cta-btn nav-contact-cta"
                   isLink={true}
                   linkTo="/#contact-duowork"
                 />
-              </li>
-            </ul>
+              </div>
+
+              <div id="language-selector">
+                <button
+                  className="language-selector__button btn"
+                  aria-label="english Select your language"
+                  aria-expanded="false"
+                  aria-controls="language-selector-dropdown"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="w-auto h-auto mr-2 language-selector__label"
+                  >
+                    <StaticImage
+                      src="../assets/english.svg"
+                      alt=""
+                      width={22}
+                      height={22}
+                      className="rounded-full"
+                    />
+                  </span>
+                  <span>ENG</span>
+                </button>
+              </div>
+            </div>
           </nav>
 
           <div
-            id="landing-page-intro"
+            id="hero-container"
             className="mt-40 flex flex-col item-center justify-center"
           >
             <h1
-              id="duowork-title"
-              className="text-white text-5xl md:text-7xl lg:text-9xl text-bold text-center font-bold"
+              id="hero-title"
+              className="text-white text-4xl md:text-6xl text-center font-bold w-3/4 self-center"
             >
-              DUOWORK
+              Tailor-made Software Solution for <span className="custom-bg-green-accent text-black px-2">Business Success</span>
             </h1>
             <p
-              className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0"
-              style={{ maxWidth: 500 }}
+              id="hero-description"
+              className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0 font-light w-1/2"
             >
-              Helping businesses and startups build and maintain their digital
-              ideas through tailor-made software solutions.
+              We help business and startups building and manage their digital
+              ideas througn tailor-made software solutions
             </p>
-            <img
-              src={longDownArrow}
-              alt="Long down arrow icon"
-              style={{ width: 70 }}
-              className="self-center block mt-20"
-            />
+
+            <Link 
+              to="/contact" 
+              id="hero-button" 
+              className="flex items-center mt-10 w-auto self-center text-white rounded-xl cta-btn"  
+              title="Get started" 
+              type="button">
+               <span id="button-text" className="text-center">Get started</span>{" "}
+                <span id="right-arrow" className="text-center rounded-tr-xl rounded-br-xl" aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </div>
       </section>
