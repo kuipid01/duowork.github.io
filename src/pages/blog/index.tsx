@@ -3,36 +3,44 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../layouts/layout"
 import SEO from "../../components/SEO"
- import bg from "../../assets/images/bgDuoWork.jpg";
+import bg from "../../assets/images/bgDuoWork.jpg";
 import img7 from "../../assets/images/img7.jpg";
-import arrowDown from "../../assets/images/Vector.png";
-import arrowRight from "../../assets/images/Vectorarroeight.svg";
-import leftTag from "../../assets/images/VectorleftArr.svg";
-import rightTag from "../../assets/images/Vector.svg";
-import explore from '../../assets/images/Iconexplore.svg'
+
+
+
+
+
+
+
+
 export default function Blog({ data }: any) {
   const arr = [1, 2, 3, 5, 7];
   const arr2 = [1, 2,];
-  let bgStyle = {
-    borderRadius: "8px",
-    backgroundImage:
-      "linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))",
-  };
-  let bgStyle2 = {
-    backgroundImage:
-      "linear-gradient(0deg, rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6))",
-  };
+ 
   const posts = data.allMdx.nodes
-
+  const image1: any = getImage(posts[0].frontmatter.hero_image)
+  
+  const postsCol = posts.slice(1, 3)
   return (
     <Layout>
 
       {/* Test Blog design  Starts*/}
-      <div className="px-[96px]">
+      <section className=" blogSectionBegins px-[96px]">
         <div className=" flex justify-center items-center flex-col">
           <ul className="flex mb-[64px] justify-center items-center gap-[32px] text-[16px] text-[#313133]">
-            <li>Home</li>
-            <li className="text-[#939498]">Blog</li>
+            <Link
+              to={`/`}
+              className="h-full w-full"
+            >
+              <li>Home</li>
+            </Link>
+            <Link
+              to={`/blog`}
+              className="h-full w-full"
+            >
+              <li className="text-[#939498]">Blog</li>
+            </Link>
+
           </ul>
           <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-[8px]">
             Blog
@@ -49,8 +57,8 @@ export default function Blog({ data }: any) {
               alt=""
             />
             <div
-              style={bgStyle}
-              className="absolute  h-full  top-0 left-0 w-full"
+              // style={bgStyle}
+              className="absolute bgStyle  h-full  top-0 left-0 w-full"
             ></div>
             <div className="absolute bottom-[49px]">
               <div className="rounded-[100px] mb-[16px] text-black bg-[#9EFF51] py-6 w-fit h-[32px] px-[12px] flex justify-center items-center">
@@ -95,8 +103,9 @@ export default function Blog({ data }: any) {
               </div>
             </div>
           </div>
-
-          <img className=" mx-auto mb-[71px]" src={arrowDown} alt="" />
+          <h1 className='text-3xl'> &#8595; </h1>
+          
+          {/* <img className=" mx-auto mb-[71px]" src={arrowDown} alt="" /> */}
 
           <div className="w-full font-[600] text-[24px]  h-fit  justify-between flex ">
             <div className="flex w-fit  h-fit gap-[10px] justify-center items-center">
@@ -106,13 +115,15 @@ export default function Blog({ data }: any) {
             </div>
             <div className="flex mb-[66px] h-fit  w-fit gap-[10px] justify-center items-center">
               <h1>see all category </h1>
-              <img src={arrowRight} className="mt-3" alt="" />
+              <p className="w-[10px] text-xl  h-full flex items-center">&#8594;</p>
+                   
             </div>
           </div>
         </div>
-        <div className="flex mb-[50px] justify-between items-center h-fit w-full gap-[41px]">
-          <img src={leftTag} alt="" />
-          <div className="flex w-full h-fit gap-[30px] flex-wrap">
+        <div className="flex mb-[50px] justify-evenly items-center h-fit w-full gap-[41px]">
+        <p className="w-[10px] text-3xl  h-full flex items-center">&#8592;</p>
+           
+          <div className="flex  justify-center w-full h-fit items-center gap-[30px] flex-wrap">
             {arr.map((item) => (
               <div
                 key={item}
@@ -124,14 +135,15 @@ export default function Blog({ data }: any) {
                   alt=""
                 />
                 <div
-                  style={bgStyle2}
-                  className=" absolute w-full h-full top-0 left-0 "
+                
+                  className=" absolute bgStyle2 w-full h-full top-0 left-0 "
                 ></div>
                 <h1 className="relative text-white">Design</h1>
               </div>
             ))}
           </div>
-          <img src={rightTag} alt="" />
+          <p className="w-[10px]  text-3xl  h-full flex items-center">&#8594;</p>
+           
         </div>
         <div className="w-full flex justify-center mb-[160px] items-center gap-[20px] h-fit">
           <div className="w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3EA645]"></div>
@@ -142,72 +154,107 @@ export default function Blog({ data }: any) {
           <h1 className="font-[600] text-[24px] mb-[64px]">Featured</h1>
           <div className="flex w-full mb-[223px] gap-[56px]">
             <div className="w-1/2">
-              <img src={img7} className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover" alt="" />
-              <div className="flex flex-col gap-[12px]">
-                <div className="flex items-center ">
-                  <img src={img7} className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]" alt="" />
+              <Link
+                to={`/blog/${posts[0].frontmatter.slug}`}
+                className="h-full w-full"
+              >
 
-                  <div className="flex justify-center items-center gap-3 text-[14px] font-[500]">
-                    <span>John Doe</span>
-                    <span className="mx-[4px] my-auto">.</span>
-                    <span>15 June,2023</span>
+                <GatsbyImage
+                  image={image1}
+                  alt={posts[0].frontmatter.hero_image_alt}
+                  className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
+                // style={{width: 300, height: 200}}
+                />
+                {/* <img src={img7} className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover" alt="" /> */}
+                <div className="flex flex-col gap-[12px]">
+                  <div className="flex items-center ">
+                    <GatsbyImage
+                      image={image1}
+                      alt={posts[0].frontmatter.hero_image_alt}
+                      className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]"
+                    // style={{width: 300, height: 200}}
+                    />
+                    {/* <img src={img7} className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]" alt="" /> */}
+
+                    <div className="flex justify-center items-center gap-3 text-[14px] font-[500]">
+                      <span>John Doe</span>
+                      <span className="mx-[4px] my-auto">.</span>
+                      <span> {posts[0].frontmatter.date}</span>
+                    </div>
+
+                  </div>
+                  <h1 className="font-[600] mb-[12px] text-[24px] text-left">
+                    {posts[0].frontmatter.title}
+                  </h1>
+                  <p className="font-[400] mb-[12px] text-[16px] text-left">
+                    {posts[0].frontmatter.title}
+                  </p>
+                  <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                    <button >Explore </button>
+                    <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
+                    {/* <img src={explore} className="w-[10px] h-[10px]" alt="" /> */}
                   </div>
 
                 </div>
-                <h1 className="font-[600] mb-[12px] text-[24px] text-left">
-                  Lorem ipsum, dolor sit amet cons
-                </h1>
-                <p className="font-[400] mb-[12px] text-[16px] text-left">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-                  deleniti? Doloribus sit, tenetur qui amet repudiandae nostrum
-                  atque hic eos laborum ut a dolorem fugiat in laboriosam veniam,
-                  blanditiis maxime?
-                </p>
-                <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                  <button >Explore </button>
-                  <img src={explore} className="w-[10px] h-[10px]" alt="" />
-                </div>
 
-              </div>
+              </Link>
             </div>
             <div className="w-1/2 h-fit flex flex-col gap-[41px]">
 
 
               {
-                arr2.map((item) =>
-                  <div className="w-full h-[223px]">
-                    <div className="flex w-full gap-[24px] h-full ">
-                      <img src={img7} className="w-[60%] h-full rounded-[8px] object-cover" alt="" />
+                postsCol.map((post: any) => {
+                  const image: any = getImage(post.frontmatter.hero_image)
+                  return (<div key={post.id} className="w-full h-[223px]">
+                    <Link
+                      to={`/blog/${post.frontmatter.slug}`}
+                      className="h-full w-fullk"
+                    >
+                      <div className="flex w-full gap-[24px] h-full ">
+                        <GatsbyImage
+                          image={image}
+                          alt={post.frontmatter.hero_image_alt}
+                          className="w-[60%] h-full rounded-[8px] object-cover"
+                        // style={{width: 300, height: 200}}
+                        />
+                        {/* <img src={img7} className="w-[60%] h-full rounded-[8px] object-cover" alt="" /> */}
 
-                      <div className="w-[39%]">
-                        <div className="flex justify-start items-center text-[14px]">
-                          <img src={img7} className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]" alt="" />
+                        <div className="w-[39%]">
+                          <div className="flex justify-start items-center text-[12px]">
+                            <GatsbyImage
+                              image={image}
+                              alt={post.frontmatter.hero_image_alt}
+                              className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
+                            // style={{width: 300, height: 200}}
+                            />
+                            {/* <img src={img7} className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]" alt="" /> */}
 
-                          <span>John Doe</span>
-                          <span>.</span>
-                          <span>15 June,2023</span>
-                        </div>
-                        <h1 className="font-[600] mb-[12px] text-[18px] text-left">
-                          Lorem ipsum, dolor s
-                        </h1>
-                        <p className="font-[400] mb-[12px] text-[16px] text-left">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-                          de
-                        </p>
-                        <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                          <button >Explore </button>
-                          <img src={explore} className="w-[10px] h-[10px]" alt="" />
+                            <span className="mr-2">DuoWork</span>
+                            <span>.</span>
+                            <span>   {post.frontmatter.date}</span>
+                          </div>
+                          <h1 className="font-[600] mb-[12px] text-[18px] text-left">
+                            {post.frontmatter.title}
+                          </h1>
+                          <p className="font-[400] mb-[12px] text-[16px] text-left">
+                            {post.frontmatter.title}
+                          </p>
+                          <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                            <button >Explore </button>
+                            <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
+                   
+                          </div>
                         </div>
                       </div>
-                    </div>
-
-                  </div>
+                    </Link>
+                  </div>)
+                }
                 )
               }
             </div>
           </div>
         </div>
-      </div>
+      </section>
       {/* Test Blog design  Ends*/}
       {/* <section className="px-10 blog-container h-auto lg:h-screen post-container">
         <div className="sm:h-20 mb-0 mt-5 sm:mt-10 blog-header">
