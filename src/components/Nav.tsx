@@ -11,7 +11,7 @@ export default function Nav(): React.ReactElement | null {
         return (
           <>
             <nav
-              className={`landing-page-nav text-white ml-10 mr-10 mt-5 ${isHomePage? 'hidden':'flex flex-row justify-between'}`}
+              className={`landing-page-nav__general text-white ml-10 mr-10 mt-5 ${isHomePage? 'hidden':'flex flex-row justify-between'}`}
             >
               <div
                 id="logo-container"
