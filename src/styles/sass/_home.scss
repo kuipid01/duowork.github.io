@@ -28,16 +28,30 @@
   
         .nav-item-link {
           align-self: center;
+
+          &:link {color: white;}
+          &:visited {color: $accent-color;}
+          &:hover {color: $accent-color;}
+          &:active {color: $accent-color;} 
         }
       }
 
       .landing-page-nav__item-right {
-        .cta-nav-item-contact {}
+        // .cta-nav-item-contact {}
 
         #language-selector {
           .language-selector__button {
-            span {
+            span.language-selector__label {
               font-variant: all-petite-caps;
+            }
+            span.language-selector__flag {
+              line-height: 0.5;
+
+              div.gatsby-image-wrapper {
+                width: 20px;
+                height: 20px;
+                border-radius: 20px;
+              }
             }
           }
         }
@@ -62,7 +76,7 @@
       line-height: 1.5;
     }
 
-    #hero-description {}
+    // #hero-description {}
 
     #hero-button {
       width: 200px;

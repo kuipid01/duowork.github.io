@@ -21,9 +21,9 @@ To ensure a smooth and efficient collaboration process, please follow these guid
 
 - Create a new branch for your contribution. Use a descriptive name that reflects the purpose of your changes.
 - Make sure your branch is based on the latest version of the development branch (`v2` which stands for version of two the app).
-- Test code and run build (eg. `'gatsby run build'` or `'npm run build'`) in the `staging` branch to make sure everything works as it should. Refer back to the development branch (`v2` or the branch containing development code) if there's an error or failure and create a fix it. Merge to `main` branch and create a PR if code isn't failing and it's working as it should.
+- Test code and run build (eg. `'gatsby run build'` or `'npm run build'`) in the `staging` branch to make sure everything works as it should. Refer back to the development branch (`v2` or the branch you created containing development code) if there's an error or failure to fix it. Create a PR if code isn't failing and it's working as it should.
 
-    `NOTE:` Create PR only from the `main` branch. The Github Action pipeline has been disabled not trigger production build until app is finished and working as it should.
+    `NOTE:` Don't create PR only from the `main` branch.
 
 ## 4. Code Changes
 

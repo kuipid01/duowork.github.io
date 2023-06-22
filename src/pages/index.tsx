@@ -126,20 +126,23 @@ export default function LandingPage() {
                   aria-label="english Select your language"
                   aria-expanded="false"
                   aria-controls="language-selector-dropdown"
+                  type="button"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="w-auto h-auto mr-2 language-selector__label"
-                  >
-                    <StaticImage
-                      src="../assets/english.svg"
-                      alt=""
-                      width={22}
-                      height={22}
-                      className="rounded-full"
-                    />
-                  </span>
-                  <span>ENG</span>
+                 <div className="flex items-center justify-center">
+                    <span
+                        aria-hidden="true"
+                      className="w-auto h-auto mr-2 language-selector__flag"
+                    >
+                      <StaticImage
+                        src="../assets/english.svg"
+                        alt=""
+                        width={22}
+                        height={22}
+                        className="rounded-full"
+                      />
+                    </span>
+                      <span className="language-selector__label">eng</span>
+                 </div>
                 </button>
               </div>
             </div>
@@ -159,8 +162,8 @@ export default function LandingPage() {
               id="hero-description"
               className="text-white text-center mt-10 self-center text-lg px-4 sm:px-0 font-light w-1/2"
             >
-              We help business and startups building and manage their digital
-              ideas througn tailor-made software solutions
+              We help businesses and startups build and manage their digital
+              ideas througn custom software solutions
             </p>
 
             <Link 
