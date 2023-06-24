@@ -1,39 +1,58 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../../layouts/layout"
 import SEO from "../../components/SEO"
 import bg from "../../assets/images/bgDuoWork.jpg";
 import img7 from "../../assets/images/img7.jpg";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+// Import Swiper styles
+import 'swiper/css';
 
-
-
+// import required modules
+import { Pagination,Navigation } from "swiper";
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
 
 
 
 export default function Blog({ data }: any) {
-  const arr = [1, 2, 3, 5, 7];
+  const arr = [1, 2, 3, 5,7,6,9,10, 7];
   const arr2 = [1, 2,];
  
   const posts = data.allMdx.nodes
   const image1: any = getImage(posts[0].frontmatter.hero_image)
   
   const postsCol = posts.slice(1, 3)
+  
+  const [slidesPerView, setSlidesPerView] = useState(6)
+  const screenWidth = window.innerWidth;
+
+
+  // import function to register Swiper custom elements
+
+
+
   return (
     <Layout>
 
       {/* Test Blog design  Starts*/}
-      <section className=" blogSectionBegins px-[96px]">
+      <section className=" blogSectionBegins px-[10px] sm-px[20px]  md:px-[96px]">
         <div className=" flex justify-center items-center flex-col">
-          <ul className="flex mb-[64px] justify-center items-center gap-[32px] text-[16px] text-[#313133]">
+          <ul className="flex mb-[64px] justify-center items-center  text-[16px] text-[#313133]">
             <Link
               to={`/`}
               className="h-full w-full"
             >
               <li>Home</li>
             </Link>
+            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">&#10148;</p>
             <Link
               to={`/blog`}
               className="h-full w-full"
@@ -45,12 +64,12 @@ export default function Blog({ data }: any) {
           <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-[8px]">
             Blog
           </h1>
-          <p className=" text-[#4A4A4C] text-center text-[16px] leading-[24px] w-[559px] mb-[80px]">
+          <p className=" text-[#4A4A4C] text-center text-[12px] md:text-[16px] leading-[24px] w-full md:w-[559px] mb-[80px]">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates,
             tempora eligendi obcaecati maxime dignissimos sequi aspernatur
             quibusdam laborum vel exercitationem.
           </p>
-          <div className="w-full flex mb-[76px] text-white items-center pl-[40px] h-[450px] relative">
+          <div className="w-full flex mb-[76px] text-white items-center pl-[40px] h-[350px] md:h-[450px] relative">
             <img
               src={bg}
               className="absolute top-0 rounded-[8px] overflow-hidden  left-0 w-full h-full object-cover"
@@ -63,28 +82,28 @@ export default function Blog({ data }: any) {
             <div className="absolute bottom-[49px]">
               <div className="rounded-[100px] mb-[16px] text-black bg-[#9EFF51] py-6 w-fit h-[32px] px-[12px] flex justify-center items-center">
                 {" "}
-                <span className="w-[6px] mt-1 h-[6px] mr-[6px] bg-[#222222]"></span>{" "}
-                Technology
+                <span className="w-[6px] h-[6px] rounded-full mr-[6px] bg-[#222222]"></span>{" "}
+               <span> Technology </span> 
               </div>
-              <h1 className="font-[600] text-[36px] leading-[44px] text-left max-w-[816px] mb-[24px]">
+              <h1 className="font-[600] text-[20px] md:text-[36px] leading-6 md:leading-[44px] text-left max-w-[816px] mb-[24px]">
                 Lorem ipsum dolor sit amet consectetur. Neque non iaculis integer
                 malesuada.
               </h1>
-              <div className="flex gap-[15px]">
+              <div className="flex items-center justify-start gap-[15px]">
                 <img
                   src={img7}
-                  className="w-[57px] h-[57px] rounded-full object-cover"
+                  className="md:w-[57px] w-[30px] h-[30px] md:h-[57px] rounded-full object-cover"
                   alt=""
                 />
                 <div>
                   <p>Dennis Sadah</p>
                   <div className="flex justify-center items-center">
                     {" "}
-                    <small className="font-[600] text-[16px] leading-[19px]">
+                    <small className="font-[600] text-[10px] md:text-[16px] leading-[19px]">
                       June 15, 2023
                     </small>{" "}
-                    <div className="w-[2px] h-[4px] text-white bg-white mx-10"></div>{" "}
-                    <small className="font-[400] text-[14px] leading-[17px]">
+                    <div className="w-[2px] h-[4px] text-white bg-white mx-3 md:mx-10"></div>{" "}
+                    <small className="font-[400] text-[9px] md:text-[14px] leading-[10px] md:leading-[17px]">
                       5 Min Read
                     </small>{" "}
                   </div>
@@ -103,36 +122,49 @@ export default function Blog({ data }: any) {
               </div>
             </div>
           </div>
-          <h1 className='text-3xl'> &#8595; </h1>
+          <h1 className='text-3xl mb-[71px]'> &#8595; </h1>
           
           {/* <img className=" mx-auto mb-[71px]" src={arrowDown} alt="" /> */}
 
-          <div className="w-full font-[600] text-[24px]  h-fit  justify-between flex ">
+          <div className="w-full h-fit mb-[66px] font-[600] text-[24px]  items-center  justify-between flex ">
             <div className="flex w-fit  h-fit gap-[10px] justify-center items-center">
               {" "}
-              <h1>Browse The Category </h1>{" "}
-              <div className="mt-[10px] w-[35px] h-[1px] bg-black"></div>
+              <h1 className='text-[13px] md:font-[600] md:text-[24px] md:leading-[32px] '>Browse The Category </h1>{" "}
+              <div className="mt-[3px] md:mt-[10px] w-[35px] h-[1px] bg-black"></div>
             </div>
-            <div className="flex mb-[66px] h-fit  w-fit gap-[10px] justify-center items-center">
-              <h1>see all category </h1>
-              <p className="w-[10px] text-xl  h-full flex items-center">&#8594;</p>
-                   
+            <div className="flex gap-[8px] h-fit  w-fit  justify-center items-center">
+              <h1 className='text-[13px] md:font-[600] md:text-[24px] md:leading-[32px]'>see all category </h1>
+              <p className=" text-xl ">&#8594;</p>     
             </div>
           </div>
         </div>
+
+
         <div className="flex mb-[50px] justify-evenly items-center h-fit w-full gap-[41px]">
-        <p className="w-[10px] text-3xl  h-full flex items-center">&#8592;</p>
-           
-          <div className="flex  justify-center w-full h-fit items-center gap-[30px] flex-wrap">
+
+        
+<div className="w-full h-[350px]">
+<Swiper 
+         slidesPerView={slidesPerView}
+        spaceBetween={10}
+        pagination={{
+          clickable: true,
+        }}
+   
+        navigation
+        modules={[Pagination,Navigation]}
+      className="flex  justify-center w-full h-full swiper-wrapper  items-center gap-[30px] flex-row"
+    >
             {arr.map((item) => (
+ <SwiperSlide>
               <div
                 key={item}
-                className="w-[171px] relative rounded-[10px] overflow-hidden h-[221px] flex justify-center items-center"
+                className="  relative rounded-[10px] overflow-hidden h-[221px] flex justify-center items-center"
               >
                 <img
                   src={img7}
                   className="w-full absolute top-0 right-0 h-full object-cover"
-                  alt=""
+                  alt="img"
                 />
                 <div
                 
@@ -140,20 +172,22 @@ export default function Blog({ data }: any) {
                 ></div>
                 <h1 className="relative text-white">Design</h1>
               </div>
+
+              </SwiperSlide>
             ))}
-          </div>
-          <p className="w-[10px]  text-3xl  h-full flex items-center">&#8594;</p>
+
+            </Swiper>
+</div>
+         
+          
+      
            
         </div>
-        <div className="w-full flex justify-center mb-[160px] items-center gap-[20px] h-fit">
-          <div className="w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3EA645]"></div>
-          <div className="w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3ea645b2]"></div>
-          <div className="w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3ea64566]"></div>
-        </div>
+    {/* //featuresd section begins */}
         <div className="w-full">
           <h1 className="font-[600] text-[24px] mb-[64px]">Featured</h1>
-          <div className="flex w-full mb-[223px] gap-[56px]">
-            <div className="w-1/2">
+          <div className="md:flex-row flex flex-col w-full mb-[223px] gap-[56px]">
+            <div className="w-full  md:w-1/2">
               <Link
                 to={`/blog/${posts[0].frontmatter.slug}`}
                 className="h-full w-full"
@@ -189,7 +223,7 @@ export default function Blog({ data }: any) {
                   <p className="font-[400] mb-[12px] text-[16px] text-left">
                     {posts[0].frontmatter.title}
                   </p>
-                  <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                  <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
                     <button >Explore </button>
                     <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
                     {/* <img src={explore} className="w-[10px] h-[10px]" alt="" /> */}
@@ -199,27 +233,27 @@ export default function Blog({ data }: any) {
 
               </Link>
             </div>
-            <div className="w-1/2 h-fit flex flex-col gap-[41px]">
+            <div className=" w-full md:w-1/2  h-fit flex flex-col gap-[20px] md:gap-[41px]">
 
 
               {
                 postsCol.map((post: any) => {
                   const image: any = getImage(post.frontmatter.hero_image)
-                  return (<div key={post.id} className="w-full h-[223px]">
+                  return (<div key={post.id} className="w-full h-fit sm:h-fit">
                     <Link
                       to={`/blog/${post.frontmatter.slug}`}
-                      className="h-full w-fullk"
+                      className="h-full w-full"
                     >
-                      <div className="flex w-full gap-[24px] h-full ">
+                      <div className="flex flex-col sm:flex-row  w-full   gap-[24px] h-fit ">
                         <GatsbyImage
                           image={image}
                           alt={post.frontmatter.hero_image_alt}
-                          className="w-[60%] h-full rounded-[8px] object-cover"
+                          className="w-full sm:w-[60%] h-full rounded-[8px] object-cover"
                         // style={{width: 300, height: 200}}
                         />
                         {/* <img src={img7} className="w-[60%] h-full rounded-[8px] object-cover" alt="" /> */}
 
-                        <div className="w-[39%]">
+                        <div className="w-full sm:w-[39%]">
                           <div className="flex justify-start items-center text-[12px]">
                             <GatsbyImage
                               image={image}
@@ -239,7 +273,7 @@ export default function Blog({ data }: any) {
                           <p className="font-[400] mb-[12px] text-[16px] text-left">
                             {post.frontmatter.title}
                           </p>
-                          <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                          <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
                             <button >Explore </button>
                             <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
                    

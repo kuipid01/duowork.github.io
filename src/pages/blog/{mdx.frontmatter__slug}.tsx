@@ -20,7 +20,70 @@ export default function Blog({ location, data, children }: any) {
   return (
     <Layout>
       <Head title={title} description={description} image={image} />
-      <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-content-container">
+      <article className="md:pl-[361px] px-[20px] mb-[165px]  md:pr-[351px] mt-[40px]">
+        <ul className="flex mb-[64px] justify-center items-center gap-[14px] text-[16px] text-[#313133]">
+            <Link
+              to={`/`}
+              className=""
+            >
+              <li>Home</li>
+            </Link>
+            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">&#10148;</p>
+            <Link
+              to={`/blog`}
+              className=""
+            >  <li className="text-[#939498]">Blog</li>
+            </Link>
+            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">&#10148;</p>
+             
+            <Link
+              to={`/blog/category`}
+              className=""
+            >
+              <li className="text-[#939498]">Technology</li>
+            </Link>
+          </ul>
+     
+      <span className="py-[6px] px-[12px] bg-[#9eff51] rounded-[6px] text-[14px] font-[500] leading-[20px]">
+        Technology
+      </span>
+      <h1 className="mt-[16px] leading-[44px] font-[600] text-[36px] mb-[20px] text-left">
+      {post.frontmatter.title}
+      </h1>
+      <div className="mb-[32px] h-[36px]  flex items-center ">
+         <GatsbyImage
+         image={image}
+                alt={post.frontmatter.hero_image_alt}
+       
+          className="w-[36px] h-full object-cover mr-[12px] rounded-full"
+       
+        />
+        <span className=" leading-[24px] mr-[48px] font-[500] text-[16px] mb-[20px] ">
+            <Authors  author={author} />
+        </span>
+
+        <span className=" leading-[24px]  font-[400] text-[16px] mb-[20px] ">
+            {post.frontmatter.date}  {post.frontmatter.time}  {date_updated ? (
+              <span >
+              ( Updated {date_updated} )
+              </span>
+            ) : (
+              ""
+            )} 
+        </span>
+      </div>
+      <div className="w-full overflow-hidden  h-[462px] flex justify-center items-center">
+      <GatsbyImage
+         image={image}
+          className="w-full h-full object-cover mb-[32px] rounded-[12px]"
+          alt=""
+        />
+      </div>
+      <p className="font-[400] leading-[24px] text-[16px]">
+                {children}
+      </p>
+    </article>
+      {/* <article className="sm:mx-10 mt-20 mb-10 flex flex-col justify-center items-center blog-content-container">
         <div className="blog-item w-3/4">
           <div className="blog-item-intro">
             <h1 className="text-1xl sm:text-3xl font-bold text-center blog-item-intro-title pb-5 pt-5">
@@ -101,7 +164,7 @@ export default function Blog({ location, data, children }: any) {
             {children}
           </div>
         </div>
-      </article>
+      </article> */}
     </Layout>
   );
 }
