@@ -33,6 +33,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: "Check repository"
+        # Don't trigger from a forked repo
+        run: | 
+          if [[ ${{github.repository}} != "Duowork/duowork.github.io" ]]; then
+            echo "Skipping workflow execution. Event is from a forked repo."
+            exit 78
+          fi
       - name: Checkout
         uses: actions/checkout@v3
       - name: Detect package manager

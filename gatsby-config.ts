@@ -1,10 +1,10 @@
-require("dotenv").config({ path: `.env` })
+require("dotenv").config({ path: `.env` });
 
 module.exports = {
   // Document head meta configuration
   siteMetadata: {
     title: `Duowork`,
-    description: `Building ideas into reality through custom software development.`,
+    description: `Tailor-made software solutions for business success. At Duowork, we specialize in crafting customized software solutions designed specifically for you business needs. our mission is help businesses and startups build and maintain their digital ideas and ventures. Whether it's a SaaS product, landing page, software rework & redesign, web app, mobile app or a desktop app; with our team of experts and innovative approach, we ensure your ideas are transformed into powerful solutions that drive success.`,
     siteUrl: `https://www.duowork.github.io`,
     author: {
       name: `Romeo Peter | Isaac Olugbenga`,
@@ -40,4 +40,4 @@ module.exports = {
       },
     },
   ],
-}
+};

@@ -1,3 +1,8 @@
+/*
+  Gatsby uses this component to insert data in  
+  the <head> elmenent of the HMTL document. This also helps improve SEO
+*/
+
 import React from "react";
 import { useSiteMetaData } from "../hooks/useSiteMetaData";
 import favicon from "../assets/icons/favicon-96x96.png";
@@ -30,7 +35,7 @@ export default function SEO({
 
   const seo = {
     title: title ? `${defaultTitle} | ${title}` : defaultTitle,
-    description: description || defaultDescription,
+    description: description || "Tailor-made software solutions for business success.",
     url: `${siteUrl}`,
     author,
     socialMedia: {
@@ -45,7 +50,7 @@ export default function SEO({
       {/* General meta tags */}
       <title>{seo.title}</title>
       <meta charSet="utf-8" />
-      <meta name="description" content={seo.description} />
+      <meta name="description" content={defaultDescription} />
       <meta name="author" content={seo.author.name} />
 
       {/* Facebook meta tags */}
@@ -56,7 +61,7 @@ export default function SEO({
       <meta name="og:type" content="website" />
 
       {/* Twitter meta tags */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={`@${seo.socialMedia.twitter}`} />
       <meta name="twitter:title" content={seo.title} />
       <meta

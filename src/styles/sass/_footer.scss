@@ -1,17 +1,45 @@
 footer {
-    background-color: $green-darker;
+    background-color: $secondary-color;
+
+    .news-letter {
+        p {
+            line-height: 1.5;
+        }
+        .news-letter__input-container {
+            height: 3.5rem !important;
+            width: 350px;
+
+            input[placeholder], button {
+                font-size: small;
+            }
+
+            button {
+                background-color: $accent-color;
+                border-radius: 3rem;
+                padding: 1rem;
+                line-height: 0.5;
+            }
+        }
+
+        z-index: 4;
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        margin-top: -125px;
+    }
 
     h3,div#logo {
         margin-bottom: 20px;
     }
 
-    #services, #contact {
-        p {
-            font-weight: 300;
-        }
-    }
+    // #services, #contact {
+    //     p {
+           
+    //     }
+    // }
     
     .items {
-        padding-bottom: 2rem;
+        font-size: small;
+        padding-bottom: 1.3rem;
     }
 }
