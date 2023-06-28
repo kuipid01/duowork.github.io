@@ -37,7 +37,6 @@
       }
 
       .landing-page-nav__item-right {
-        // .cta-nav-item-contact {}
 
         #language-selector {
           .language-selector__button {
@@ -75,8 +74,6 @@
     #hero-title {
       line-height: 1.5;
     }
-
-    // #hero-description {}
 
     #hero-button {
       width: 200px;
@@ -163,7 +160,7 @@
     }
   }
 
-  #our-services {
+  #services-section {
     #service-header {
       #underline-header {
         width: 0px;
@@ -172,50 +169,23 @@
         background: $green-light;
         display: inline-block;
         visibility: hidden;
-
-        /* 
-          Animation style
-          ---------------
-          visibility: visible;
-          width: 300px; // Will be set by window scroll
-         */
       }
     }
 
-    #services-container {
+    #services-section__services {
       height: auto;
+      
       .services {
-        height: 415px;
+        height: 350px;
+        background-color: $secondary-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         transition: all 300ms ease-in;
-        position: relative;
 
-        .service-overlay {
-          background-color: rgba(0, 0, 0, 0.7);
-          width: 100%;
-          height: 100%;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 2;
+        .service-icon {margin-bottom: 1rem;}
 
-          p {height: 175px}
-
-          button.services-request-cta {
-            // border: 2px solid $green-light !important;
-            color: $green-light;
-            transition: all 150ms ease-in;
-
-            &:hover {
-              color: white !important;
-              background-color: $green-light !important;
-            }
-          }
-        }
-
-        // &:hover {
-        //   background-position: bottom !important;
-        // }
+        .service-description {width: 100%;}
       }
 
     }
@@ -229,13 +199,6 @@
           background: $green-light;
           display: inline-block;
           visibility: hidden;
-
-          /* 
-          Animation style
-          ---------------
-          visibility: visible;
-          width: 190px; // Will be set by window scroll
-         */
         }
       }
 
@@ -273,19 +236,15 @@
           }
         }
 
-        /* 
-          Transition style
-          ---------------
-          justify-content: center
-          .process {
-            width: 500px; // Will be set by window scroll
-          }
-         */
       }
     }
   }
 
-  #contact-duowork {
-    background-color: $green-lighter;
+  #contact-section {
+    background-color: $primary-color;
+    
+    #contact-section__details {
+      background-color: $secondary-color;
+    }
   }
 }
