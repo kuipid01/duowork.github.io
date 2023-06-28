@@ -40,7 +40,7 @@ export default function Blog({ location, data, children }: any) {
     <Layout>
       <Head title={title} description={description} image={image} />
       <div className="pl-[361px]   pr-[351px] mt-[40px]">
-        <ul className="flex mb-[64px] justify-center items-center gap-[14px] text-[16px] text-[#313133]">
+         <ul className="flex mb-[64px] justify-center items-center gap-[14px] text-[16px] text-[#313133]">
           <Link
             to={`/`}
 
