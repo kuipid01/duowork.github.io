@@ -16,27 +16,30 @@ import img7 from "../../assets/images/img7.jpg";
 export default function Blog({ data }: any) {
   const arr = [1, 2, 3, 5, 7];
   const arr2 = [1, 2,];
- 
+
   const posts = data.allMdx.nodes
   const image1: any = getImage(posts[0].frontmatter.hero_image)
-  
+
   const postsCol = posts.slice(1, 3)
   return (
     <Layout>
 
       {/* Test Blog design  Starts*/}
-      <section className=" blogSectionBegins px-[96px]">
+      <section className=" blogSectionBegins mb-[168px] px-[86px]">
         <div className=" flex justify-center items-center flex-col">
           <ul className="flex mb-[64px] justify-center items-center gap-[32px] text-[16px] text-[#313133]">
             <Link
               to={`/`}
-              className="h-full w-full"
+              className=""
             >
               <li>Home</li>
             </Link>
+            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">
+              &#10148;
+            </p>
             <Link
               to={`/blog`}
-              className="h-full w-full"
+              className=""
             >
               <li className="text-[#939498]">Blog</li>
             </Link>
@@ -50,7 +53,7 @@ export default function Blog({ data }: any) {
             tempora eligendi obcaecati maxime dignissimos sequi aspernatur
             quibusdam laborum vel exercitationem.
           </p>
-          <div className="w-full flex mb-[76px] text-white items-center pl-[40px] h-[450px] relative">
+          <div className="w-full flex mb-[76px] overflow-hidden rounded-[8px] text-white items-center pl-[40px] h-[450px] relative">
             <img
               src={bg}
               className="absolute top-0 rounded-[8px] overflow-hidden  left-0 w-full h-full object-cover"
@@ -61,9 +64,9 @@ export default function Blog({ data }: any) {
               className="absolute bgStyle  h-full  top-0 left-0 w-full"
             ></div>
             <div className="absolute bottom-[49px]">
-              <div className="rounded-[100px] mb-[16px] text-black bg-[#9EFF51] py-6 w-fit h-[32px] px-[12px] flex justify-center items-center">
+              <div className="rounded-[100px] mb-[16px] text-black bg-[#9EFF51] py-[6px] w-fit h-[32px] px-[12px] flex justify-center items-center">
                 {" "}
-                <span className="w-[6px] mt-1 h-[6px] mr-[6px] bg-[#222222]"></span>{" "}
+                <span className="w-[6px]  h-[6px] mr-[6px] rounded-full bg-[#222222]"></span>{" "}
                 Technology
               </div>
               <h1 className="font-[600] text-[36px] leading-[44px] text-left max-w-[816px] mb-[24px]">
@@ -104,7 +107,7 @@ export default function Blog({ data }: any) {
             </div>
           </div>
           <h1 className='text-3xl'> &#8595; </h1>
-          
+
           {/* <img className=" mx-auto mb-[71px]" src={arrowDown} alt="" /> */}
 
           <div className="w-full font-[600] text-[24px]  h-fit  justify-between flex ">
@@ -116,13 +119,13 @@ export default function Blog({ data }: any) {
             <div className="flex mb-[66px] h-fit  w-fit gap-[10px] justify-center items-center">
               <h1>see all category </h1>
               <p className="w-[10px] text-xl  h-full flex items-center">&#8594;</p>
-                   
+
             </div>
           </div>
         </div>
         <div className="flex mb-[50px] justify-evenly items-center h-fit w-full gap-[41px]">
-        <p className="w-[10px] text-3xl  h-full flex items-center">&#8592;</p>
-           
+          <p className="w-[10px] text-3xl  h-full flex items-center">&#8592;</p>
+
           <div className="flex  justify-center w-full h-fit items-center gap-[30px] flex-wrap">
             {arr.map((item) => (
               <div
@@ -135,7 +138,7 @@ export default function Blog({ data }: any) {
                   alt=""
                 />
                 <div
-                
+
                   className=" absolute bgStyle2 w-full h-full top-0 left-0 "
                 ></div>
                 <h1 className="relative text-white">Design</h1>
@@ -143,7 +146,7 @@ export default function Blog({ data }: any) {
             ))}
           </div>
           <p className="w-[10px]  text-3xl  h-full flex items-center">&#8594;</p>
-           
+
         </div>
         <div className="w-full flex justify-center mb-[160px] items-center gap-[20px] h-fit">
           <div className="w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3EA645]"></div>
@@ -189,8 +192,8 @@ export default function Blog({ data }: any) {
                   <p className="font-[400] mb-[12px] text-[16px] text-left">
                     {posts[0].frontmatter.title}
                   </p>
-                  <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                    <button >Explore </button>
+                  <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                    <button className="">Explore </button>
                     <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
                     {/* <img src={explore} className="w-[10px] h-[10px]" alt="" /> */}
                   </div>
@@ -239,10 +242,10 @@ export default function Blog({ data }: any) {
                           <p className="font-[400] mb-[12px] text-[16px] text-left">
                             {post.frontmatter.title}
                           </p>
-                          <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                            <button >Explore </button>
+                          <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
+                            <button  >Explore </button>
                             <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
-                   
+
                           </div>
                         </div>
                       </div>
