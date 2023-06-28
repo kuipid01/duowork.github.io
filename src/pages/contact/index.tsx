@@ -39,7 +39,7 @@ export default function Contact() {
           >
             <div
               id="contact-method"
-              className="h-auto bg-black h-full px-5 lg:px-10 py-10 flex flex-col justify-between"
+              className="h-auto bg-black h-full pl-5 lg:pl-10 pt-10 flex flex-col justify-between"
             >
                 <div className="">
                     <h2 className="font-regular p-1 mb-1 text-2xl text-white">
@@ -66,16 +66,17 @@ export default function Contact() {
                 </div>
 
                 <div
-                    id="contact-icons"
-                    className="flex flex-row justify-start align-items flex-wrap text-white"
+                  id="contact-icons"
+                  className="flex items-center justify-between"
                 >
+                  <div className="flex flex-row justify-start align-items flex-wrap text-white">
                     <div className="icons items h-10 w-10 rounded-xl flex justify-center items-center">
                         <a
                             href="https://twitter.com/DuoworkHQ"
                             target={"_blank"}
-                            className="text-lg block"
+                            className="text-lg block underline"
                         >
-                            <i className="fa fa-twitter fa-1x" aria-hidden="true"></i>
+                            <i className="fa fa-twitter fa-1x" aria-hidden="true">Twitter</i>
                         </a>
                     </div>
 
@@ -83,9 +84,9 @@ export default function Contact() {
                         <a
                             href="https://instagram.com/duoworkhq"
                             target={"_blank"}
-                            className="text-lg block"
+                            className="text-lg block underline"
                         >
-                            <i className="fa fa-instagram fa-1x" aria-hidden="true"></i>
+                            <i className="fa fa-instagram fa-1x" aria-hidden="true">IG</i>
                         </a>
                     </div>
 
@@ -93,11 +94,13 @@ export default function Contact() {
                         <a
                             href="https://www.linkedin.com/company/duowork"
                             target={"_blank"}
-                            className="text-lg block"
+                            className="text-lg block underline"
                         >
-                            <i className="fa fa-linkedin fa-1x" aria-hidden="true"></i>
+                            <i className="fa fa-linkedin fa-1x" aria-hidden="true">LinkedIn</i>
                         </a>
                     </div>
+                  </div>
+                  <StaticImage src="../../assets/svgs/contact-bubble.svg" alt="" width={130} height={130}/>
                 </div>
             </div>
           </div>
