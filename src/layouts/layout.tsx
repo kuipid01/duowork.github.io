@@ -52,11 +52,11 @@ export default function Layout({ children }: any) {
       />
 
       {/* Custom cursor elements */}
-      <div className="cursor-dot text-white" ref={cursorDotRef}></div>
+      {/* <div className="cursor-dot text-white" ref={cursorDotRef}></div>
       <div
         className="cursor-dot-outline text-white"
         ref={cursorDotOutlineRef}
-      ></div>
+      ></div> */}
     </main>
   )
 }
