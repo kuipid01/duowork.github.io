@@ -42,11 +42,24 @@ body {
     border-bottom: 3px solid $green-light;
   }
 
-  .underline-green-accent {
+
+
+
+  .custom-text-dark {
+    color: $secondary-color;
+  }
+
+  .custom-underline-green-accent {
     border-bottom: 3px solid $primary-green-4;
   }
+
   .custom-bg-green-accent {
     background-color: $primary-green-4;
+    padding: 0 0.5rem;
+  }
+  
+  .custom-bg-dark {
+    background-color: $secondary-color;
   }
 
   /* Styles that target elements */
