@@ -4,8 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import Button from "../Button";
 
 export default function Nav({ navLocation }: any): React.ReactElement | null {
-  const location =
-    typeof window.location !== "undefined" ? window.location : undefined;
+  const location = typeof window !== "undefined" ? window.location : undefined;
 
   return (
     <nav

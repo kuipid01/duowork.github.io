@@ -13,8 +13,7 @@ export default function Layout({ children }: any) {
   const cursorDotRef = useRef<HTMLImageElement>(null);
   const cursorDotOutlineRef = useRef<HTMLImageElement>(null);
 
-  const location =
-    typeof window.location !== "undefined" ? window.location : undefined;
+  const location = typeof window !== "undefined" ? window.location : undefined;
 
   useEffect((): any => {
     let componentIsMounted = true;
