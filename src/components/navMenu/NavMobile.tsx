@@ -1,9 +1,8 @@
 import React, {useRef} from 'react'
 import { Link } from 'gatsby'
 
-import logo from "../assets/logos/logo.png"
-import navBurgerBar from "../assets/icons/navbar-burger-solid.svg"
-import navXmark from "../assets/icons/navbar-xmark-solid.svg"
+import navBurgerBar from "../../assets/icons/navbar-burger-solid.svg"
+import navXmark from "../../assets/icons/navbar-xmark-solid.svg"
 
 export default function NavMobile() {
     // Navigation ref

@@ -1,11 +1,68 @@
-/*
- Style sheet for component/pages with shared element and class attributes.
-*/
+/*** 
+    UTILITY STYLES
+    This are styles are not specific to any component/page.
+    eg: '.underline-green-accent' to providen green underline with the accent colors
+    or h1-h6 set to default font-family.
+  ***/
 
 body {
-  * {
-    font-family: $font-family-body;
+  /* Classs attribute styles with custom color 
+  (colors not provided by tailwind) that can be used in a page/component */
+
+  // Text
+  .custom-text-green-light {
+    color: $green-light;
   }
+  .custom-bg-green-light {
+    background-color: $green-light;
+  }
+  .custom-text-green-lighter {
+    color: $green-lighter;
+  }
+  .custom-bg-green-lighter {
+    background-color: $green-lighter;
+  }
+
+  // Background
+  .custom-text-green-dark {
+    color: $green-dark;
+  }
+  .custom-bg-green-dark {
+    background-color: $green-dark;
+  }
+  .custom-text-green-darker {
+    color: $green-darker;
+  }
+  .custom-bg-green-darker {
+    background-color: $green-darker;
+  }
+
+  // Text underline
+  .underline-color-green-light {
+    border-bottom: 3px solid $green-light;
+  }
+
+
+
+
+  .custom-text-dark {
+    color: $secondary-color;
+  }
+
+  .custom-underline-green-accent {
+    border-bottom: 3px solid $primary-green-4;
+  }
+
+  .custom-bg-green-accent {
+    background-color: $primary-green-4;
+    padding: 0 0.5rem;
+  }
+  
+  .custom-bg-dark {
+    background-color: $secondary-color;
+  }
+
+  /* Styles that target elements */
 
   h1,
   h2,
@@ -13,30 +70,26 @@ body {
   h4,
   h5,
   h6 {
-    font-family: $font-family-title  !important;
+    font-family: $font-family-title !important;
   }
 
-  // cursor: none;
+  p,
+  div,
+  a,
+  span,
+  button,
+  label,
+  b,
+  em,
+  i,
+  strong {
+    font-family: $font-family-body;
+  }
+
   box-sizing: border-box !important;
   transition: all 200ms ease;
 
-  /*Backgound and text colors*/
-  .custom-text-green-light {color: $green-light}
-  .custom-bg-green-light {background-color: $green-light}
-  .custom-text-green-lighter {color: $green-lighter}
-  .custom-bg-green-lighter {background-color: $green-lighter}
-
-  .custom-text-green-dark {color: $green-dark}
-  .custom-bg-green-dark {background-color: $green-dark}
-  .custom-text-green-darker {color: $green-darker}
-  .custom-bg-green-darker {background-color: $green-darker}
-
-  // Light green underline
-  .underline-color-green-light {
-    border-bottom: 3px solid $green-light;
-  }
-
-  .landing-page-nav {
+  .landing-page-nav__general {
     #nav-items {
       min-width: 400px;
 
@@ -45,5 +98,31 @@ body {
       }
     }
   }
+  .cta-btn {
+    background-color: $green-light;
+    height: 50px;
+    border-radius: 1.8rem;
 
+    &.nav-contact-cta {
+      width: 160px;
+      background-color: $accent-color !important;
+      color: $secondary-color;
+    }
+
+    &.intro-cta-btn {
+      width: 250px;
+    }
+
+    &.services-request-cta {
+      width: 200px;
+      height: 40px !important;
+      background-color: white !important;
+    }
+
+    &.service-contact-cta {
+      width: 200px;
+      height: 40px;
+      border-radius: 5px !important;
+    }
+  }
 }

@@ -1,7 +1,6 @@
 #duowork {
   #duowork-contact-form {
-    background-color: $green-darker;
-
+    
     .contact-form {
       &#contact-form-left {
         #contact-us-ways {
@@ -23,20 +22,35 @@
 
       &#contact-form-right {
         form {
+          label {color: white}
+
           input:focus,
           textarea:focus,
           select:focus {
-            border-color: $green-lighter;
+            border-color: $accent-color;
           }
 
-          select.select-label {
-            //  Set image
+          input::placeholder, textarea::placeholder {
+            color: rgba(#ffffff, 0.7);
+            font-size: small;
           }
+
+          input,
+          textarea,
+          select {
+            color: rgba(#ffffff, 0.7);
+            font-weight: medium;
+            font-size: small;
+            background-color: transparent;
+            border-color: white;
+          }
+
         }
       }
 
       #contact-submission {
         button[type="submit"] {
+          background-color: $accent-color !important;
           .loader {
             width: 40px;
             height: 48px;
