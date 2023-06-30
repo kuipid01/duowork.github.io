@@ -16,12 +16,12 @@ export default function Blog({ location, data, children }: any) {
   const date_updated = post.frontmatter.date_updated;
   const image: any = getImage(post.frontmatter.hero_image);
   const author = post.frontmatter.author;
-
+console.log(post)
   return (
     <Layout>
       <Head title={title} description={description} image={image} />
-      <article className="md:pl-[361px] px-[20px] mb-[165px]  md:pr-[351px] mt-[40px]">
-        <ul className="flex mb-[64px] justify-center items-center gap-[14px] text-[16px] text-[#313133]">
+      <article className="lg:pl-[201px] sm:px-[60px] px-[40px] mb-[165px]  lg:pr-[201px] mt-[40px]">
+        {/* <ul className="flex mb-[64px] justify-center items-center gap-[14px] text-[16px] text-[#313133]">
             <Link
               to={`/`}
               className=""
@@ -42,7 +42,25 @@ export default function Blog({ location, data, children }: any) {
             >
               <li className="text-[#939498]">Technology</li>
             </Link>
-          </ul>
+          </ul> */}
+           <div className="breadcrumb-nav mb-10   pt-5 text-center text-sm">
+          <Link to="/" className="custom-text-dark">
+            Home
+          </Link>
+          <small className="mx-1 text-gray-300">{">"}</small>
+          <Link
+              to={`/blog`}
+              className=""
+            >  <small className="text-[#939498]">Blog</small>
+            </Link>
+            <small className="mx-1 text-gray-300">{">"}</small>
+            <Link
+              to={`/blog/category`}
+              className=""
+            >
+              <small className="text-[#939498]">Technology</small>
+            </Link>
+        </div>
      
       <span className="py-[6px] px-[12px] bg-[#9eff51] rounded-[6px] text-[14px] font-[500] leading-[20px]">
         Technology
@@ -50,19 +68,19 @@ export default function Blog({ location, data, children }: any) {
       <h1 className="mt-[16px] leading-[44px] font-[600] text-[36px] mb-[20px] text-left">
       {post.frontmatter.title}
       </h1>
-      <div className="mb-[32px] h-[36px]  flex items-center ">
+      <div className="mb-[32px] h-[40px]  flex items-center ">
          <GatsbyImage
          image={image}
                 alt={post.frontmatter.hero_image_alt}
        
-          className="w-[36px] h-full object-cover mr-[12px] rounded-full"
+          className="w-[36px] h-[36px] object-cover mr-[12px] rounded-full"
        
         />
-        <span className=" leading-[24px] mr-[48px] font-[500] text-[16px] mb-[20px] ">
+        <span className=" leading-[24px] mr-[48px] font-[500] text-[12px]  md:text-[16px]  ">
             <Authors  author={author} />
         </span>
 
-        <span className=" leading-[24px]  font-[400] text-[16px] mb-[20px] ">
+        <span className=" leading-[24px]  md:font-[400] text-[12px]  md:text-[16px]  ">
             {post.frontmatter.date}  {post.frontmatter.time}  {date_updated ? (
               <span >
               ( Updated {date_updated} )
@@ -79,7 +97,7 @@ export default function Blog({ location, data, children }: any) {
           alt=""
         />
       </div>
-      <p className="font-[400] leading-[24px] text-[16px]">
+      <p className="font-[400] blog-item-body  leading-[24px] text-[16px]">
                 {children}
       </p>
     </article>

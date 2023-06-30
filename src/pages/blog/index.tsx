@@ -14,7 +14,7 @@ import "swiper/css/navigation";
 import 'swiper/css';
 
 // import required modules
-import { Pagination,Navigation } from "swiper";
+import { Pagination, Navigation } from "swiper";
 import { register } from 'swiper/element/bundle';
 // register Swiper custom elements
 register();
@@ -23,44 +23,54 @@ register();
 
 
 export default function Blog({ data }: any) {
-  const arr = [1, 2, 3, 5,7,6,9,10, 7];
+  const arr = [1, 2, 3, 5, 7, 6, 9, 10, 7];
   const arr2 = [1, 2,];
- 
+
   const posts = data.allMdx.nodes
   const image1: any = getImage(posts[0].frontmatter.hero_image)
-  
+
   const postsCol = posts.slice(1, 3)
-  
+
   const [slidesPerView, setSlidesPerView] = useState(6)
   const screenWidth = window.innerWidth;
 
 
   // import function to register Swiper custom elements
+let swiperButtonStyles:React.CSSProperties = {
+  position:'absolute',
+  top:'50%',
+  transform:'translateY(-50%)',
+  width:"40px",
+  height:'40px',
+color:'black',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'center',
+  cursor:'pointer'
 
+}
 
 
   return (
     <Layout>
 
       {/* Test Blog design  Starts*/}
-      <section className=" blogSectionBegins px-[10px] sm-px[20px]  md:px-[96px]">
+      <section className=" blogSectionBegins px-[10px] ">
         <div className=" flex justify-center items-center flex-col">
-          <ul className="flex mb-[64px] justify-center items-center  text-[16px] text-[#313133]">
-            <Link
-              to={`/`}
-              className="h-full w-full"
-            >
-              <li>Home</li>
+
+          <div className="breadcrumb-nav mb-10   pt-5 text-center text-sm">
+            <Link to="/" className="custom-text-dark">
+              Home
             </Link>
-            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">&#10148;</p>
+            <small className="mx-1 text-gray-300">{">"}</small>
             <Link
               to={`/blog`}
-              className="h-full w-full"
-            >
-              <li className="text-[#939498]">Blog</li>
+              className=""
+            >  <small className="text-[#939498]">Blog</small>
             </Link>
 
-          </ul>
+
+          </div>
           <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-[8px]">
             Blog
           </h1>
@@ -83,7 +93,7 @@ export default function Blog({ data }: any) {
               <div className="rounded-[100px] mb-[16px] text-black bg-[#9EFF51] py-6 w-fit h-[32px] px-[12px] flex justify-center items-center">
                 {" "}
                 <span className="w-[6px] h-[6px] rounded-full mr-[6px] bg-[#222222]"></span>{" "}
-               <span> Technology </span> 
+                <span> Technology </span>
               </div>
               <h1 className="font-[600] text-[20px] md:text-[36px] leading-6 md:leading-[44px] text-left max-w-[816px] mb-[24px]">
                 Lorem ipsum dolor sit amet consectetur. Neque non iaculis integer
@@ -102,7 +112,7 @@ export default function Blog({ data }: any) {
                     <small className="font-[600] text-[10px] md:text-[16px] leading-[19px]">
                       June 15, 2023
                     </small>{" "}
-                    <div className="w-[2px] h-[4px] text-white bg-white mx-3 md:mx-10"></div>{" "}
+                    <div className="w-[4px] h-[4px] rounded-full text-white bg-white mx-3 md:mx-10"></div>{" "}
                     <small className="font-[400] text-[9px] md:text-[14px] leading-[10px] md:leading-[17px]">
                       5 Min Read
                     </small>{" "}
@@ -123,7 +133,7 @@ export default function Blog({ data }: any) {
             </div>
           </div>
           <h1 className='text-3xl mb-[71px]'> &#8595; </h1>
-          
+
           {/* <img className=" mx-auto mb-[71px]" src={arrowDown} alt="" /> */}
 
           <div className="w-full h-fit mb-[66px] font-[600] text-[24px]  items-center  justify-between flex ">
@@ -132,58 +142,80 @@ export default function Blog({ data }: any) {
               <h1 className='text-[13px] md:font-[600] md:text-[24px] md:leading-[32px] '>Browse The Category </h1>{" "}
               <div className="mt-[3px] md:mt-[10px] w-[35px] h-[1px] bg-black"></div>
             </div>
-            <div className="flex gap-[8px] h-fit  w-fit  justify-center items-center">
-              <h1 className='text-[13px] md:font-[600] md:text-[24px] md:leading-[32px]'>see all category </h1>
-              <p className=" text-xl ">&#8594;</p>     
-            </div>
+            <Link to={'/blog/category'}>
+              <div className="flex gap-[8px] h-fit  w-fit  justify-center items-center">
+
+
+                <h1 className='text-[13px] md:font-[600] md:text-[24px] md:leading-[32px]'>see all category </h1>
+                <p className=" text-xl ">&#8594;</p>
+              </div>
+            </Link>
           </div>
         </div>
 
 
         <div className="flex mb-[50px] justify-evenly items-center h-fit w-full gap-[41px]">
 
-        
-<div className="w-full h-[350px]">
-<Swiper 
-         slidesPerView={slidesPerView}
-        spaceBetween={10}
-        pagination={{
-          clickable: true,
-        }}
-   
-        navigation
-        modules={[Pagination,Navigation]}
-      className="flex  justify-center w-full h-full swiper-wrapper  items-center gap-[30px] flex-row"
-    >
-            {arr.map((item) => (
- <SwiperSlide>
-              <div
-                key={item}
-                className="  relative rounded-[10px] overflow-hidden h-[221px] flex justify-center items-center"
-              >
-                <img
-                  src={img7}
-                  className="w-full absolute top-0 right-0 h-full object-cover"
-                  alt="img"
-                />
-                <div
-                
-                  className=" absolute bgStyle2 w-full h-full top-0 left-0 "
-                ></div>
-                <h1 className="relative text-white">Design</h1>
-              </div>
 
-              </SwiperSlide>
-            ))}
+          <div className="w-screen  relative flex justify-center items-center h-[350px]">
+           <div   className="flex  justify-center w-[80%]  pt-[40px] pl-[20px]    h-full mx-auto   items-center flex-row">
+             <Swiper
 
-            </Swiper>
-</div>
-         
-          
-      
+               slidesPerView={slidesPerView}
+
+               spaceBetween={5}
+
+               pagination={{
+
+                 clickable: true,
+
+               }}
+
+               navigation={{
+                 prevEl: '.swiper-button-prev',
+                 nextEl: '.swiper-button-next'
+               }}
+
+               modules={[Pagination, Navigation]}
+               className="flex  justify-center   h-full mx-auto swiper-wrapper  items-center  flex-row"
+             >
+               {arr.map((item) => (
+                 <SwiperSlide>
+                   <div
+                     key={item}
+                     className="  relative rounded-[10px] overflow-hidden h-[221px] flex justify-center items-center"
+                   >
+                     <img
+                       src={img7}
+                       className="w-full absolute top-0 right-0 h-full object-cover"
+                       alt="img"
+                     />
+                     <div
+
+                       className=" absolute bgStyle2 w-full h-full top-0 left-0 "
+                     ></div>
+                     <h1 className="relative text-white">Design</h1>
+                   </div>
+
+                 </SwiperSlide>
+               ))}
+
+             </Swiper> 
+            </div> 
            
+            <div style={swiperButtonStyles} className="swiper-button-prev">
+            
+          </div>
+          <div style={swiperButtonStyles} className="swiper-button-next">
+
+            </div>
+          
+          </div>
+
+
+
         </div>
-    {/* //featuresd section begins */}
+        {/* //featuresd section begins */}
         <div className="w-full">
           <h1 className="font-[600] text-[24px] mb-[64px]">Featured</h1>
           <div className="md:flex-row flex flex-col w-full mb-[223px] gap-[56px]">
@@ -276,7 +308,7 @@ export default function Blog({ data }: any) {
                           <div className="bg-[#9eff51] rounded-[4px] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
                             <button >Explore </button>
                             <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
-                   
+
                           </div>
                         </div>
                       </div>

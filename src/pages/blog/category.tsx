@@ -16,28 +16,25 @@ export default function category() {
   return (
     <Layout>
       <section className="md:px-[120px] px-[20px] categoryPage mb-[106px]">
-      <ul className="flex mb-[64px] justify-center items-center gap-[32px] text-[16px] text-[#313133]">
-            <Link
-              to={`/`}
-              className="h-full w-full"
-            >
-              <li>Home</li>
-            </Link>
-            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">&#10148;</p>
-            <Link
+   
+           <div className="breadcrumb-nav mb-10   pt-5 text-center text-sm">
+          <Link to="/" className="custom-text-dark">
+            Home
+          </Link>
+          <small className="mx-1 text-gray-300">{">"}</small>
+          <Link
               to={`/blog`}
-              className="h-full w-full"
-            > <li className="">Blog</li>
+              className=""
+            >  <small className="text-[#939498]">Blog</small>
             </Link>
-            <p className="w-[10px] mx-[14px] text-[7px] text-[#939498]  h-full flex items-center">&#10148;</p>
-              
+            <small className="mx-1 text-gray-300">{">"}</small>
             <Link
               to={`/blog/category`}
-              className="h-full w-full"
+              className=""
             >
-              <li className="text-[#939498]">Technology</li>
+              <small className="text-[#939498]">Technology</small>
             </Link>
-          </ul>
+        </div>
         <div className=" flex justify-center items-center flex-col">
          
           <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-[8px]">
@@ -79,7 +76,7 @@ export default function category() {
             })
           }
         </div>
-        <button className="py-[14px] mx-auto flex px-[24px] rounded-[6px] border-[1px] border-[#8cbf40]  text-[#8cbf40] ">Load More</button>
+        <button className="py-[14px] mx-auto flex px-[24px] rounded-[6px] border-[1px] border-[#8cbf40] mb-[160px] text-[#8cbf40] ">Load More</button>
       </section>
     </Layout>
   )
