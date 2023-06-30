@@ -56,7 +56,7 @@ color:'black',
 
       {/* Test Blog design  Starts*/}
       <section className=" blogSectionBegins px-[10px] ">
-        <div className=" flex justify-center items-center flex-col">
+        <div className=" px-[20px] md:px-[70px] lg:[90px] flex justify-center items-center flex-col">
 
           <div className="breadcrumb-nav mb-10   pt-5 text-center text-sm">
             <Link to="/" className="custom-text-dark">
@@ -216,7 +216,7 @@ color:'black',
 
         </div>
         {/* //featuresd section begins */}
-        <div className="w-full">
+        <div className="  px-[20px] md:px-[70px] lg:[90px] w-full">
           <h1 className="font-[600] text-[24px] mb-[64px]">Featured</h1>
           <div className="md:flex-row flex flex-col w-full mb-[223px] gap-[56px]">
             <div className="w-full  md:w-1/2">
