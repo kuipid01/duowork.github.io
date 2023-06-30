@@ -1,5 +1,4 @@
 #duowork {
-
   .hideTransition {
     @include hideElementTransition;
   }
@@ -25,19 +24,26 @@
     .landing-page-nav__home {
       #nav-items {
         min-width: 400px;
-  
+
         .nav-item-link {
           align-self: center;
 
-          &:link {color: white;}
-          &:visited {color: $accent-color;}
-          &:hover {color: $accent-color;}
-          &:active {color: $accent-color;} 
+          &:link {
+            color: white;
+          }
+          &:visited {
+            color: $accent-color;
+          }
+          &:hover {
+            color: $accent-color;
+          }
+          &:active {
+            color: $accent-color;
+          }
         }
       }
 
       .landing-page-nav__item-right {
-
         #language-selector {
           .language-selector__button {
             span.language-selector__label {
@@ -103,63 +109,6 @@
     }
   }
 
-  #what-we-do {
-    .what-we-do-divide {
-      width: 50%;
-    }
-
-    #what-we-do-intro {
-      #what-we-do-description {
-        max-width: 515px;
-
-        .description-highlight {
-          background: $green-light;
-        }
-      }
-
-      .what-we-do-cta-btn {
-        @include respond-above(lg) {
-          margin-left: 10rem;
-        }
-
-        width: 150px;
-      }
-    }
-
-    @media(prefers-reduced-motion) {
-      .hideTransition {
-        transition: none;
-      }
-    }
-  }
-
-  // Portfolio
-  #our-work {
-    #duowork-portfolio {
-      .work-item {
-        .work-item-image {
-          width: 400px;
-          height: 250px;
-          object-fit: cover;
-        }
-        .work-other-container {
-          .work-tag {
-            display: block;
-            width: 15rem;
-          }
-
-          p#work-type{
-            background-color: $green-lighter;
-          }
-
-          .project-link {
-            border: 2px solid $green-lighter;
-          }
-        }
-      }
-    }
-  }
-
   #services-section {
     #service-header {
       #underline-header {
@@ -174,7 +123,7 @@
 
     #services-section__services {
       height: auto;
-      
+
       .services {
         height: 350px;
         background-color: $secondary-color;
@@ -183,59 +132,91 @@
         justify-content: space-around;
         transition: all 300ms ease-in;
 
-        .service-icon {margin-bottom: 1rem;}
+        .service-icon {
+          margin-bottom: 1rem;
+        }
 
-        .service-description {width: 100%;}
+        .service-description {
+          width: 100%;
+        }
       }
+    }
+  }
 
+  // Portfolio
+  #portfolio-section {
+    #duowork-portfolio {
+      .work-item {
+        .work-item-image {
+          width: 400px;
+          height: 250px;
+          object-fit: cover;
+        }
+        .work-other-container {
+          .work-tag {
+            display: block;
+            width: 15rem;
+          }
+
+          p#work-type {
+            background-color: $green-lighter;
+          }
+
+          .project-link {
+            border: 2px solid $green-lighter;
+          }
+        }
+      }
+    }
+  }
+
+  #process-section {
+    #process-header {
+      #underline-header {
+        width: 0px;
+        max-width: 250px;
+        height: 1px;
+        background: $green-light;
+        display: inline-block;
+        visibility: hidden;
+      }
     }
 
-    #our-process {
-      #process-header {
-        #underline-header {
-          width: 0px;
-          max-width: 250px;
-          height: 1px;
-          background: $green-light;
-          display: inline-block;
-          visibility: hidden;
-        }
-      }
+    #process-container {
+      .process {
+        max-width: 400px;
 
-      #process-container {
-        .process {
-          max-width: 500px;
-          height: 300px;
+        .process-title {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: space-between;
 
-          .process-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 1.5rem 0.5rem 0.5rem 0.5rem;
-            margin-bottom: 1.5rem;
-
-            .title {
-              font-size: 1.25rem;
-              line-height: 1.75rem;
-              color: $green-light;
-            }
-
-            .process-number {
-              display: inline-block;
-              width: 55px;
-              height: 30px;
-              background: $green-lighter;
-              text-align: center;
-              font-weight: 600;
-            }
+          .process-number {
+            display: inline-block;
+            width: 55px;
+            height: 30px;
+            background: $green-lighter;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
           }
 
-          .process-description {
-            padding: 0 1.5rem;
-            width: auto;
+          .title, .title>span {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            color: white;
+            font-family: $font-family-title !important;
           }
         }
 
+        .process-description {
+          padding: 1.5rem 0;
+          width: auto;
+          color: white;
+          font-weight: 300;
+          font-size: medium;
+        }
       }
     }
   }
