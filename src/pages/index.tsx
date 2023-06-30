@@ -85,7 +85,7 @@ export default function LandingPage({ location }: any) {
               id="hero-title"
               className="text-white text-4xl md:text-6xl text-center font-bold w-3/4 self-center"
             >
-              Tailor-made Software Solution for{" "}
+              Tailor-made design and Software Solution for{" "}
               <span className="custom-bg-green-accent text-black px-2">
                 Business Success
               </span>
@@ -139,7 +139,7 @@ export default function LandingPage({ location }: any) {
 
         <div
           id="services-section__services"
-          className="px-10 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8"
+          className="px-10 py-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center justify-items-start md:justify-items-center gap-8"
         >
           <div
             id="product-design-service"
@@ -223,128 +223,63 @@ export default function LandingPage({ location }: any) {
             </div>
           </div>
 
-          <div
-            id="backend-development-service"
-            className="services basis-1/3 rounded-xl p-7"
-          >
-            <div className="service-icon w-full">
-              <StaticImage
-                src="../assets/icons/be-dev.png"
-                alt="Product design icon"
-                width={40}
-                height={40}
-              />
-            </div>
-
-            <div className="service-description">
-              <h3 className="text-white text-xl font-semibold py-4">
-                <span className="underline-green-accent">Back</span>-end API
-                development
-              </h3>
-
-              <p className="text-white">
-                We help business streamline their operations with task
-                automation for increased productivity and efficiecy.
-              </p>
-            </div>
-          </div>
-
-          <div
-            id="fullstack-development-service"
-            className="services basis-1/3 rounded-xl p-7"
-          >
-            <div className="service-icon w-full">
-              <StaticImage
-                src="../assets/icons/fs-dev.png"
-                alt="Full-stack development icon"
-                width={40}
-                height={40}
-              />
-            </div>
-
-            <div className="service-description">
-              <h3 className="text-white text-xl font-semibold py-4">
-                <span className="underline-green-accent">Full</span>-stack
-                development
-              </h3>
-
-              <p className="text-white">
-                We help business streamline their operations with task
-                automation for increased productivity and efficiecy.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="our-process" className="px-10">
-          <h2 id="process-header" className="my-10 ml-10 md:ml-20">
-            <span className="text-gray-500 text-2xl font-medium text-left">
-              The process we follow
-            </span>
-            <br />
-            <span id="underline-header"></span>
-          </h2>
-
-          <div
-            id="process-container"
-            className="grid grid-cols-1 md:grid-cols-2 justify-center justify-items-center gap-8"
-          >
-            <div id="discovery-scope-process" className="process shadow-md">
-              <div className="process-title">
-                <h3 className="title">Discovery & Scope</h3>
-                <span className="process-number">1</span>
+         <div className="md:col-span-3 flex flex-col md:flex-row justify-center h-auto">
+            <div
+              id="backend-development-service"
+              className="services basis-1/3 rounded-xl p-7 mb-7 md:mb-0 md:mr-7"
+            >
+              <div className="service-icon w-full">
+                <StaticImage
+                  src="../assets/icons/be-dev.png"
+                  alt="Product design icon"
+                  width={40}
+                  height={40}
+                />
               </div>
-              <p className="process-description text-gray-700">
-                We believe in near-perfection but only when we understand what
-                you the mission is. We get the features and requirements that
-                align with the vision. This allow us to build within the right
-                confinemnt.
-              </p>
+
+              <div className="service-description">
+                <h3 className="text-white text-xl font-semibold py-4">
+                  <span className="underline-green-accent">Back</span>-end API
+                  development
+                </h3>
+
+                <p className="text-white">
+                  We help business streamline their operations with task
+                  automation for increased productivity and efficiecy.
+                </p>
+              </div>
             </div>
 
-            <div id="prototyping-design" className="process shadow-md">
-              <div className="process-title">
-                <h3 className="title">Design & Prototype</h3>
-                <span className="process-number">2</span>
+            <div
+              id="fullstack-development-service"
+              className="services basis-1/3 rounded-xl p-7"
+            >
+              <div className="service-icon w-full">
+                <StaticImage
+                  src="../assets/icons/fs-dev.png"
+                  alt="Full-stack development icon"
+                  width={40}
+                  height={40}
+                />
               </div>
-              <p className="process-description text-gray-700">
-                We bring over the knowledge gained from the scope and discovery
-                phase and create early UI/UX designs and then the Minimum Viable
-                Product (MVP) to test the vision idea.
-              </p>
-            </div>
 
-            <div id="project-development-process" className="process shadow-md">
-              <div className="process-title mb-10">
-                <h3 className="title">Project Development</h3>
-                <span className="process-number">3</span>
-              </div>
-              <p className="process-description text-gray-700">
-                This is the product design and development phase. A full cycle
-                development intended to connect the features with the design
-                interface. We build test and test so that the product is solid
-                enogh to run in production.
-              </p>
-            </div>
+              <div className="service-description">
+                <h3 className="text-white text-xl font-semibold py-4">
+                  <span className="underline-green-accent">Full</span>-stack
+                  development
+                </h3>
 
-            <div id="launch-maintenance-process" className="process shadow-md">
-              <div className="process-title">
-                <h3 className="title">Launch, training & maintenance</h3>
-                <span className="process-number">4</span>
+                <p className="text-white">
+                  We help business streamline their operations with task
+                  automation for increased productivity and efficiecy.
+                </p>
               </div>
-              <p className="process-description text-gray-700">
-                This is where we bring your product to life after completion. We
-                launch the project and conduct an onboarding training for staff
-                and organization. We provide support and are always availble for
-                modifying and adding extra features.
-              </p>
             </div>
-          </div>
+         </div>
         </div>
       </section>
 
-      {/* 'Our work' section*/}
-      <section id="our-work" className="h-auto px-10 mb-20">
+      <section id="portfolio-section" className="h-auto px-10 mb-20">
         <p
           id="heading"
           className="text-xl sm:text-2xl font-semibold text-gray-700 sm:ml-20"
@@ -449,6 +384,69 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
+      <section id="process-section" className="px-10 custom-bg-dark h-auto pb-10 pt-10 sm:pt-20 mb-40">
+        <div className="text-white text-center mb-10">
+          <h3 className="text-3xl font-bold mb-5">Our <span className="custom-bg-green-accent custom-text-dark">work process</span></h3>
+          <p className="max-w-[35rem] mx-auto text-sm font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi ipsum a quam 
+            dolores illo numquam aut libero odio, necessitatibus iure ab praesentium, 
+            voluptate sunt ut ex deleniti! Autem, velit eos?</p>
+        </div>
+
+        <div
+          id="process-container"
+          className="grid grid-cols-1 md:grid-cols-2 justify-evenly justify-items-center gap-8"
+        >
+          <div id="discovery-scope-process" className="process">
+            <div className="process-title">
+              <span className="process-number">1</span>
+              <strong className="title"><span className="underline-color-green-light">Disc</span>overy & Scope</strong>
+            </div>
+            <p className="process-description text-gray-700">
+              We believe in near-perfection but only when we understand what
+              you the goal is. Here we gather information on the solution you want to solve,
+              business requirement you want to meet and the processes you want automated. 
+              This allow us to build within the right confinement.
+            </p>
+          </div>
+
+          <div id="prototyping-design" className="process">
+            <div className="process-title">
+              <span className="process-number">2</span>
+              <strong className="title"><span className="underline-color-green-light">Des</span>ign & Prototype</strong>
+            </div>
+            <p className="process-description text-gray-700">
+              We bring over the knowledge gained from the scope and discovery
+              phase and create early designs and/or then the Minimum Viable
+              Product (MVP) to test the vision idea.
+            </p>
+          </div>
+
+          <div id="project-development-process" className="process">
+            <div className="process-title">
+              <span className="process-number">3</span>
+              <strong className="title"><span className="underline-color-green-light">Pro</span>ject Development</strong>
+            </div>
+            <p className="process-description text-gray-700">
+              In the development phase, we run a full cycle
+              development intended to implement the full solution and requirements. 
+              We build and test so the project is as solid as possible to go live.
+            </p>
+          </div>
+
+          <div id="launch-maintenance-process" className="process">
+            <div className="process-title">
+              <span className="process-number">4</span>
+              <strong className="title"><span className="underline-color-green-light">lau</span>nch, Training & Maintenance</strong>
+            </div>
+            <p className="process-description text-gray-700">
+              This is where the solution is ready to go live. We
+              launch the project and conduct an onboarding training for staff. 
+              We provide support and are always availble for future project modifications
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section id="contact-section" className="h-[50rem] px-10 sm:px-10">
         <div
           id="contact-section__details"
@@ -511,7 +509,7 @@ export default function LandingPage({ location }: any) {
               href="mailto:reach.duowork@gmail.com"
               className="custom-bg-green-accent rounded-full !px-4 !py-2 text-black"
             >
-              reach.duoworkhq@gmail.com
+              reach.@duowork.tech
             </a>
           </div>
           <StaticImage
