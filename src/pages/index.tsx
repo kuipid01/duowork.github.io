@@ -3,9 +3,6 @@ import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 // Media assets
 import bgImage from "../assets/images/cloudPlayImg.png";
-import AdeolaAzeez from "../assets/images/portfolio/AdeolaAzeez2.jpeg";
-import EbonyBeauty from "../assets/images/portfolio/Ebonybeauty2.jpeg";
-import LarksBanner from "../assets/images/portfolio/larks-banner.png";
 import cloudPlaymp4 from "../assets/video/cloudplay.mp4";
 import cloudPlaywebm from "../assets/video/cloudplay.webm";
 import Head from "../components/Head";
@@ -20,15 +17,6 @@ export default function LandingPage({ location }: any) {
     backgroundRepat: "no-repeat",
     backgroundPosition: `top`,
     backgroundSize: `cover`,
-  };
-
-  const servicePageImageStyle = (image: string) => {
-    return {
-      backgroundImage: `url(${image})`,
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      backgroundSize: `cover`,
-    };
   };
 
   /*Background video should only play on stable network strength.
@@ -122,7 +110,7 @@ export default function LandingPage({ location }: any) {
 
       <section id="services-section" className="my-20">
         <span className="text-gray-800 text-md font-bold text-center block mb-5">
-          Our services
+          Our Services
         </span>
         <h2
           id="service-header"
@@ -279,105 +267,110 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
-      <section id="portfolio-section" className="h-auto px-10 mb-20">
-        <p
-          id="heading"
-          className="text-xl sm:text-2xl font-semibold text-gray-700 sm:ml-20"
+      <section id="portfolio-section" className="w-auto h-auto px-2 sm:px-10 mb-20">
+        <span className="text-gray-800 text-md font-bold text-center block mb-5">
+            Our Portfolio
+        </span>
+        <h2
+          id="service-header"
+          className="mb-5 mt-2 text-center text-3xl font-bold"
         >
-          Some of <span className="underline-color-green-light">the work</span>{" "}
-          we've done <br /> for{" "}
-          <span className="underline-color-green-light">our clients.</span>
+          Project we've <span className="custom-bg-green-accent">worked on</span>
+        </h2>
+        
+        <p className="text-center max-w-3/5 w-3/5 mx-auto mb-10 mt-5 text-sm font-light leading-snug">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita hic
+          asperiores, libero repellat totam perferendis corporis doloribus
+          accusantium ipsum deserunt ratione in.
         </p>
 
-        <div id="duowork-portfolio" className="w-full">
-          <div className="work-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
-            <img
-              src={EbonyBeauty}
+        <div id="portfolio" className="flex flex-col items-center justify-center">
+          <div className="portfolio-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
+            <StaticImage
+              src="../assets/images/portfolio/Ebonybeauty2.jpeg"
               alt="A screenshort of a website landing page"
-              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+              className="portfolio-item__image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-xl"
             />
-            <div className="work-other-container">
-              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+            <div className="portfolio-item__description-container">
+              <h3 className="portfolio-name font-semibold text-2xl sm:text-3xl">
                 Ebony Beauty
               </h3>
-              <p className="work-description w-80 py-5 text-xl">
+              <p className="portfolio-description w-80 py-5 text-md text-gray-500">
                 Ebony beauty is a lagos-based retail store with aim to be the
                 ultimate destination for beauty products.
               </p>
               <p
-                id="work-type"
-                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+                className="portfolio-tag mb-10"
               >
-                #UI/UX & #website
+                E-commerce web app
               </p>
               <a
                 href="https://ebonybeautyhaven.com/"
                 target="_blank"
-                className="work-tag text-center text-xl p-2 rounded-full project-link"
+                className="text-center text-sm font-light py-2 rounded-full portfolio-link"
                 rel="noopener"
               >
-                View work
+                View work {" "} <span className="text-md pt-1">&gt;</span>
               </a>
             </div>
           </div>
 
-          <div className="work-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
-            <img
-              src={LarksBanner}
+          <div className="portfolio-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
+            <StaticImage
+              src="../assets/images/portfolio/larks-banner2.png"
               alt="A screenshort of a website landing page"
-              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+              className="portfolio-item__image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-xl"
             />
-            <div className="work-other-container">
-              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+
+            <div className="portfolio-item__description-container">
+              <h3 className="portfolio-name font-semibold text-2xl sm:text-3xl">
                 Larks podcast
               </h3>
-              <p className="work-description w-80 py-5 text-xl">
+              <p className="portfolio-description w-80 py-5">
                 Larks Podcast is a contemporary podcast that's more about the
                 "laffs" than the "feels."
               </p>
               <p
-                id="work-type"
-                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+                className="portfolio-tag mb-10"
               >
-                #UI/UX #WebApp
+               Podcasting web app
               </p>
               <a
                 href="https://larkspodcast.com"
                 target="_blank"
-                className="work-tag text-center text-xl p-2 rounded-full project-link"
+                className="text-center text-sm rounded-full portfolio-link"
                 rel="noopener"
               >
-                View work
+                View work {" "} <span className="text-md">&gt;</span>
               </a>
             </div>
           </div>
 
-          <div className="work-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
-            <img
-              src={AdeolaAzeez}
+          <div className="portfolio-item flex flex-col md:flex-row items-center sm:ml-20 pt-10">
+            <StaticImage
+              src="../assets/images/portfolio/AdeolaAzeez2.jpeg"
               alt="A screenshort of a website landing page"
-              className="work-item-image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-md"
+              className="portfolio-item__image w-6/12 h-80 rounded-lg max-w-full h-auto mb-10 sm:mr-20 shadow-xl"
             />
-            <div className="work-other-container">
-              <h3 className="work-name font-semibold text-2xl sm:text-3xl">
+            <div className="portfolio-item__description-container">
+              <h3 className="portfolio-name font-semibold text-2xl sm:text-3xl">
                 Adeola Azeez
               </h3>
-              <p className="work-description w-80 py-5 text-xl">
+              <p className="portfolio-description w-80 py-5">
                 A political campaign web presence for Adeola Azeez.
               </p>
               <p
-                id="work-type"
-                className="work-tag mb-10 p-2 text-center rounded-full text-sm"
+                className="portfolio-tag mb-10"
               >
-                #website
+                website
               </p>
               <a
                 href="https://adeolaazeez.com/"
                 target="_blank"
-                className="work-tag text-center text-xl p-2 rounded-full project-link"
+                className="text-center text-sm rounded-full portfolio-link"
                 rel="noopener"
               >
-                View work
+                View work {" "} <span className="text-md">&gt;</span>
               </a>
             </div>
           </div>
@@ -398,8 +391,14 @@ export default function LandingPage({ location }: any) {
         >
           <div id="discovery-scope-process" className="process">
             <div className="process-title">
-              <span className="process-number">1</span>
-              <strong className="title"><span className="underline-color-green-light">Disc</span>overy & Scope</strong>
+              <StaticImage
+                src="../assets/icons/discovery-icon.png"
+                alt="Product design icon"
+                width={40}
+                height={40}
+                className="process-number"
+              />
+              <strong className="title"><span className="custom-underline-green-accent">Disc</span>overy & Scope</strong>
             </div>
             <p className="process-description text-gray-700">
               We believe in near-perfection but only when we understand what
@@ -411,8 +410,14 @@ export default function LandingPage({ location }: any) {
 
           <div id="prototyping-design" className="process">
             <div className="process-title">
-              <span className="process-number">2</span>
-              <strong className="title"><span className="underline-color-green-light">Des</span>ign & Prototype</strong>
+            <StaticImage
+                src="../assets/icons/design-prototype-icon.png"
+                alt="Product design icon"
+                width={40}
+                height={40}
+                className="process-number"
+              />
+              <strong className="title"><span className="custom-underline-green-accent">Des</span>ign & Prototype</strong>
             </div>
             <p className="process-description text-gray-700">
               We bring over the knowledge gained from the scope and discovery
@@ -423,8 +428,14 @@ export default function LandingPage({ location }: any) {
 
           <div id="project-development-process" className="process">
             <div className="process-title">
-              <span className="process-number">3</span>
-              <strong className="title"><span className="underline-color-green-light">Pro</span>ject Development</strong>
+            <StaticImage
+                src="../assets/icons/project-development-icon.png"
+                alt="Product design icon"
+                width={40}
+                height={40}
+                className="process-number"
+              />
+              <strong className="title"><span className="custom-underline-green-accent">Pro</span>ject Development</strong>
             </div>
             <p className="process-description text-gray-700">
               In the development phase, we run a full cycle
@@ -435,8 +446,14 @@ export default function LandingPage({ location }: any) {
 
           <div id="launch-maintenance-process" className="process">
             <div className="process-title">
-              <span className="process-number">4</span>
-              <strong className="title"><span className="underline-color-green-light">lau</span>nch, Training & Maintenance</strong>
+            <StaticImage
+                src="../assets/icons/launch-training-maintenance-icon.png"
+                alt="Product design icon"
+                width={40}
+                height={40}
+                className="process-number"
+              />
+              <strong className="title"><span className="custom-underline-green-accent">lau</span>nch, Training & Maintenance</strong>
             </div>
             <p className="process-description text-gray-700">
               This is where the solution is ready to go live. We
