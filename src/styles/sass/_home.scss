@@ -145,17 +145,38 @@
 
   // Portfolio
   #portfolio-section {
-    #duowork-portfolio {
-      .work-item {
-        .work-item-image {
-          width: 400px;
-          height: 250px;
-          object-fit: cover;
+    #portfolio {
+      .portfolio-item {
+        margin-left: 0 !important;
+
+        .portfolio-item__image {
+          max-width: 300px;
+          width: 300px;
+          height: 300px;
+          object-fit: coover;
         }
-        .work-other-container {
-          .work-tag {
+        .portfolio-item__description-container {
+
+          .portfolio-description {
+            font-size: medium;
+            color: rgba(0, 0, 0, 0.6);
+          }
+
+          .portfolio-tag {
+            font-size: small;
+            font-weight: 300;
+          }
+
+          .portfolio-link {
             display: block;
-            width: 15rem;
+            width: 9rem !important;
+            font-weight: 300;
+            font-size: small;
+            padding: 0.5rem 0;
+            color: $secondary-color;
+            background-color: $accent-color;
+
+            span {font-size: medium}
           }
 
           p#work-type {
@@ -194,9 +215,8 @@
 
           .process-number {
             display: inline-block;
-            width: 55px;
-            height: 30px;
-            background: $green-lighter;
+            // width: 55px;
+            // height: 30px;
             text-align: center;
             font-weight: 600;
             margin-bottom: 20px;
