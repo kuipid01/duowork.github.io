@@ -1,12 +1,4 @@
 #duowork {
-  .hideTransition {
-    @include hideElementTransition;
-  }
-
-  .showTransition {
-    @include showElementTransition;
-  }
-
   #hero-section {
     position: relative;
 
@@ -146,7 +138,6 @@
   #testimonials-section {
     .testimonials {
       .testimonials__card-container {
-        
         .testimonials__card {
           display: inline-flex;
           align-items: center;
@@ -189,7 +180,6 @@
           object-fit: coover;
         }
         .portfolio-item__description-container {
-
           .portfolio-description {
             font-size: medium;
             color: rgba(0, 0, 0, 0.6);
@@ -210,7 +200,9 @@
             // background-color: $accent-color;
             border: 2px solid $green-lighter;
 
-            span {font-size: medium}
+            span {
+              font-size: medium;
+            }
           }
 
           p#work-type {
@@ -256,7 +248,8 @@
             margin-bottom: 20px;
           }
 
-          .title, .title>span {
+          .title,
+          .title > span {
             font-size: 1.25rem;
             line-height: 1.75rem;
             color: white;
@@ -277,9 +270,18 @@
 
   #contact-section {
     background-color: $primary-color;
-    
+
     #contact-section__details {
       background-color: $secondary-color;
     }
+  }
+
+  // Transition for page sections
+  .hideTransition {
+    @include hideElementTransition;
+  }
+
+  .showTransition {
+    @include showElementTransition;
   }
 }
