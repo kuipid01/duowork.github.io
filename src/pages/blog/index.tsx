@@ -1,54 +1,45 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Layout from "../../layouts/layout"
-import SEO from "../../components/SEO"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../../layouts/layout";
+import SEO from "../../components/SEO";
 import bg from "../../assets/images/bgDuoWork.jpg";
 import img7 from "../../assets/images/img7.jpg";
 
-
-
-
-
-
-
+/*! The lines between imports and the code is unnecessary. The standard is two give two spaces
+between import code and the rest of the code.  Also, remove all unused commented code. 
+If code is not useful or has been modified with a new one then it should not be added to production code whether commentned
+or uncommented. Comments are meant to describe what the code does*/
 
 export default function Blog({ data }: any) {
+  //! What does these arrays do? The names aren't is not descriptive.
+  // Code should always contain descriptive variables.
   const arr = [1, 2, 3, 5, 7];
-  const arr2 = [1, 2,];
- 
-  const posts = data.allMdx.nodes
-  const image1: any = getImage(posts[0].frontmatter.hero_image)
-  
-  const postsCol = posts.slice(1, 3)
+  const arr2 = [1, 2];
+
+  const posts = data.allMdx.nodes;
+  const image1: any = getImage(posts[0].frontmatter.hero_image);
+  const postsCol = posts.slice(1, 3); // <---! What does these do? Add a descriptive comment to it
+
   return (
     <Layout>
-
-      {/* Test Blog design  Starts*/}
       <section className=" blogSectionBegins px-[96px]">
         <div className=" flex justify-center items-center flex-col">
           <ul className="flex mb-[64px] justify-center items-center gap-[32px] text-[16px] text-[#313133]">
-            <Link
-              to={`/`}
-              className="h-full w-full"
-            >
+            <Link to={`/`} className="h-full w-full">
               <li>Home</li>
             </Link>
-            <Link
-              to={`/blog`}
-              className="h-full w-full"
-            >
+            <Link to={`/blog`} className="h-full w-full">
               <li className="text-[#939498]">Blog</li>
             </Link>
-
           </ul>
           <h1 className=" text-[#222222] text-[45px] leading-[52px] mb-[8px]">
             Blog
           </h1>
           <p className=" text-[#4A4A4C] text-center text-[16px] leading-[24px] w-[559px] mb-[80px]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates,
-            tempora eligendi obcaecati maxime dignissimos sequi aspernatur
-            quibusdam laborum vel exercitationem.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Voluptates, tempora eligendi obcaecati maxime dignissimos sequi
+            aspernatur quibusdam laborum vel exercitationem.
           </p>
           <div className="w-full flex mb-[76px] text-white items-center pl-[40px] h-[450px] relative">
             <img
@@ -57,7 +48,7 @@ export default function Blog({ data }: any) {
               alt=""
             />
             <div
-              // style={bgStyle}
+              // style={bgStyle} ! <---- Example of a useless code
               className="absolute bgStyle  h-full  top-0 left-0 w-full"
             ></div>
             <div className="absolute bottom-[49px]">
@@ -67,8 +58,8 @@ export default function Blog({ data }: any) {
                 Technology
               </div>
               <h1 className="font-[600] text-[36px] leading-[44px] text-left max-w-[816px] mb-[24px]">
-                Lorem ipsum dolor sit amet consectetur. Neque non iaculis integer
-                malesuada.
+                Lorem ipsum dolor sit amet consectetur. Neque non iaculis
+                integer malesuada.
               </h1>
               <div className="flex gap-[15px]">
                 <img
@@ -103,8 +94,9 @@ export default function Blog({ data }: any) {
               </div>
             </div>
           </div>
-          <h1 className='text-3xl'> &#8595; </h1>
-          
+          <h1 className="text-3xl"> &#8595; </h1>
+
+          {/* These */}
           {/* <img className=" mx-auto mb-[71px]" src={arrowDown} alt="" /> */}
 
           <div className="w-full font-[600] text-[24px]  h-fit  justify-between flex ">
@@ -115,14 +107,15 @@ export default function Blog({ data }: any) {
             </div>
             <div className="flex mb-[66px] h-fit  w-fit gap-[10px] justify-center items-center">
               <h1>see all category </h1>
-              <p className="w-[10px] text-xl  h-full flex items-center">&#8594;</p>
-                   
+              <p className="w-[10px] text-xl  h-full flex items-center">
+                &#8594;
+              </p>
             </div>
           </div>
         </div>
         <div className="flex mb-[50px] justify-evenly items-center h-fit w-full gap-[41px]">
-        <p className="w-[10px] text-3xl  h-full flex items-center">&#8592;</p>
-           
+          <p className="w-[10px] text-3xl  h-full flex items-center">&#8592;</p>
+
           <div className="flex  justify-center w-full h-fit items-center gap-[30px] flex-wrap">
             {arr.map((item) => (
               <div
@@ -134,16 +127,14 @@ export default function Blog({ data }: any) {
                   className="w-full absolute top-0 right-0 h-full object-cover"
                   alt=""
                 />
-                <div
-                
-                  className=" absolute bgStyle2 w-full h-full top-0 left-0 "
-                ></div>
+                <div className=" absolute bgStyle2 w-full h-full top-0 left-0 "></div>
                 <h1 className="relative text-white">Design</h1>
               </div>
             ))}
           </div>
-          <p className="w-[10px]  text-3xl  h-full flex items-center">&#8594;</p>
-           
+          <p className="w-[10px]  text-3xl  h-full flex items-center">
+            &#8594;
+          </p>
         </div>
         <div className="w-full flex justify-center mb-[160px] items-center gap-[20px] h-fit">
           <div className="w-[18px] h-[18px] cursor-pointer rounded-full bg-[#3EA645]"></div>
@@ -158,12 +149,11 @@ export default function Blog({ data }: any) {
                 to={`/blog/${posts[0].frontmatter.slug}`}
                 className="h-full w-full"
               >
-
                 <GatsbyImage
                   image={image1}
                   alt={posts[0].frontmatter.hero_image_alt}
                   className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover"
-                // style={{width: 300, height: 200}}
+                  // style={{width: 300, height: 200}}
                 />
                 {/* <img src={img7} className="w-full rounded-[8px] h-[244px] mb-[32px] object-cover" alt="" /> */}
                 <div className="flex flex-col gap-[12px]">
@@ -172,7 +162,7 @@ export default function Blog({ data }: any) {
                       image={image1}
                       alt={posts[0].frontmatter.hero_image_alt}
                       className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]"
-                    // style={{width: 300, height: 200}}
+                      // style={{width: 300, height: 200}}
                     />
                     {/* <img src={img7} className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]" alt="" /> */}
 
@@ -181,7 +171,6 @@ export default function Blog({ data }: any) {
                       <span className="mx-[4px] my-auto">.</span>
                       <span> {posts[0].frontmatter.date}</span>
                     </div>
-
                   </div>
                   <h1 className="font-[600] mb-[12px] text-[24px] text-left">
                     {posts[0].frontmatter.title}
@@ -190,22 +179,20 @@ export default function Blog({ data }: any) {
                     {posts[0].frontmatter.title}
                   </p>
                   <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                    <button >Explore </button>
-                    <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
+                    <button>Explore </button>
+                    <p className="w-[10px] text-xl  h-full flex items-center">
+                      &#8599;
+                    </p>
                     {/* <img src={explore} className="w-[10px] h-[10px]" alt="" /> */}
                   </div>
-
                 </div>
-
               </Link>
             </div>
             <div className="w-1/2 h-fit flex flex-col gap-[41px]">
-
-
-              {
-                postsCol.map((post: any) => {
-                  const image: any = getImage(post.frontmatter.hero_image)
-                  return (<div key={post.id} className="w-full h-[223px]">
+              {postsCol.map((post: any) => {
+                const image: any = getImage(post.frontmatter.hero_image);
+                return (
+                  <div key={post.id} className="w-full h-[223px]">
                     <Link
                       to={`/blog/${post.frontmatter.slug}`}
                       className="h-full w-fullk"
@@ -215,7 +202,7 @@ export default function Blog({ data }: any) {
                           image={image}
                           alt={post.frontmatter.hero_image_alt}
                           className="w-[60%] h-full rounded-[8px] object-cover"
-                        // style={{width: 300, height: 200}}
+                          // style={{width: 300, height: 200}}
                         />
                         {/* <img src={img7} className="w-[60%] h-full rounded-[8px] object-cover" alt="" /> */}
 
@@ -225,13 +212,13 @@ export default function Blog({ data }: any) {
                               image={image}
                               alt={post.frontmatter.hero_image_alt}
                               className="w-[40px]  h-[40px] rounded-full object-cover mr-[10px]"
-                            // style={{width: 300, height: 200}}
+                              // style={{width: 300, height: 200}}
                             />
                             {/* <img src={img7} className="w-[40px]  h-[40px] rounded-full object-cover mr-[14px]" alt="" /> */}
 
                             <span className="mr-2">DuoWork</span>
                             <span>.</span>
-                            <span>   {post.frontmatter.date}</span>
+                            <span> {post.frontmatter.date}</span>
                           </div>
                           <h1 className="font-[600] mb-[12px] text-[18px] text-left">
                             {post.frontmatter.title}
@@ -240,17 +227,17 @@ export default function Blog({ data }: any) {
                             {post.frontmatter.title}
                           </p>
                           <div className="bg-[#9eff51] cursor-pointer justify-center items-center gap-[15px] h-[40px] w-[123px] flex ">
-                            <button >Explore </button>
-                            <p className="w-[10px] text-xl  h-full flex items-center">&#8599;</p>
-                   
+                            <button>Explore </button>
+                            <p className="w-[10px] text-xl  h-full flex items-center">
+                              &#8599;
+                            </p>
                           </div>
                         </div>
                       </div>
                     </Link>
-                  </div>)
-                }
-                )
-              }
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -322,10 +309,10 @@ export default function Blog({ data }: any) {
         </div>
       </section> */}
     </Layout>
-  )
+  );
 }
 
-export const Head = () => <SEO title="Blog" />
+export const Head = () => <SEO title="Blog" />;
 
 export const query = graphql`
   query blogPosts {
@@ -349,4 +336,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
