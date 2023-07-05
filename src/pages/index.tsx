@@ -55,7 +55,7 @@ export default function LandingPage({ location }: any) {
       <Head title="Home" />
 
       <section
-        id="landing-page-home"
+        id="hero-section"
         className="h-[45rem]"
         style={landingPageBGImg}
       >
@@ -94,7 +94,7 @@ export default function LandingPage({ location }: any) {
               type="button"
             >
               <span id="button-text" className="text-center">
-                Get started
+                Talk to us
               </span>{" "}
               <span
                 id="right-arrow"
@@ -264,6 +264,77 @@ export default function LandingPage({ location }: any) {
               </div>
             </div>
          </div>
+        </div>
+      </section>
+
+      <section id="testimonials-section" className="mb-20">
+        <div className="px-5 sm:px-10 mb-10 | section-heading">
+          <span className="text-gray-800 text-md font-bold block mb-5">
+            Testimonials
+          </span>
+          <h2
+            id="service-header"
+            className="mb-5 mt-2 text-3xl font-bold"
+          >
+            What <span className="custom-bg-green-accent">Our Clients</span> say
+          </h2>
+        </div>
+
+        <div className="testimonials">
+          <div className="testimonials__card-container">
+            <div className="testimonials__card rounded-xl py-5">
+              <div className="testimonials__card-image">
+                <StaticImage src="../assets/images/testimonial-image.jpeg" alt="Testimonial image"/>
+              </div>
+              <div className="testimonials__card-body | knf">
+                <StaticImage src="../assets/svgs/quote-icon.svg" alt="Double quote icon"/>
+                <p className="card-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero nulla quibusdam adipisci 
+                  accusantium quo nisi itaque neque saepe amet? Explicabo incidunt harum recusandae odit, unde 
+                  sit aperiam? Blanditiis, ad vitae!</p>
+                <div className="text-[0.8rem] font-light">
+                  <p>John Doe</p>
+                  <p className="text-gray-400">Co-founder, Acme Creative</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonials__card">
+              <div className="testimonials__card-image">
+                <StaticImage src="../assets/images/testimonial-image.jpeg" alt="Testimonial image"/>
+              </div>
+              <div className="testimonials__card-body | knf">
+              <StaticImage src="../assets/svgs/quote-icon.svg" alt="Double quote icon"/>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero nulla quibusdam adipisci 
+                  accusantium quo nisi itaque neque saepe amet? Explicabo incidunt harum recusandae odit, unde 
+                  sit aperiam? Blanditiis, ad vitae!</p>
+                <div className="text-[0.8rem] font-light">
+                  <p>John Doe</p>
+                  <p className="text-gray-400">Creative director, Alphabets</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonials__card">
+              <div className="testimonials__card-image">
+                <StaticImage src="../assets/images/testimonial-image.jpeg" alt="Testimonial image"/>
+              </div>
+              <div className="testimonials__card-body | knf">
+                <StaticImage src="../assets/svgs/quote-icon.svg" alt="Double quote icon"/>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero nulla quibusdam adipisci 
+                  accusantium quo nisi itaque neque saepe amet? Explicabo incidunt harum recusandae odit, unde 
+                  sit aperiam? Blanditiis, ad vitae!</p>
+                <div className="text-[0.8rem] font-light">
+                  <p>Kennedy Olufemi</p>
+                  <p className="text-gray-400">Software developer, XYZ Inc.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="testimonial-side-btn">
+            <button type="button" title="Testimonial slide button">&larr;</button>
+            <button type="button" title="Testimonial slide button">&rarr;</button>
+          </div>
         </div>
       </section>
 
@@ -464,7 +535,7 @@ export default function LandingPage({ location }: any) {
         </div>
       </section>
 
-      <section id="contact-section" className="h-[50rem] px-10 sm:px-10">
+      <section id="contact-section" className="h-[50rem] px-5 sm:px-10">
         <div
           id="contact-section__details"
           className="max-w-[950px] h-[70%] mx-auto rounded-xl flex flex-col sm:flex-row items-center justify-center mb-10"
