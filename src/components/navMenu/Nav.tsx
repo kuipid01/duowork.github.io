@@ -33,10 +33,10 @@ export default function Nav({ navLocation }: any): React.ReactElement | null {
           <Link to="/">Home</Link>
         </li>
         <li className="nav-item-link">
-          <Link to="/#our-work">Portfolio</Link>
+          <Link to="/#portfolio-section">Portfolio</Link>
         </li>
         <li className="nav-item-link">
-          <Link to="/#our-services">Service</Link>
+          <Link to="/#services-section">Service</Link>
         </li>
         <li className="nav-item-link">
           <Link to="/blog">Blog</Link>
