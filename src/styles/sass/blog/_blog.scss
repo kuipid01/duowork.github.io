@@ -1,0 +1,6 @@
+/* Blog tag (label that represent categories) style for blog index and 
+post page ({mdx.frontmatter__slug}.tsx. */
+.blog-item-tag {
+  background-color: $green-lighter;
+  color: $green-dark;
+}
