@@ -1,50 +1,53 @@
 /*** 
     UTILITY STYLES
-    This are styles are not specific to any component/page.
-    eg: '.underline-green-accent' to providen green underline with the accent colors
-    or h1-h6 set to default font-family.
+    These styles are not specific to any component/page.
+    eg: '.custom-underline-green-accent' provides green underline with the accent colors
+    and all h1-h6  are set to default font-family.
   ***/
 
 body {
   /* Classs attribute styles with custom color 
   (colors not provided by tailwind) that can be used in a page/component */
 
-  // Text
+  // Add box-sizing and transition to all tags nest in body tag
+  * {
+    box-sizing: border-box !important;
+    transition: all 200ms ease;
+  }
+
+  /* Old UI custom Text/Bg/underline colors starts */
   .custom-text-green-light {
     color: $green-light;
   }
-  .custom-bg-green-light {
-    background-color: $green-light;
+  .custom-text-green-dark {
+    color: $green-dark;
   }
   .custom-text-green-lighter {
     color: $green-lighter;
   }
+  .custom-text-green-darker {
+    color: $green-darker;
+  }
+  .custom-bg-green-light {
+    background-color: $green-light;
+  }
   .custom-bg-green-lighter {
     background-color: $green-lighter;
   }
-
-  // Background
-  .custom-text-green-dark {
-    color: $green-dark;
-  }
   .custom-bg-green-dark {
     background-color: $green-dark;
-  }
-  .custom-text-green-darker {
-    color: $green-darker;
   }
   .custom-bg-green-darker {
     background-color: $green-darker;
   }
 
-  // Text underline
   .underline-color-green-light {
     border-bottom: 3px solid $green-light;
   }
 
+  /* Old UI custom Text/Bg/underline colors ends */
 
-
-
+  // New UI custom colors
   .custom-text-dark {
     color: $secondary-color;
   }
@@ -57,13 +60,12 @@ body {
     background-color: $primary-green-4;
     padding: 0 0.5rem;
   }
-  
+
   .custom-bg-dark {
     background-color: $secondary-color;
   }
 
-  /* Styles that target elements */
-
+  /* General styles for tags in pages/components starts */
   h1,
   h2,
   h3,
@@ -85,9 +87,6 @@ body {
   strong {
     font-family: $font-family-body;
   }
-
-  box-sizing: border-box !important;
-  transition: all 200ms ease;
 
   .landing-page-nav__general {
     #nav-items {
@@ -125,4 +124,5 @@ body {
       border-radius: 5px !important;
     }
   }
+  /* General styles for tags in pages/components ends */
 }
