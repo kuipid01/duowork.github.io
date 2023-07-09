@@ -1,6 +1,11 @@
-/* Blog tag (label that represent categories) style for blog index and 
-post page ({mdx.frontmatter__slug}.tsx. */
-.blog-item-tag {
-  background-color: $green-lighter;
-  color: $green-dark;
-}
+//samplestyles 
+.bgStyle{
+    border-radius: "8px";
+   
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  }
+  .bgStyle2{
+   
+     background-image:  linear-gradient(0deg, rgba(34, 34, 34, 0.6), rgba(34, 34, 34, 0.6));
+  }
+  
