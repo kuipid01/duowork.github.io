@@ -11,11 +11,12 @@ import img7 from "../../assets/images/img7.jpg";
 
 
 export default function category() {
-  const arr = [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 7];
+  const arr = [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, ];
   const image: any = getImage(img7)
+  
   return (
     <Layout>
-      <section className="lg:px-[120px] overflow-x-hidden px-[20px] categoryPage mb-[106px]">
+      <section className="lg:px-[70px] overflow-x-hidden mb-[260px] px-[20px] categoryPage ">
    
            <div className="breadcrumb-nav mb-10   pt-5 text-center text-sm">
           <Link to="/" className="custom-text-dark">
@@ -46,11 +47,11 @@ export default function category() {
             quibusdam laborum vel exercitationem.
           </p>
         </div>
-        <div className=" flex flex-row flex-wrap gap-2 lg:gap-[48px] justify-between items-center ">
+        <div className=" flex flex-row flex-wrap gap-2 lg:gap-[30px] items-center ">
           {
             arr.map((item) => {
               return (
-                <div className="border-[1px]  border-[#f2f2f2] rounded-[20px] p-[16px] w-[48%] lg:w-[30%] h-fit ">
+                <div className="border-[1px]  border-[#f2f2f2] rounded-[20px] p-[16px] w-full sm:w-[48%] lg:w-[31%] h-fit ">
 <Link to ='/'>
 
                   <img
@@ -60,17 +61,17 @@ export default function category() {
           
                   />
 
-                  <small className="font-[400] pl-[10px] text-[14px] leading-[20px] py-[2px] px-[10px] bg-[#9eff5126] mb-[20px]">Technology</small>
+                  <small className="font-[400] rounded-[8px] pl-[10px] text-[14px] leading-[20px] py-[2px] px-[10px] bg-[#9fff51a5] mb-[20px]">Technology</small>
                   <p className="font-[500] w-full text-sm lg:text-[22px] lg:leading-[32px] text-[#232426] mb-[20px]">
                     Lorem ipsum, dolor sit amet consectetur  <span className='hidden lg:flex'>adipisicing elit. Necessitatibus, praesentium.</span> 
                   </p>
 
                   <div className="flex justify-between items-center w-full">
-                    <div className="flex w-full items-center ">
+                    <div className="flex w-fit items-center ">
                       <img className="md:w-[36px] w-[25px] rounded-full mr-1 md:mr-[12px] h-[25px] md:h-[36px]" src={img7} alt="" />
                       <span className="font-[500] text-[10px] md:text-[13px]  lg:text-[16px] leading-[24px]">Dennis Sadoh</span>
                     </div>
-                    <p className="font-[400] text-xs lg:text-[16px] md:leading-[24px]">June 15,2023</p>
+                    <p className="font-[400] w-fit text-xs lg:text-[16px] md:leading-[24px]">June 15,2023</p>
                   </div>
                   </Link>
                 </div>
@@ -78,7 +79,7 @@ export default function category() {
             })
           }
         </div>
-        <button className="md:py-[14px] py-[7px] mt-5 md:my-1 mx-auto flex px-[24px] rounded-[6px] border-[1px] border-[#8cbf40] mb-[160px] text-[#8cbf40] ">Load More</button>
+        <button className="md:py-[14px]  py-[7px] mt-5 md:my-1 mx-auto flex px-[24px] rounded-[6px] border-[1px] border-[#8cbf40] mb-[160px] text-[#8cbf40] ">Load More</button>
       </section>
     </Layout>
   )
